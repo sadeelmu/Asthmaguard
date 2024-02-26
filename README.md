@@ -3,11 +3,9 @@ AsthmaGuard encompasses native iOS mobile development using Swift and SwiftUI, d
 AsthmaGuard is a comprehensive solution aiming to predict asthma attacks by continuously monitoring vital signs crucial for asthmatic patients' health assessment and relevant data such as weather data, medical history, and previous triggers of asthma attacks. 
 AsthmaGuard is designed to assist asthmatic patients, by providing personalized asthma risk assessments, insights into triggers, and timely alerts, enhancing proactive asthma management. 
 
-![Screenshot](pictures/AsthmaThreat1.png)
-![Screenshot](pictures/AsthmaThreat2.png)
-![Screenshot](Login.png)
-![Screenshot](breathe.png)
-![Screenshot](Sleep.png)
+![Screenshot](pictures/Login.png)
+![Screenshot](pictures/breathe.png)
+![Screenshot](pictures/Sleep.png)
 
 
 
