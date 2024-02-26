@@ -9,17 +9,15 @@ AsthmaGuard is designed to assist asthmatic patients, by providing personalized 
     <img src="pictures/Login.png" alt="Login Screenshot" width="300">
 </div>
 
-<div style="display: inline-block; width: 300px;">
-    <img src="pictures/breath.png" alt="Breathe Screenshot" width="300">
-</div>
-
-<div style="display: inline-block; width: 300px;">
-    <img src="pictures/Sleep.png" alt="Sleep Screenshot" width="300">
-</div>
-<div style="display: inline-block; width: 300px;">
+<div style="display: inline-block; width: 650px;">
     <img src="pictures/AsthmaThreat1.png" alt="Asthma Screenshot" width="300">
-</div>
-<div style="display: inline-block; width: 300px;">
     <img src="pictures/AsthmaThreat2.png" alt="Asthma Screenshot" width="300">
 </div>
+
+<div style="display: inline-block; width: 650px;">
+    <img src="pictures/breath.png" alt="Breathe Screenshot" width="300">
+        <img src="pictures/Sleep.png" alt="Sleep Screenshot" width="300">
+
+</div>
+
 
