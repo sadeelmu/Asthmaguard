@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		123912F02B95B0E3009BD42C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 123912EF2B95B0E3009BD42C /* Poppins-Regular.ttf */; };
+		123912F22B95B0F9009BD42C /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 123912F12B95B0F9009BD42C /* Poppins-Bold.ttf */; };
 		1276E3622B7ACD74002CBACB /* AsthmaguardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1276E3612B7ACD74002CBACB /* AsthmaguardApp.swift */; };
 		1276E3642B7ACD74002CBACB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1276E3632B7ACD74002CBACB /* ContentView.swift */; };
 		1276E3662B7ACD76002CBACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1276E3652B7ACD76002CBACB /* Assets.xcassets */; };
@@ -16,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		123912EF2B95B0E3009BD42C /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		123912F12B95B0F9009BD42C /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		123912F52B95B339009BD42C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1276E35E2B7ACD74002CBACB /* Asthmaguard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Asthmaguard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1276E3612B7ACD74002CBACB /* AsthmaguardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaguardApp.swift; sourceTree = "<group>"; };
 		1276E3632B7ACD74002CBACB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +60,10 @@
 		1276E3602B7ACD74002CBACB /* Asthmaguard */ = {
 			isa = PBXGroup;
 			children = (
+				123912F52B95B339009BD42C /* Info.plist */,
+				123912F12B95B0F9009BD42C /* Poppins-Bold.ttf */,
+				123912EF2B95B0E3009BD42C /* Poppins-Regular.ttf */,
+				12E1EDEC2B95A9370016EDDE /* DataSource */,
 				1276E37B2B7AD141002CBACB /* Features */,
 				1276E3722B7ACD99002CBACB /* Business */,
 				1276E3702B7ACD8F002CBACB /* Data */,
@@ -78,6 +87,8 @@
 		1276E36F2B7ACD87002CBACB /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				12E1EDF02B95AA890016EDDE /* ViewModels */,
+				12E1EDE72B95A72A0016EDDE /* View */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -85,6 +96,9 @@
 		1276E3702B7ACD8F002CBACB /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				12E1EDEE2B95A9870016EDDE /* Responses */,
+				12E1EDEB2B95A9270016EDDE /* Models */,
+				12E1EDE92B95A8FF0016EDDE /* Repos */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -92,6 +106,7 @@
 		1276E3722B7ACD99002CBACB /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				12E1EDE82B95A73B0016EDDE /* Usecases */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -116,7 +131,6 @@
 		1276E3792B7AD118002CBACB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1276E3752B7ACF56002CBACB /* LoginScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -124,7 +138,6 @@
 		1276E37A2B7AD120002CBACB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				1276E3732B7ACEE3002CBACB /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -132,7 +145,6 @@
 		1276E37B2B7AD141002CBACB /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				1276E37D2B7AD156002CBACB /* Common */,
 				1276E37C2B7AD149002CBACB /* Register */,
 				1276E3772B7AD106002CBACB /* Login */,
 			);
@@ -146,11 +158,71 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
-		1276E37D2B7AD156002CBACB /* Common */ = {
+		12E1EDE72B95A72A0016EDDE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1276E3752B7ACF56002CBACB /* LoginScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		12E1EDE82B95A73B0016EDDE /* Usecases */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Common;
+			path = Usecases;
+			sourceTree = "<group>";
+		};
+		12E1EDE92B95A8FF0016EDDE /* Repos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repos;
+			sourceTree = "<group>";
+		};
+		12E1EDEB2B95A9270016EDDE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		12E1EDEC2B95A9370016EDDE /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				12E1EDEF2B95A9BD0016EDDE /* Endpoints */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		12E1EDED2B95A9540016EDDE /* DataNetwork */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataNetwork;
+			sourceTree = "<group>";
+		};
+		12E1EDEE2B95A9870016EDDE /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		12E1EDEF2B95A9BD0016EDDE /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				12E1EDED2B95A9540016EDDE /* DataNetwork */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		12E1EDF02B95AA890016EDDE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1276E3732B7ACEE3002CBACB /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,8 +283,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				123912F02B95B0E3009BD42C /* Poppins-Regular.ttf in Resources */,
 				1276E3692B7ACD76002CBACB /* Preview Assets.xcassets in Resources */,
 				1276E3662B7ACD76002CBACB /* Assets.xcassets in Resources */,
+				123912F22B95B0F9009BD42C /* Poppins-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +357,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -337,7 +411,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -358,6 +432,7 @@
 				DEVELOPMENT_TEAM = PW6U8F3M2Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Asthmaguard/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -388,6 +463,7 @@
 				DEVELOPMENT_TEAM = PW6U8F3M2Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Asthmaguard/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
