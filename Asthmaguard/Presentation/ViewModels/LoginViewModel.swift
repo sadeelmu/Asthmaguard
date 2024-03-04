@@ -12,7 +12,15 @@ class LoginViewModel:ObservableObject{
     @Published var password:String = ""
     
     func login(){
-        
+        print("Login")
+    }
+    
+    func loginWithApple(){
+        print("Login with apple")
+    }
+    
+    func companion(){
+        print("companion")
     }
 }
 
