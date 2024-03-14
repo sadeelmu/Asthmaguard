@@ -1,14 +1,15 @@
 //
-//  RegisterScreen.swift
+//  CompanionRegisterScreen.swift
 //  Asthmaguard
 //
-//  Created by Sadeel Muwahed on 04/03/2024.
+//  Created by Sadeel Muwahed on 12/03/2024.
 //
 
+import Foundation
 import SwiftUI
 
-struct RegisterScreen: View {
-    @ObservedObject var registerViewModel = RegisterViewModel()
+struct CompanionRegisterScreen: View {
+    @ObservedObject var companionRegisterViewModel = CompanionRegisterViewModel()
     @State private var confirmPassword = ""
     @State private var agreedToTerms = false
     
@@ -17,12 +18,12 @@ struct RegisterScreen: View {
         VStack(spacing: 20) {
             Spacer()
             VStack(spacing:5){
-                Text("Hey there,")
+                Text("Stay in touch,")
                     .font(Font.custom("Poppins-Regular", size: 16))
                     .lineSpacing(24)
                     .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
                 
-                Text("Create an Account")
+                Text("Create a Companion’s Account")
                     .font(Font.custom("Poppins-Regular", size: 20).weight(.bold))
                     .lineSpacing(30)
                     .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
@@ -31,14 +32,17 @@ struct RegisterScreen: View {
             Spacer()
             
             VStack(spacing:2){
-                CustomTextField(systemName: "person", placeholder: "First Name", text: $registerViewModel.firstName).padding(10)
+                CustomTextField(systemName: "person", placeholder: "First Name", text: $companionRegisterViewModel.firstName).padding(10)
                 
-                CustomTextField(systemName: "person", placeholder: "Last Name", text: $registerViewModel.lastName).padding(10)
+                CustomTextField(systemName: "person", placeholder: "Last Name", text: $companionRegisterViewModel.lastName).padding(10)
                 
-                CustomTextField(systemName: "envelope", placeholder: "Email", text: $registerViewModel.email).padding(10)
+                CustomTextField(systemName: "envelope", placeholder: "Email", text: $companionRegisterViewModel.email).padding(10)
                     .keyboardType(.emailAddress)
                 
-                CustomTextField(systemName: "lock", placeholder: "Password", text: $registerViewModel.password).padding(10)
+                CustomTextField(systemName: "lock", placeholder: "Password", text: $companionRegisterViewModel.password).padding(10)
+                
+                CustomTextField(systemName: "person", placeholder: "Companion’s referral", text: $companionRegisterViewModel.companionReferral).padding(10)
+
                 
                 HStack {
                     Button(action: { agreedToTerms.toggle() }) {
@@ -55,7 +59,7 @@ struct RegisterScreen: View {
             
                         
             VStack(spacing:10) {
-                Button(action: registerViewModel.register) {
+                Button(action: companionRegisterViewModel.register) {
                     Text("Register")
                         .font(Font.custom("Poppins-Regular", size: 14).weight(.bold))
                         .foregroundColor(.white)
@@ -71,7 +75,7 @@ struct RegisterScreen: View {
                 
                 Divider().padding(.vertical, 5)
                 
-                Button(action: registerViewModel.registerWithApple) {
+                Button(action: companionRegisterViewModel.registerWithApple) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 14)
                             .stroke(Color(red: 0.87, green: 0.85, blue: 0.86), lineWidth: 0.40)
@@ -92,12 +96,6 @@ struct RegisterScreen: View {
         }
         .padding()
         .background(Color.white)
-    }
-}
-
-struct RegisterScreen_Preview: PreviewProvider {
-    static var previews: some View {
-        RegisterScreen()
     }
 }
 
