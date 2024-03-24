@@ -27,6 +27,7 @@
 		12BAFE2D2BA042A7003E7980 /* SurveyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */; };
 		12DB19312BA2D51600FCC1E0 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB19302BA2D51600FCC1E0 /* APIHelper.swift */; };
 		12EEFB022BB05F61003053AB /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 12EEFB012BB05F61003053AB /* PythonKit */; };
+		12EEFB042BB05FF3003053AB /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EEFB032BB05FF2003053AB /* SettingsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		12BAFE282BA0428E003E7980 /* SurveyModelClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyModelClass.swift; sourceTree = "<group>"; };
 		12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyScreen.swift; sourceTree = "<group>"; };
 		12DB19302BA2D51600FCC1E0 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		12EEFB032BB05FF2003053AB /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 				12BAFE262BA0428E003E7980 /* SurveyView.swift */,
 				126FC2772BA2FFCC00BE1FDD /* CompanionRegisterScreen.swift */,
 				126FC27B2BA30B1B00BE1FDD /* DashboardView.swift */,
+				12EEFB032BB05FF2003053AB /* SettingsScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12EEFB042BB05FF3003053AB /* SettingsScreen.swift in Sources */,
 				12DB19312BA2D51600FCC1E0 /* APIHelper.swift in Sources */,
 				123912FE2B95C53E009BD42C /* CustomTextField.swift in Sources */,
 				123912F92B95BFD8009BD42C /* RegisterScreen.swift in Sources */,
