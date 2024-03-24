@@ -26,6 +26,7 @@
 		12BAFE2B2BA0428E003E7980 /* SurveyModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE282BA0428E003E7980 /* SurveyModelClass.swift */; };
 		12BAFE2D2BA042A7003E7980 /* SurveyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */; };
 		12DB19312BA2D51600FCC1E0 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB19302BA2D51600FCC1E0 /* APIHelper.swift */; };
+		12EEFB022BB05F61003053AB /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 12EEFB012BB05F61003053AB /* PythonKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12EEFB022BB05F61003053AB /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +300,9 @@
 			dependencies = (
 			);
 			name = Asthmaguard;
+			packageProductDependencies = (
+				12EEFB012BB05F61003053AB /* PythonKit */,
+			);
 			productName = Asthmaguard;
 			productReference = 1276E35E2B7ACD74002CBACB /* Asthmaguard.app */;
 			productType = "com.apple.product-type.application";
@@ -326,6 +331,9 @@
 				Base,
 			);
 			mainGroup = 1276E3552B7ACD74002CBACB;
+			packageReferences = (
+				12EEFB002BB05F61003053AB /* XCRemoteSwiftPackageReference "PythonKit" */,
+			);
 			productRefGroup = 1276E35F2B7ACD74002CBACB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -573,6 +581,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		12EEFB002BB05F61003053AB /* XCRemoteSwiftPackageReference "PythonKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pvieito/PythonKit";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		12EEFB012BB05F61003053AB /* PythonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12EEFB002BB05F61003053AB /* XCRemoteSwiftPackageReference "PythonKit" */;
+			productName = PythonKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1276E3562B7ACD74002CBACB /* Project object */;
 }
