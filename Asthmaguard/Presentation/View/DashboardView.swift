@@ -15,39 +15,117 @@ struct AsthmaThreat: Identifiable {
     let risks: Double
 }
 
+struct VitalSign: Identifiable {
+    let id = UUID()
+    let title: String
+    let value: Double
+}
+
+func colorForRisk(_ title: String) -> Color {
+    switch title {
+    case "Biosignals":
+        return .pink
+    case "Enviromental":
+        return .pink
+    case "Normal":
+        return .blue
+    default:
+        return .blue
+    }
+}
+
+func colorForVitalSign(_ title: String) -> Color {
+    switch title {
+    case "Heart Rate":
+        return .red
+    case "Respiratory Rate":
+        return .green
+    default:
+        return .gray
+    }
+}
+
+@available(iOS 17.0, *)
 struct AsthmaThreatChart: View {
     @State private var asthmathreat: [AsthmaThreat] = [
-        .init(title: "Biosignals", risks: 0.7),
+        .init(title: "Biosignals", risks: 0.5),
         .init(title: "Enviromental", risks: 0.2),
-        .init(title: "History", risks: 0.1)
+        .init(title: "Normal", risks: 0.3)
     ]
     
-    // Define a function to map each title to a color
-    func colorForTitle(_ title: String) -> Color {
-        switch title {
-        case "Biosignals":
-            return .blue
-        case "Enviromental":
-            return .green
-        case "History":
-            return .orange
-        default:
-            return .gray
-        }
-    }
+    @State private var vitalSigns: [VitalSign] = [
+        .init(title: "Heart Rate", value: 78),
+        .init(title: "Respiratory Rate", value: 30)
+    ]
     
+
     var body: some View {
-        Chart(asthmathreat) { asthmathreat in
-            SectorMark(
-                angle: .value(
-                    Text(verbatim: asthmathreat.title),
-                    asthmathreat.risks
-                ),
-                innerRadius: .ratio(0.6)
-            )
-            .foregroundStyle(
-                by: .color(colorForTitle(asthmathreat.title))
-            )
+        VStack {
+            Spacer()
+            Chart(asthmathreat) { asthmathreat in
+                SectorMark(
+                    angle: .value(
+                        Text(verbatim: asthmathreat.title),
+                        asthmathreat.risks
+                    ),
+                    innerRadius: .ratio(0.6)
+                )
+                .foregroundStyle(colorForRisk(asthmathreat.title))
+            }.frame(width: 300, height: 300)
+            
+            Spacer()
+            
+            Chart(vitalSigns) { vitalSign in
+                LineMark(x: .value(vitalSign.title, vitalSign.value),
+                         y: .value(vitalSign.title, vitalSign.value))
+                    .foregroundStyle(colorForVitalSign(vitalSign.title))
+                    .interpolationMethod(.linear)
+            }
+            .frame(height: 200) // Adjust height as needed
+            
+            Spacer()
         }
     }
 }
+
+
+struct HistoryView: View {
+    var body: some View {
+        Text("This is the details view.")
+    }
+}
+
+@available(iOS 17.0, *)
+struct DashboardView: View {
+    @State private var selection = 0
+
+    var body: some View {
+        TabView(selection: $selection) {
+            NavigationView {
+                AsthmaThreatChart()
+                    .navigationTitle("Asthma Tracker")
+                    .navigationBarBackButtonHidden(false)
+            }
+            .tabItem {
+                Label("Dashboard", systemImage: "house")
+            }
+            .tag(0)
+
+            HistoryView()
+                .tabItem {
+                    Label("Details", systemImage: "clock.arrow.circlepath")
+                }
+                .tag(1)
+        }
+    }
+}
+
+@available(iOS 17.0, *)
+struct AsthmaThreatChart_Previews: PreviewProvider {
+    static var previews: some View {
+        DashboardView()
+    }
+}
+
+
+
