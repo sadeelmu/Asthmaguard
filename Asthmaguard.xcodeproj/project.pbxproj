@@ -12,6 +12,15 @@
 		123912F92B95BFD8009BD42C /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123912F82B95BFD8009BD42C /* RegisterScreen.swift */; };
 		123912FB2B95C197009BD42C /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123912FA2B95C197009BD42C /* RegisterViewModel.swift */; };
 		123912FE2B95C53E009BD42C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123912FD2B95C53E009BD42C /* CustomTextField.swift */; };
+		1258F1372BB573780096DD9E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258F1362BB573780096DD9E /* User.swift */; };
+		1258F1392BB573A40096DD9E /* PatientInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258F1382BB573A40096DD9E /* PatientInformation.swift */; };
+		1258F13B2BB573BE0096DD9E /* Treatment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258F13A2BB573BE0096DD9E /* Treatment.swift */; };
+		1258F13D2BB574060096DD9E /* AsthmaTreatment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258F13C2BB574060096DD9E /* AsthmaTreatment.swift */; };
+		1258F13F2BB5741D0096DD9E /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258F13E2BB5741D0096DD9E /* Trigger.swift */; };
+		1258F1412BB5742C0096DD9E /* AsthmaPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258F1402BB5742C0096DD9E /* AsthmaPrediction.swift */; };
+		1258F1432BB5743F0096DD9E /* BiometricData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258F1422BB5743F0096DD9E /* BiometricData.swift */; };
+		1258F1452BB5745C0096DD9E /* AsthmaTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258F1442BB5745C0096DD9E /* AsthmaTrigger.swift */; };
+		1258F1472BB5746B0096DD9E /* Companion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258F1462BB5746B0096DD9E /* Companion.swift */; };
 		126FC2782BA2FFCC00BE1FDD /* CompanionRegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FC2772BA2FFCC00BE1FDD /* CompanionRegisterScreen.swift */; };
 		126FC27A2BA3002100BE1FDD /* CompanionRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FC2792BA3002100BE1FDD /* CompanionRegisterViewModel.swift */; };
 		126FC27C2BA30B1B00BE1FDD /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FC27B2BA30B1B00BE1FDD /* DashboardView.swift */; };
@@ -37,6 +46,15 @@
 		123912F82B95BFD8009BD42C /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		123912FA2B95C197009BD42C /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		123912FD2B95C53E009BD42C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		1258F1362BB573780096DD9E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1258F1382BB573A40096DD9E /* PatientInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInformation.swift; sourceTree = "<group>"; };
+		1258F13A2BB573BE0096DD9E /* Treatment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treatment.swift; sourceTree = "<group>"; };
+		1258F13C2BB574060096DD9E /* AsthmaTreatment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaTreatment.swift; sourceTree = "<group>"; };
+		1258F13E2BB5741D0096DD9E /* Trigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trigger.swift; sourceTree = "<group>"; };
+		1258F1402BB5742C0096DD9E /* AsthmaPrediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaPrediction.swift; sourceTree = "<group>"; };
+		1258F1422BB5743F0096DD9E /* BiometricData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricData.swift; sourceTree = "<group>"; };
+		1258F1442BB5745C0096DD9E /* AsthmaTrigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaTrigger.swift; sourceTree = "<group>"; };
+		1258F1462BB5746B0096DD9E /* Companion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Companion.swift; sourceTree = "<group>"; };
 		126FC2772BA2FFCC00BE1FDD /* CompanionRegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionRegisterScreen.swift; sourceTree = "<group>"; };
 		126FC2792BA3002100BE1FDD /* CompanionRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionRegisterViewModel.swift; sourceTree = "<group>"; };
 		126FC27B2BA30B1B00BE1FDD /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -241,6 +259,15 @@
 		12E1EDEB2B95A9270016EDDE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1258F1362BB573780096DD9E /* User.swift */,
+				1258F1382BB573A40096DD9E /* PatientInformation.swift */,
+				1258F13A2BB573BE0096DD9E /* Treatment.swift */,
+				1258F13C2BB574060096DD9E /* AsthmaTreatment.swift */,
+				1258F13E2BB5741D0096DD9E /* Trigger.swift */,
+				1258F1402BB5742C0096DD9E /* AsthmaPrediction.swift */,
+				1258F1422BB5743F0096DD9E /* BiometricData.swift */,
+				1258F1442BB5745C0096DD9E /* AsthmaTrigger.swift */,
+				1258F1462BB5746B0096DD9E /* Companion.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -365,21 +392,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1258F1452BB5745C0096DD9E /* AsthmaTrigger.swift in Sources */,
+				1258F1392BB573A40096DD9E /* PatientInformation.swift in Sources */,
 				12EEFB042BB05FF3003053AB /* SettingsScreen.swift in Sources */,
 				12DB19312BA2D51600FCC1E0 /* APIHelper.swift in Sources */,
 				123912FE2B95C53E009BD42C /* CustomTextField.swift in Sources */,
+				1258F13F2BB5741D0096DD9E /* Trigger.swift in Sources */,
 				123912F92B95BFD8009BD42C /* RegisterScreen.swift in Sources */,
 				12BAFE2B2BA0428E003E7980 /* SurveyModelClass.swift in Sources */,
 				123912FB2B95C197009BD42C /* RegisterViewModel.swift in Sources */,
 				12BAFE2D2BA042A7003E7980 /* SurveyScreen.swift in Sources */,
 				1276E3642B7ACD74002CBACB /* ContentView.swift in Sources */,
+				1258F1412BB5742C0096DD9E /* AsthmaPrediction.swift in Sources */,
 				126FC27C2BA30B1B00BE1FDD /* DashboardView.swift in Sources */,
+				1258F1372BB573780096DD9E /* User.swift in Sources */,
+				1258F13B2BB573BE0096DD9E /* Treatment.swift in Sources */,
 				12BAFE2A2BA0428E003E7980 /* SurveyHelper.swift in Sources */,
 				12BAFE292BA0428E003E7980 /* SurveyView.swift in Sources */,
 				1276E3762B7ACF56002CBACB /* LoginScreen.swift in Sources */,
+				1258F1472BB5746B0096DD9E /* Companion.swift in Sources */,
 				126FC27A2BA3002100BE1FDD /* CompanionRegisterViewModel.swift in Sources */,
+				1258F1432BB5743F0096DD9E /* BiometricData.swift in Sources */,
 				126FC2782BA2FFCC00BE1FDD /* CompanionRegisterScreen.swift in Sources */,
 				1276E3742B7ACEE3002CBACB /* LoginViewModel.swift in Sources */,
+				1258F13D2BB574060096DD9E /* AsthmaTreatment.swift in Sources */,
 				1276E3622B7ACD74002CBACB /* AsthmaguardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
