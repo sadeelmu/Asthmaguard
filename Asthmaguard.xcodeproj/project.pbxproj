@@ -34,6 +34,7 @@
 		12BAFE2A2BA0428E003E7980 /* SurveyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE272BA0428E003E7980 /* SurveyHelper.swift */; };
 		12BAFE2B2BA0428E003E7980 /* SurveyModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE282BA0428E003E7980 /* SurveyModelClass.swift */; };
 		12BAFE2D2BA042A7003E7980 /* SurveyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */; };
+		12C3F7D22BB576C6008B43ED /* CustomBioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3F7D12BB576C6008B43ED /* CustomBioData.swift */; };
 		12DB19312BA2D51600FCC1E0 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB19302BA2D51600FCC1E0 /* APIHelper.swift */; };
 		12EEFB022BB05F61003053AB /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 12EEFB012BB05F61003053AB /* PythonKit */; };
 		12EEFB042BB05FF3003053AB /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EEFB032BB05FF2003053AB /* SettingsScreen.swift */; };
@@ -69,6 +70,7 @@
 		12BAFE272BA0428E003E7980 /* SurveyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyHelper.swift; sourceTree = "<group>"; };
 		12BAFE282BA0428E003E7980 /* SurveyModelClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyModelClass.swift; sourceTree = "<group>"; };
 		12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyScreen.swift; sourceTree = "<group>"; };
+		12C3F7D12BB576C6008B43ED /* CustomBioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBioData.swift; sourceTree = "<group>"; };
 		12DB19302BA2D51600FCC1E0 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		12EEFB032BB05FF2003053AB /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				123912FD2B95C53E009BD42C /* CustomTextField.swift */,
+				12C3F7D12BB576C6008B43ED /* CustomBioData.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -112,16 +115,16 @@
 		1276E3602B7ACD74002CBACB /* Asthmaguard */ = {
 			isa = PBXGroup;
 			children = (
-				12DC71582BA30D5C002E7C9C /* Resources */,
-				123912F52B95B339009BD42C /* Info.plist */,
-				12E1EDEC2B95A9370016EDDE /* DataSource */,
+				1276E3632B7ACD74002CBACB /* ContentView.swift */,
+				1276E3612B7ACD74002CBACB /* AsthmaguardApp.swift */,
 				1276E37B2B7AD141002CBACB /* Features */,
+				1276E36F2B7ACD87002CBACB /* Presentation */,
 				1276E3722B7ACD99002CBACB /* Business */,
 				1276E3702B7ACD8F002CBACB /* Data */,
-				1276E36F2B7ACD87002CBACB /* Presentation */,
-				1276E3612B7ACD74002CBACB /* AsthmaguardApp.swift */,
-				1276E3632B7ACD74002CBACB /* ContentView.swift */,
+				12E1EDEC2B95A9370016EDDE /* DataSource */,
 				1276E3652B7ACD76002CBACB /* Assets.xcassets */,
+				123912F52B95B339009BD42C /* Info.plist */,
+				12DC71582BA30D5C002E7C9C /* Resources */,
 				1276E3672B7ACD76002CBACB /* Preview Content */,
 			);
 			path = Asthmaguard;
@@ -264,9 +267,9 @@
 				1258F13A2BB573BE0096DD9E /* Treatment.swift */,
 				1258F13C2BB574060096DD9E /* AsthmaTreatment.swift */,
 				1258F13E2BB5741D0096DD9E /* Trigger.swift */,
+				1258F1442BB5745C0096DD9E /* AsthmaTrigger.swift */,
 				1258F1402BB5742C0096DD9E /* AsthmaPrediction.swift */,
 				1258F1422BB5743F0096DD9E /* BiometricData.swift */,
-				1258F1442BB5745C0096DD9E /* AsthmaTrigger.swift */,
 				1258F1462BB5746B0096DD9E /* Companion.swift */,
 			);
 			path = Models;
@@ -393,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1258F1452BB5745C0096DD9E /* AsthmaTrigger.swift in Sources */,
+				12C3F7D22BB576C6008B43ED /* CustomBioData.swift in Sources */,
 				1258F1392BB573A40096DD9E /* PatientInformation.swift in Sources */,
 				12EEFB042BB05FF3003053AB /* SettingsScreen.swift in Sources */,
 				12DB19312BA2D51600FCC1E0 /* APIHelper.swift in Sources */,

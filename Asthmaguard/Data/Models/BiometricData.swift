@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 class BiometricData {
     var serial: Int
     var triggerID: Int

@@ -58,7 +58,7 @@ struct AsthmaThreatChart: View {
         .init(title: "Respiratory Rate", value: 30)
     ]
     
-
+    
     var body: some View {
         VStack {
             Spacer()
@@ -73,15 +73,22 @@ struct AsthmaThreatChart: View {
                 .foregroundStyle(colorForRisk(asthmathreat.title))
             }.frame(width: 300, height: 300)
             
+            
             Spacer()
             
-            Chart(vitalSigns) { vitalSign in
-                LineMark(x: .value(vitalSign.title, vitalSign.value),
-                         y: .value(vitalSign.title, vitalSign.value))
-                    .foregroundStyle(colorForVitalSign(vitalSign.title))
-                    .interpolationMethod(.linear)
+            VStack(spacing:20){
+                CustomBioDataWidget(bioSignal: "Respiratory Rate", time: "12:00", data: "No data")
+                
+                CustomBioDataWidget(bioSignal: "Heart Rate", time: "12:01", data: "130 BPM")
             }
-            .frame(height: 200) // Adjust height as needed
+            
+//            Chart(vitalSigns) { vitalSign in
+//                LineMark(x: .value(vitalSign.title, vitalSign.value),
+//                         y: .value(vitalSign.title, vitalSign.value))
+//                .foregroundStyle(colorForVitalSign(vitalSign.title))
+//                .interpolationMethod(.linear)
+//            }
+//            .frame(height: 200)
             
             Spacer()
         }
@@ -98,7 +105,7 @@ struct HistoryView: View {
 @available(iOS 17.0, *)
 struct DashboardView: View {
     @State private var selection = 0
-
+    
     var body: some View {
         TabView(selection: $selection) {
             NavigationView {
@@ -110,10 +117,10 @@ struct DashboardView: View {
                 Label("Dashboard", systemImage: "house")
             }
             .tag(0)
-
+            
             HistoryView()
                 .tabItem {
-                    Label("Details", systemImage: "clock.arrow.circlepath")
+                    Label("Details", systemImage: "info")
                 }
                 .tag(1)
         }

@@ -8,11 +8,11 @@
 import Foundation
 
 class Companion {
-    var companionID: Int
-    var patientID: String?
+    var userID: Int
+    var patientID: Int
     
-    init(companionID: Int, patientID: String?) {
-        self.companionID = companionID
+    init(userID: Int, patientID: Int) {
+        self.userID = userID
         self.patientID = patientID
     }
 }
