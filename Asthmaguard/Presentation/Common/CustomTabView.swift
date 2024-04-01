@@ -30,5 +30,4 @@ struct CustomTabView: View{
             SettingsScreen().tabItem { Label("Settings", systemImage: "gearshape") }
         }
     }
-    
 }

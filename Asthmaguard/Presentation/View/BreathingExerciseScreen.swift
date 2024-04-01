@@ -9,80 +9,86 @@ import SwiftUI
 
 @available(iOS 17.0, *)
 struct BreathingExerciseScreen: View {
+    @State private var selection = 0
+
     var body: some View {
-        ZStack {
-            Color.white.edgesIgnoringSafeArea(.all)
-
-            VStack(spacing: 0) {
-                HStack {
-                    Button(action: {
-                        // Go back to the previous screen
-                    }) {
-                        Image("back-arrow")
-                            .resizable()
-                            .frame(width: 12, height: 22)
-                            .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
-                    }
-
-                    Spacer()
-
+        TabView(selection:$selection) {
+            ZStack {
+                Color.white.edgesIgnoringSafeArea(.all)
+                
+                VStack(spacing: 10) {
+                    
+                    
                     Text("Breathing Exercises")
-                        .font(Font.custom("Poppins", size: 18).weight(.bold))
+                        .font(Font.custom("Poppins-Bold", size: 25))
                         .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
-
-                    Spacer()
-
-                    Image("profile")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 40, height: 40)
-                        .clipShape(Circle())
-                        .padding(.trailing, 12)
-                }
-                .padding(.horizontal, 16)
-                .padding(.top, 24)
-
-                Text("Recommended Duration: 5 minutes")
+                    
+                    
+                    Text("Recommended Duration: 5 minutes")
                         .font(.subheadline)
                         .foregroundColor(.gray)
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 16) {
-                        VStack{
-                            BreathingExerciseCard(title: "Breathe In", duration: "01:00", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "breathin")
-                            BreathingExerciseCard(title: "Breathe Out", duration: "01:00", color: Color(red: 0.77, green: 0.55, blue: 0.95), imageName: "breatheout")
+                    
+                    Divider()
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        VStack(alignment:.leading,spacing: 20) {
+                            Text("Set 1")                        .font(Font.custom("Poppins-Regular", size: 20))
+                            
+                            HStack{
+                                BreathingExerciseCard(title: "Breathe In", duration: "01:00", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "breathin")
+                                BreathingExerciseCard(title: "Breathe Out", duration: "01:00", color: Color(red: 0.77, green: 0.55, blue: 0.95), imageName: "breatheout")
+                            }
+                            
+                            Divider()
+                            Text("Set 2")
+                                .font(Font.custom("Poppins-Regular", size: 20))
+                            
+                            BreathingExerciseCard(title: "Meditate", duration: "02:00", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "meditate")
                         }
-                        Spacer()
-                        BreathingExerciseCard(title: "Meditate", duration: "02:00", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "meditate")
+                        .padding(.horizontal, 16)
+                        .padding(.top, 16)
+                    }
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        // Action for starting exercises
+                    }) {
+                        Text("Start Selected Exercise")
+                            .font(Font.custom("Poppins-Regular", size: 16).weight(.bold))
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 55)
+                            .background(.black)
+                            .cornerRadius(25)
                     }
                     .padding(.horizontal, 16)
-                    .padding(.top, 16)
+                    .padding(.bottom, 24)
+                    
+                    Spacer()
                 }
-
-                Spacer()
-
-                Button(action: {
-                    // Action for starting exercises
-                }) {
-                    Text("Start Selected Exercise")
-                        .font(Font.custom("Poppins", size: 16).weight(.bold))
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 55)
-                        .background(.black)
-                        .cornerRadius(25)
-                }
-                .padding(.horizontal, 16)
-                .padding(.bottom, 24)
-                
-                Spacer()
-                
-                CustomTabView()
-
+            }            .tabItem {
+                Label("Dashboard", systemImage: "house")
             }
+            .tag(0)
+            
+            AnalyticsView()
+                .tabItem {
+                    Label("Analytics", systemImage: "chart.xyaxis.line")
+                }
+                .tag(1)
+            
+            BreathingExerciseScreen().tabItem { 
+                Label("Breathing", systemImage:"figure.mind.and.body")
+            }
+            .tag(2)
+            
+            SettingsScreen().tabItem {
+                Label("Settings", systemImage: "gearshape")
+            }
+            .tag(3)
         }
     }
-    
 }
 
 struct BreathingExerciseCard: View {

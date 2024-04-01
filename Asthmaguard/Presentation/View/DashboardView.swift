@@ -99,8 +99,6 @@ struct AsthmaThreatChart: View {
 //            .frame(height: 200)
             
             Spacer()
-            
-            CustomTabView()
         }
     }
 }
@@ -148,11 +146,27 @@ struct DashboardView: View {
     @State private var selection = 0
     
     var body: some View {
-        NavigationView {
-            AsthmaThreatChart()
-                .navigationTitle("Asthma Tracker")
-                .navigationBarBackButtonHidden(false)
+        TabView(selection:$selection) {
+            NavigationView {
+                AsthmaThreatChart()
+                    .navigationTitle("Asthma Tracker")
+                    .navigationBarBackButtonHidden(false)
+            }.tabItem {
+                Label("Dashboard", systemImage: "house")
+            }
+            .tag(0)
+            
+            AnalyticsView()
+                .tabItem {
+                    Label("Analytics", systemImage: "chart.xyaxis.line")
+                }
+                .tag(1)
+            
+            BreathingExerciseScreen().tabItem { Label("Breathing", systemImage:"figure.mind.and.body")}.tag(2)
+            
+            SettingsScreen().tabItem { Label("Settings", systemImage: "gearshape") }.tag(3)
         }
+        
     }
 }
 
