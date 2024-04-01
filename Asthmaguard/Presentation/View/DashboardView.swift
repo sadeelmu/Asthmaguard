@@ -58,30 +58,38 @@ struct AsthmaThreatChart: View {
         .init(title: "Respiratory Rate", value: 30)
     ]
     
-    
+    @State private var showDetailsView = false
+
     var body: some View {
         VStack {
             Spacer()
-            Chart(asthmathreat) { asthmathreat in
-                SectorMark(
-                    angle: .value(
-                        Text(verbatim: asthmathreat.title),
-                        asthmathreat.risks
-                    ),
-                    innerRadius: .ratio(0.6)
-                )
-                .foregroundStyle(colorForRisk(asthmathreat.title))
-            }.frame(width: 300, height: 300)
+            let chartColors: [Color] = [
+                .pink, .pink, .blue
+              ]
             
+            Chart(asthmathreat) { asthmathreat in
+                    SectorMark(
+                        angle: .value(
+                            Text(asthmathreat.title),
+                            asthmathreat.risks
+                        ),
+                        innerRadius: .ratio(0.6),
+                        angularInset: 0.8
+                    )
+                    .cornerRadius(4)
+                    .foregroundStyle(by: .value("Threats", asthmathreat.title))
+                }.frame(width: 300, height: 300)
+                .chartForegroundStyleScale(domain: .automatic, range: chartColors)
+           
+            
+            
+            Text("Asthma Threat: 80%")
+                .font(Font.custom("Poppins-Bold", size: 26))
+                
             
             Spacer()
             
-            VStack(spacing:20){
-                CustomBioDataWidget(bioSignal: "Respiratory Rate", time: "12:00", data: "No data")
-                
-                CustomBioDataWidget(bioSignal: "Heart Rate", time: "12:01", data: "130 BPM")
-            }
-            
+
 //            Chart(vitalSigns) { vitalSign in
 //                LineMark(x: .value(vitalSign.title, vitalSign.value),
 //                         y: .value(vitalSign.title, vitalSign.value))
@@ -91,38 +99,59 @@ struct AsthmaThreatChart: View {
 //            .frame(height: 200)
             
             Spacer()
+            
+            CustomTabView()
         }
     }
 }
 
+struct AnalyticsView: View {
+    let asthmaThreats: [AsthmaThreat] = [
+        AsthmaThreat(title: "Biosignals", risks: 0.5),
+//        AsthmaThreat(title: "Heart Rate", risks: 0.3),
+//        AsthmaThreat(title: "Respitory Rate", risks: 0.2),
 
-struct HistoryView: View {
+        AsthmaThreat(title: "Environmental", risks: 0.2),
+//        AsthmaThreat(title: "Allergies", risks: 0.1),
+//        AsthmaThreat(title: "Weather", risks: 0.1),
+
+
+    ]
+    
     var body: some View {
-        Text("This is the details view.")
+        VStack {
+            Text("Asthma Threats Breakdown")
+                .font(.title)
+                .padding()
+            
+            List(asthmaThreats) { threat in
+                HStack {
+                    Text(threat.title)
+                        .font(.headline)
+                    Spacer()
+                    Text("\(threat.risks * 100, specifier: "%.1f")%")
+                        .foregroundColor(colorForRisk(threat.title))
+                        .font(.headline)
+                }
+                .padding(.horizontal)
+            }
+            CustomBioData(bioSignal: "Respiratory Rate", time: "12:00", data: "No data")
+            
+            CustomBioData(bioSignal: "Heart Rate", time: "12:01", data: "130 BPM")
+        }
     }
 }
+
 
 @available(iOS 17.0, *)
 struct DashboardView: View {
     @State private var selection = 0
     
     var body: some View {
-        TabView(selection: $selection) {
-            NavigationView {
-                AsthmaThreatChart()
-                    .navigationTitle("Asthma Tracker")
-                    .navigationBarBackButtonHidden(false)
-            }
-            .tabItem {
-                Label("Dashboard", systemImage: "house")
-            }
-            .tag(0)
-            
-            HistoryView()
-                .tabItem {
-                    Label("Details", systemImage: "info")
-                }
-                .tag(1)
+        NavigationView {
+            AsthmaThreatChart()
+                .navigationTitle("Asthma Tracker")
+                .navigationBarBackButtonHidden(false)
         }
     }
 }

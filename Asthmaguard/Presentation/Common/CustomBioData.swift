@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public struct CustomBioDataWidget: View {
+public struct CustomBioData: View {
     var bioSignal:String
     var time:String
     var data:String

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		121A50D72BBA364500198997 /* BreathingExerciseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */; };
+		121A50D92BBA401600198997 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A50D82BBA401600198997 /* CustomTabView.swift */; };
 		123912F02B95B0E3009BD42C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 123912EF2B95B0E3009BD42C /* Poppins-Regular.ttf */; };
 		123912F22B95B0F9009BD42C /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 123912F12B95B0F9009BD42C /* Poppins-Bold.ttf */; };
 		123912F92B95BFD8009BD42C /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123912F82B95BFD8009BD42C /* RegisterScreen.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingExerciseScreen.swift; sourceTree = "<group>"; };
+		121A50D82BBA401600198997 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		123912EF2B95B0E3009BD42C /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		123912F12B95B0F9009BD42C /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		123912F52B95B339009BD42C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 			children = (
 				123912FD2B95C53E009BD42C /* CustomTextField.swift */,
 				12C3F7D12BB576C6008B43ED /* CustomBioData.swift */,
+				121A50D82BBA401600198997 /* CustomTabView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 				126FC2772BA2FFCC00BE1FDD /* CompanionRegisterScreen.swift */,
 				126FC27B2BA30B1B00BE1FDD /* DashboardView.swift */,
 				12EEFB032BB05FF2003053AB /* SettingsScreen.swift */,
+				121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 				12C3F7D22BB576C6008B43ED /* CustomBioData.swift in Sources */,
 				1258F1392BB573A40096DD9E /* PatientInformation.swift in Sources */,
 				12EEFB042BB05FF3003053AB /* SettingsScreen.swift in Sources */,
+				121A50D72BBA364500198997 /* BreathingExerciseScreen.swift in Sources */,
 				12DB19312BA2D51600FCC1E0 /* APIHelper.swift in Sources */,
 				123912FE2B95C53E009BD42C /* CustomTextField.swift in Sources */,
 				1258F13F2BB5741D0096DD9E /* Trigger.swift in Sources */,
@@ -412,6 +419,7 @@
 				1258F1372BB573780096DD9E /* User.swift in Sources */,
 				1258F13B2BB573BE0096DD9E /* Treatment.swift in Sources */,
 				12BAFE2A2BA0428E003E7980 /* SurveyHelper.swift in Sources */,
+				121A50D92BBA401600198997 /* CustomTabView.swift in Sources */,
 				12BAFE292BA0428E003E7980 /* SurveyView.swift in Sources */,
 				1276E3762B7ACF56002CBACB /* LoginScreen.swift in Sources */,
 				1258F1472BB5746B0096DD9E /* Companion.swift in Sources */,
