@@ -100,10 +100,10 @@ struct BreathingExerciseCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text(title)
-                .font(Font.custom("Poppins", size: 16).weight(.bold))
+                .font(Font.custom("Poppins-Regular", size: 16).weight(.bold))
                 .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
             Text(duration)
-                .font(Font.custom("Poppins", size: 12))
+                .font(Font.custom("Poppins-Regular", size: 12))
                 .foregroundColor(Color(red: 0.48, green: 0.44, blue: 0.45))
             RoundedRectangle(cornerRadius: 12)
                 .foregroundColor(color.opacity(0.3))

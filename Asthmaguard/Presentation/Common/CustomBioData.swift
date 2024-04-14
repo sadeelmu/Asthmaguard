@@ -32,7 +32,7 @@ public struct CustomBioData: View {
                 .frame(maxWidth: .infinity)
                 
                 Text(data)
-                    .font(Font.custom("Poppins", size: 20).weight(.black))
+                    .font(Font.custom("Poppins-Regular", size: 20).weight(.black))
                     .foregroundColor(Color(red: 0.52, green: 0.52, blue: 0.52))
                 
             }

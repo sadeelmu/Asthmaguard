@@ -51,7 +51,7 @@ struct CompanionRegisterScreen: View {
                     .buttonStyle(PlainButtonStyle())
                     
                     Text("By continuing you accept our Privacy Policy and Term of Use")
-                        .font(Font.custom("Poppins", size: 10))
+                        .font(Font.custom("Poppins-Regular", size: 10))
                         .foregroundColor(Color(red: 0.68, green: 0.64, blue: 0.65))
                 }
             }
@@ -80,7 +80,7 @@ struct CompanionRegisterScreen: View {
                         RoundedRectangle(cornerRadius: 14)
                             .stroke(Color(red: 0.87, green: 0.85, blue: 0.86), lineWidth: 0.40)
                         Text("Register with Apple")
-                            .font(Font.custom("Poppins", size: 14).weight(.bold))
+                            .font(Font.custom("Poppins-Regular", size: 14).weight(.bold))
                             .foregroundColor(.black)
                     }
                     .frame(width: 192, height: 50)
@@ -88,7 +88,7 @@ struct CompanionRegisterScreen: View {
             }
             
             Text("Already have an account? Login")
-              .font(Font.custom("Poppins", size: 14))
+              .font(Font.custom("Poppins-Regular", size: 14))
               .lineSpacing(21)
               .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
             
