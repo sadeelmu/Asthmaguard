@@ -89,14 +89,15 @@ struct AsthmaThreatChart: View {
             
             Spacer()
             
+      
+          //button to call API Herre
+            Button(action: {
+                makePollenRequest()
+                makeAirQualityRequest()
+            }) {
+                Label("Call API", systemImage: "sun.min")
+            }
 
-//            Chart(vitalSigns) { vitalSign in
-//                LineMark(x: .value(vitalSign.title, vitalSign.value),
-//                         y: .value(vitalSign.title, vitalSign.value))
-//                .foregroundStyle(colorForVitalSign(vitalSign.title))
-//                .interpolationMethod(.linear)
-//            }
-//            .frame(height: 200)
             
             Spacer()
         }

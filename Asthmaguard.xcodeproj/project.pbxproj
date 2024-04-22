@@ -10,6 +10,7 @@
 		121719502BCC2BDA005F6C2C /* DatabaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1217194F2BCC2BDA005F6C2C /* DatabaseConnection.swift */; };
 		121A50D72BBA364500198997 /* BreathingExerciseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */; };
 		121A50D92BBA401600198997 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A50D82BBA401600198997 /* CustomTabView.swift */; };
+		1236025A2BD70CD000A2C657 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123602592BD70CCF00A2C657 /* APIManager.swift */; };
 		123912F02B95B0E3009BD42C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 123912EF2B95B0E3009BD42C /* Poppins-Regular.ttf */; };
 		123912F22B95B0F9009BD42C /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 123912F12B95B0F9009BD42C /* Poppins-Bold.ttf */; };
 		123912F92B95BFD8009BD42C /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123912F82B95BFD8009BD42C /* RegisterScreen.swift */; };
@@ -47,6 +48,7 @@
 		1217194F2BCC2BDA005F6C2C /* DatabaseConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatabaseConnection.swift; path = ../../../../../../../DatabaseConnection.swift; sourceTree = "<group>"; };
 		121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingExerciseScreen.swift; sourceTree = "<group>"; };
 		121A50D82BBA401600198997 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		123602592BD70CCF00A2C657 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		123912EF2B95B0E3009BD42C /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		123912F12B95B0F9009BD42C /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		123912F52B95B339009BD42C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				12DB19302BA2D51600FCC1E0 /* APIHelper.swift */,
+				123602592BD70CCF00A2C657 /* APIManager.swift */,
 			);
 			path = DataNetwork;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				123912F92B95BFD8009BD42C /* RegisterScreen.swift in Sources */,
 				12BAFE2B2BA0428E003E7980 /* SurveyModelClass.swift in Sources */,
 				123912FB2B95C197009BD42C /* RegisterViewModel.swift in Sources */,
+				1236025A2BD70CD000A2C657 /* APIManager.swift in Sources */,
 				12BAFE2D2BA042A7003E7980 /* SurveyScreen.swift in Sources */,
 				1276E3642B7ACD74002CBACB /* ContentView.swift in Sources */,
 				1258F1412BB5742C0096DD9E /* AsthmaPrediction.swift in Sources */,
@@ -497,7 +501,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -551,7 +555,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
