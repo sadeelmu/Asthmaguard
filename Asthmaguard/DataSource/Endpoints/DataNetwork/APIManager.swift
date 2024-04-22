@@ -26,7 +26,7 @@ func makeAirQualityRequest() {
         return
     }
 
-    let urlString = "https://pollen.googleapis.com/v1/forecast:lookup?key=AIzaSyBsEgk_PWNwRVmGAA_ihIF1JmBtJskuur8&location.longitude=35.32&location.latitude=32.32&days=1"
+    let urlString = "https://airquality.googleapis.com/v1/currentConditions:lookup?key=AIzaSyBsEgk_PWNwRVmGAA_ihIF1JmBtJskuur8"
     guard let url = URL(string: urlString) else {
         print("Invalid URL")
         return
@@ -73,7 +73,7 @@ func makeAirQualityRequest() {
 
 // Function to make HTTP GET request
 func makePollenRequest() {
-    let urlString = "https://airquality.googleapis.com/v1/currentConditions:lookup?key=AIzaSyBsEgk_PWNwRVmGAA_ihIF1JmBtJskuur8"
+    let urlString = "https://pollen.googleapis.com/v1/forecast:lookup?key=AIzaSyBsEgk_PWNwRVmGAA_ihIF1JmBtJskuur8&location.longitude=35.32&location.latitude=32.32&days=1"
     guard let url = URL(string: urlString) else {
         print("Invalid URL")
         return
