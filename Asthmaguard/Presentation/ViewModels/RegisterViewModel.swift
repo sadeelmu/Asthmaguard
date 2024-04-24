@@ -14,8 +14,7 @@ class RegisterViewModel: ObservableObject {
     @Published var password: String = ""
     
     func register() {
-        // Call the addUserAndPatient function from DatabaseManager
-        DatabaseManager.shared.addUserAndPatient(userName: firstName + lastName, password: password, email: email)
+        DatabaseManager.shared.addUser(username: firstName+lastName, password: password, email: email)
     }
     
     func registerWithApple() {

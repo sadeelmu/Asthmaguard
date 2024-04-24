@@ -12,7 +12,7 @@ class LoginViewModel:ObservableObject{
     @Published var password:String = ""
     
     func login(){
-        print("Login")
+       print("Data is \(DatabaseManager.shared.fetchUsers())") 
     }
     
     func loginWithApple(){

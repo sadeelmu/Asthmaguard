@@ -10,7 +10,7 @@ import UIKit
 import SQLite3
 
 class SQLiteDatabase {
-    private var dbPointer: OpaquePointer?
+    var dbPointer: OpaquePointer?
 
     private init(dbPointer: OpaquePointer?) {
         self.dbPointer = dbPointer
@@ -88,8 +88,7 @@ class DatabaseManager {
             Username TEXT,
             Password TEXT,
             Email TEXT,
-            CreationDate TEXT,
-            AppleID TEXT
+            CreationDate TEXT
         );
         """
 
@@ -109,45 +108,70 @@ class DatabaseManager {
         try database.createTable(sql: createPatientInformationTableSQL)
     }
 
-    func addUserAndPatient(userName: String, password: String, email: String) {
-        // Print user data
-        print("Adding User:")
-        print("Username: \(userName)")
-        print("Password: \(password)")
-        print("Email: \(email)")
+    func addUser(username: String, password: String, email: String) -> Int? {
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let creationDate = dateFormatter.string(from: currentDate)
 
         let userSQL = """
-        INSERT INTO Users (Username, Password, Email)
-        VALUES ('\(userName)', '\(password)', '\(email)');
+        INSERT INTO Users (Username, Password, Email, CreationDate)
+        VALUES ('\(username)', '\(password)', '\(email)', '\(creationDate)');
         """
-
         do {
             let userID = try database.executeQuery(sql: userSQL)
             print("User added successfully with UserID = \(userID).")
+            return userID
+        } catch {
+            print("Error adding user: \(error)")
+            return nil
+        }
+    }
 
-            // Print patient data
-            let name = userName
-            let dob = "2024-04-24" // Replace with actual input
-            let gender = "1" // Replace with actual input
-            let height = "170" // Replace with actual input
-            let weight = "70" // Replace with actual input
+    func fetchUsers() {
+        let querySQL = "SELECT UserID, Username, Password, Email, CreationDate, AppleID FROM Users;"
+        do {
+            var queryStatement: OpaquePointer? = nil
+            if sqlite3_prepare_v2(database.dbPointer, querySQL, -1, &queryStatement, nil) == SQLITE_OK {
+                while sqlite3_step(queryStatement) == SQLITE_ROW {
+                    let userID = sqlite3_column_int(queryStatement, 0)
+                    guard let usernameQueryResult = sqlite3_column_text(queryStatement, 1) else { continue }
+                    let username = String(cString: usernameQueryResult)
+                    guard let passwordQueryResult = sqlite3_column_text(queryStatement, 2) else { continue }
+                    let password = String(cString: passwordQueryResult)
+                    guard let emailQueryResult = sqlite3_column_text(queryStatement, 3) else { continue }
+                    let email = String(cString: emailQueryResult)
+                    guard let creationDateQueryResult = sqlite3_column_text(queryStatement, 4) else { continue }
+                    let creationDate = String(cString: creationDateQueryResult)
+                    guard let appleIDQueryResult = sqlite3_column_text(queryStatement, 5) else { continue }
+                    let appleID = String(cString: appleIDQueryResult)
+                    print("User ID: \(userID), Username: \(username), Password: \(password), Email: \(email), Creation Date: \(creationDate), Apple ID: \(appleID)")
+                }
+                sqlite3_finalize(queryStatement)
+            } else {
+                let errmsg = String(cString: sqlite3_errmsg(database.dbPointer))
+                print("Error preparing select statement: \(errmsg)")
+            }
+        } catch {
+            print("Error fetching users: \(error)")
+        }
+    }
 
-            print("\nAdding Patient:")
-            print("User ID: \(userID)")
-            print("Name: \(name)")
-            print("Date of Birth: \(dob)")
-            print("Gender: \(gender)")
-            print("Height: \(height)")
-            print("Weight: \(weight)")
 
-            let patientSQL = """
-            INSERT INTO PatientInformation (UserID, Name, DateOfBirth, Gender, Height, Weight)
-            VALUES (\(userID), '\(name)', '\(dob)', \(gender), \(height), \(weight));
-            """
+    func addPatient(name: String, dob: Date, gender: Bool, height: Float, weight: Float, userID: Int) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dobString = dateFormatter.string(from: dob)
+        
+        let patientSQL = """
+        INSERT INTO PatientInformation (UserID, Name, DateOfBirth, Gender, Height, Weight)
+        VALUES (\(userID), '\(name)', '\(dobString)', \(gender ? 1 : 0), \(height), \(weight));
+        """
+        do {
             try database.executeQuery(sql: patientSQL)
             print("Patient added successfully.")
         } catch {
-            print("Error: \(error)")
+            print("Error adding patient: \(error)")
         }
     }
 
