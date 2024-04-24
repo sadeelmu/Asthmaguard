@@ -11,6 +11,7 @@
 		121A50D72BBA364500198997 /* BreathingExerciseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */; };
 		121A50D92BBA401600198997 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A50D82BBA401600198997 /* CustomTabView.swift */; };
 		1236025A2BD70CD000A2C657 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123602592BD70CCF00A2C657 /* APIManager.swift */; };
+		1236025C2BD8E1A700A2C657 /* DatabaseSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1236025B2BD8E1A700A2C657 /* DatabaseSetUp.swift */; };
 		123912F02B95B0E3009BD42C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 123912EF2B95B0E3009BD42C /* Poppins-Regular.ttf */; };
 		123912F22B95B0F9009BD42C /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 123912F12B95B0F9009BD42C /* Poppins-Bold.ttf */; };
 		123912F92B95BFD8009BD42C /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123912F82B95BFD8009BD42C /* RegisterScreen.swift */; };
@@ -49,6 +50,7 @@
 		121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingExerciseScreen.swift; sourceTree = "<group>"; };
 		121A50D82BBA401600198997 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		123602592BD70CCF00A2C657 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		1236025B2BD8E1A700A2C657 /* DatabaseSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseSetUp.swift; sourceTree = "<group>"; };
 		123912EF2B95B0E3009BD42C /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		123912F12B95B0F9009BD42C /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		123912F52B95B339009BD42C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				1217194F2BCC2BDA005F6C2C /* DatabaseConnection.swift */,
+				1236025B2BD8E1A700A2C657 /* DatabaseSetUp.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				1258F1392BB573A40096DD9E /* PatientInformation.swift in Sources */,
 				12EEFB042BB05FF3003053AB /* SettingsScreen.swift in Sources */,
 				121A50D72BBA364500198997 /* BreathingExerciseScreen.swift in Sources */,
+				1236025C2BD8E1A700A2C657 /* DatabaseSetUp.swift in Sources */,
 				12DB19312BA2D51600FCC1E0 /* APIHelper.swift in Sources */,
 				121719502BCC2BDA005F6C2C /* DatabaseConnection.swift in Sources */,
 				123912FE2B95C53E009BD42C /* CustomTextField.swift in Sources */,

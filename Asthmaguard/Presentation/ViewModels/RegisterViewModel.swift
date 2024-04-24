@@ -7,18 +7,21 @@
 
 import Foundation
 
-class RegisterViewModel:ObservableObject{
-    @Published var firstName:String = ""
-    @Published var lastName:String = ""
-    @Published var email:String = ""
-    @Published var password:String = ""
+class RegisterViewModel: ObservableObject {
+    @Published var firstName: String = ""
+    @Published var lastName: String = ""
+    @Published var email: String = ""
+    @Published var password: String = ""
     
-    func register(){
-        print("register")
+    func register() {
+        // Call the addUserAndPatient function from DatabaseManager
+        DatabaseManager.shared.addUserAndPatient(userName: firstName + lastName, password: password, email: email)
     }
     
-    func registerWithApple(){
-        print("register with apple")
+    func registerWithApple() {
+        // Implement registration with Apple if needed
+        print("Register with Apple")
     }
 }
+
 
