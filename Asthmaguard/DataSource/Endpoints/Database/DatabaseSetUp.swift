@@ -9,7 +9,7 @@ import Foundation
 import SQLite3
 
 class SQLiteDatabase {
-    private var dbPointer: OpaquePointer?
+    var dbPointer: OpaquePointer?
 
     private init(dbPointer: OpaquePointer?) {
         self.dbPointer = dbPointer
@@ -84,8 +84,7 @@ class DatabaseManager {
             Username TEXT,
             Password TEXT,
             Email TEXT,
-            CreationDate TEXT,
-            AppleID TEXT
+            CreationDate TEXT
         );
         """
 
