@@ -150,6 +150,11 @@ class DatabaseManager {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let creationDate = dateFormatter.string(from: currentDate)
+        
+        print("Adding User:")
+        print("Username: \(username)")
+        print("Password: \(password)")
+        print("Email: \(email)")
 
         let userSQL = """
         INSERT INTO Users (Username, Password, Email, CreationDate)
@@ -164,6 +169,34 @@ class DatabaseManager {
             return nil
         }
     }
+    
+    func fetchUsers() {
+        let querySQL = "SELECT UserID, Username, Password, Email, CreationDate FROM Users;"
+        do {
+            var queryStatement: OpaquePointer? = nil
+            if sqlite3_prepare_v2(database.dbPointer, querySQL, -1, &queryStatement, nil) == SQLITE_OK {
+                while sqlite3_step(queryStatement) == SQLITE_ROW {
+                    let userID = sqlite3_column_int(queryStatement, 0)
+                    guard let usernameQueryResult = sqlite3_column_text(queryStatement, 1) else { continue }
+                    let username = String(cString: usernameQueryResult)
+                    guard let passwordQueryResult = sqlite3_column_text(queryStatement, 2) else { continue }
+                    let password = String(cString: passwordQueryResult)
+                    guard let emailQueryResult = sqlite3_column_text(queryStatement, 3) else { continue }
+                    let email = String(cString: emailQueryResult)
+                    guard let creationDateQueryResult = sqlite3_column_text(queryStatement, 4) else { continue }
+                    let creationDate = String(cString: creationDateQueryResult)
+                    print("User ID: \(userID), Username: \(username), Password: \(password), Email: \(email), Creation Date: \(creationDate)")
+                }
+                sqlite3_finalize(queryStatement)
+            } else {
+                let errmsg = String(cString: sqlite3_errmsg(database.dbPointer))
+                print("Error preparing select statement: \(errmsg)")
+            }
+        } catch {
+            print("Error fetching users: \(error)")
+        }
+    }
+
 
     func addPatient(name: String, dob: Date, gender: Bool, height: Float, weight: Float, userID: Int) {
         let dateFormatter = DateFormatter()

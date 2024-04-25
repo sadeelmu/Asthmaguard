@@ -12,7 +12,7 @@ import SwiftUI
 struct AsthmaguardApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginScreen()
+            RegisterScreen()
         }
     }
 }
