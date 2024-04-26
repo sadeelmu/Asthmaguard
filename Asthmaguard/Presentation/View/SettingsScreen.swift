@@ -13,7 +13,6 @@ struct SettingsScreen: View {
     @State private var notificationsChoice:Bool = true
     @State private var userName:String = "Sadeel"
     @State private var selection = 0
-
     
     var body: some View {
         TabView(selection:$selection) {
@@ -42,7 +41,6 @@ struct SettingsScreen: View {
                                         .foregroundColor(.white)
                                         .cornerRadius(50)
                                 }
-                                
                             }
                         }
                         Section(header: Text("Account")) {
@@ -75,31 +73,13 @@ struct SettingsScreen: View {
                                 Label("Privacy Policy", systemImage: "checkmark.shield.fill")
                             }
                         }
-                        
-                        
                     }
                     .listStyle(.grouped) // Use the grouped list style
                     .background(Color.clear)
                     .navigationBarTitle("Profile")
-                    
                 }
-            }            .tabItem {
-                Label("Dashboard", systemImage: "house")
             }
-            .tag(0)
-            
-            AnalyticsView()
-                .tabItem {
-                    Label("Analytics", systemImage: "chart.xyaxis.line")
-                }
-                .tag(1)
-            
-            BreathingExerciseScreen().tabItem { Label("Breathing", systemImage:"figure.mind.and.body")}.tag(2)
-            
-            SettingsScreen().tabItem { Label("Settings", systemImage: "gearshape") }.tag(3)
         }
-    
-       
     }
 }
 
@@ -132,7 +112,6 @@ struct ContactView: View {
         Text("Contact View")
     }
 }
-
 
 struct PrivacyView: View {
     var body: some View {

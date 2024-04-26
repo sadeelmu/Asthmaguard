@@ -197,7 +197,6 @@ class DatabaseManager {
         }
     }
 
-
     func addPatient(name: String, dob: Date, gender: Bool, height: Float, weight: Float, userID: Int) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"

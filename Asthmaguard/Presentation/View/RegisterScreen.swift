@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 17.0, *)
 struct RegisterScreen: View {
     @ObservedObject var registerViewModel = RegisterViewModel()
     @State private var confirmPassword = ""
@@ -89,17 +90,16 @@ struct RegisterScreen: View {
                     .font(Font.custom("Poppins-Regular", size: 14))
                     .lineSpacing(21)
                     .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
-                
-                
             }
             .padding()
             .background(Color.white)
         }
-    }
+        }
     
     
 }
 
+@available(iOS 17.0, *)
 struct RegisterScreen_Preview: PreviewProvider {
     static var previews: some View {
         RegisterScreen()

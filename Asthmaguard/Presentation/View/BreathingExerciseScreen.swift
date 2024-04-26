@@ -17,12 +17,9 @@ struct BreathingExerciseScreen: View {
                 Color.white.edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 10) {
-                    
-                    
                     Text("Breathing Exercises")
                         .font(Font.custom("Poppins-Bold", size: 25))
                         .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
-                    
                     
                     Text("Recommended Duration: 5 minutes")
                         .font(.subheadline)
@@ -32,7 +29,8 @@ struct BreathingExerciseScreen: View {
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         VStack(alignment:.leading,spacing: 20) {
-                            Text("Set 1")                        .font(Font.custom("Poppins-Regular", size: 20))
+                            Text("Set 1")
+                                .font(Font.custom("Poppins-Regular", size: 20))
                             
                             HStack{
                                 BreathingExerciseCard(title: "Breathe In", duration: "01:00", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "breathin")
@@ -67,26 +65,7 @@ struct BreathingExerciseScreen: View {
                     
                     Spacer()
                 }
-            }            .tabItem {
-                Label("Dashboard", systemImage: "house")
             }
-            .tag(0)
-            
-            AnalyticsView()
-                .tabItem {
-                    Label("Analytics", systemImage: "chart.xyaxis.line")
-                }
-                .tag(1)
-            
-            BreathingExerciseScreen().tabItem { 
-                Label("Breathing", systemImage:"figure.mind.and.body")
-            }
-            .tag(2)
-            
-            SettingsScreen().tabItem {
-                Label("Settings", systemImage: "gearshape")
-            }
-            .tag(3)
         }
     }
 }
@@ -117,35 +96,6 @@ struct BreathingExerciseCard: View {
         }
     }
 }
-
-struct ExerciseView: View {
-    let title: String
-    let duration: String
-    let color: Color
-    let imageName: String
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text(title)
-                .font(.headline)
-            
-            Text("Duration: \(duration)")
-                .font(.subheadline)
-                .foregroundColor(.gray)
-            
-            RoundedRectangle(cornerRadius: 12)
-                .foregroundColor(color.opacity(0.3))
-                .frame(width: 100, height: 100)
-                .overlay(
-                    Image(imageName)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .padding(20)
-                )
-        }
-    }
-}
-
 
 @available(iOS 17.0, *)
 struct BreathingExerciseScreen_Previews: PreviewProvider {

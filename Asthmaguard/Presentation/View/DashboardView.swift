@@ -167,9 +167,9 @@ struct DashboardView: View {
             
             SettingsScreen().tabItem { Label("Settings", systemImage: "gearshape") }.tag(3)
         }
-        
     }
 }
+
 
 @available(iOS 17.0, *)
 struct AsthmaThreatChart_Previews: PreviewProvider {
