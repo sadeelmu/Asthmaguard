@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		121719502BCC2BDA005F6C2C /* DatabaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1217194F2BCC2BDA005F6C2C /* DatabaseConnection.swift */; };
 		121A50D72BBA364500198997 /* BreathingExerciseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */; };
 		121A50D92BBA401600198997 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A50D82BBA401600198997 /* CustomTabView.swift */; };
 		121BAD242BDF967F009E83A9 /* EnviromentalDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121BAD232BDF967F009E83A9 /* EnviromentalDataUseCase.swift */; };
@@ -44,7 +43,6 @@
 		12BAFE2B2BA0428E003E7980 /* SurveyModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE282BA0428E003E7980 /* SurveyModelClass.swift */; };
 		12BAFE2D2BA042A7003E7980 /* SurveyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */; };
 		12C3F7D22BB576C6008B43ED /* CustomBioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3F7D12BB576C6008B43ED /* CustomBioData.swift */; };
-		12DB19312BA2D51600FCC1E0 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB19302BA2D51600FCC1E0 /* APIHelper.swift */; };
 		12EEFB022BB05F61003053AB /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 12EEFB012BB05F61003053AB /* PythonKit */; };
 		12EEFB042BB05FF3003053AB /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EEFB032BB05FF2003053AB /* SettingsScreen.swift */; };
 /* End PBXBuildFile section */
@@ -95,7 +93,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1217194F2BCC2BDA005F6C2C /* DatabaseConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatabaseConnection.swift; path = ../../../../../../../DatabaseConnection.swift; sourceTree = "<group>"; };
 		121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingExerciseScreen.swift; sourceTree = "<group>"; };
 		121A50D82BBA401600198997 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		121BAD232BDF967F009E83A9 /* EnviromentalDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviromentalDataUseCase.swift; sourceTree = "<group>"; };
@@ -134,7 +131,6 @@
 		12BAFE282BA0428E003E7980 /* SurveyModelClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyModelClass.swift; sourceTree = "<group>"; };
 		12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyScreen.swift; sourceTree = "<group>"; };
 		12C3F7D12BB576C6008B43ED /* CustomBioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBioData.swift; sourceTree = "<group>"; };
-		12DB19302BA2D51600FCC1E0 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		12EEFB032BB05FF2003053AB /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,7 +150,6 @@
 		1217194E2BCC2BCA005F6C2C /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				1217194F2BCC2BDA005F6C2C /* DatabaseConnection.swift */,
 				1236025B2BD8E1A700A2C657 /* DatabaseSetUp.swift */,
 			);
 			path = Database;
@@ -384,7 +379,6 @@
 		12E1EDED2B95A9540016EDDE /* DataNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				12DB19302BA2D51600FCC1E0 /* APIHelper.swift */,
 				123602592BD70CCF00A2C657 /* APIManager.swift */,
 			);
 			path = DataNetwork;
@@ -539,8 +533,6 @@
 				12EEFB042BB05FF3003053AB /* SettingsScreen.swift in Sources */,
 				121A50D72BBA364500198997 /* BreathingExerciseScreen.swift in Sources */,
 				1236025C2BD8E1A700A2C657 /* DatabaseSetUp.swift in Sources */,
-				12DB19312BA2D51600FCC1E0 /* APIHelper.swift in Sources */,
-				121719502BCC2BDA005F6C2C /* DatabaseConnection.swift in Sources */,
 				123912FE2B95C53E009BD42C /* CustomTextField.swift in Sources */,
 				1258F13F2BB5741D0096DD9E /* Trigger.swift in Sources */,
 				123912F92B95BFD8009BD42C /* RegisterScreen.swift in Sources */,
