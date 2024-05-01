@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		121719502BCC2BDA005F6C2C /* DatabaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1217194F2BCC2BDA005F6C2C /* DatabaseConnection.swift */; };
 		121A50D72BBA364500198997 /* BreathingExerciseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */; };
 		121A50D92BBA401600198997 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A50D82BBA401600198997 /* CustomTabView.swift */; };
 		1236025A2BD70CD000A2C657 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123602592BD70CCF00A2C657 /* APIManager.swift */; };
@@ -47,7 +46,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1217194F2BCC2BDA005F6C2C /* DatabaseConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatabaseConnection.swift; path = ../../../../../../../DatabaseConnection.swift; sourceTree = "<group>"; };
 		121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingExerciseScreen.swift; sourceTree = "<group>"; };
 		121A50D82BBA401600198997 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		123602592BD70CCF00A2C657 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 		1217194E2BCC2BCA005F6C2C /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				1217194F2BCC2BDA005F6C2C /* DatabaseConnection.swift */,
 				1236025B2BD8E1A700A2C657 /* DatabaseSetUp.swift */,
 			);
 			path = Database;
@@ -428,7 +425,6 @@
 				121A50D72BBA364500198997 /* BreathingExerciseScreen.swift in Sources */,
 				1236025C2BD8E1A700A2C657 /* DatabaseSetUp.swift in Sources */,
 				12DB19312BA2D51600FCC1E0 /* APIHelper.swift in Sources */,
-				121719502BCC2BDA005F6C2C /* DatabaseConnection.swift in Sources */,
 				127D07CA2BDA4C710011A464 /* Algo.swift in Sources */,
 				123912FE2B95C53E009BD42C /* CustomTextField.swift in Sources */,
 				1258F13F2BB5741D0096DD9E /* Trigger.swift in Sources */,
