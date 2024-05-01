@@ -215,7 +215,6 @@ struct YesNoButtonStyle: ButtonStyle {
             .opacity(configuration.isPressed ? 0.7 : 1)
             .scaleEffect(configuration.isPressed ? 0.8 : 1)
             .animation(.easeInOut(duration: 0.2))
-        
     }
 }
 
@@ -257,7 +256,7 @@ struct BinaryChoiceQuestionView : View {
         VStack {
             
             //Text(question.title).font(.title).padding(16)
-            Text(question.title).font(.title).fontWeight(.bold).padding(16)
+            Text(question.title).font(.title).fontWeight(.bold).padding(15)
             
             //Spacer()
             //Text("Choice2: ".appendingFormat("%i", selectedIndices.count)).opacity(0.5) // view refresh hack

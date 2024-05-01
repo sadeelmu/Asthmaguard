@@ -11,8 +11,6 @@
 		121A50D92BBA401600198997 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A50D82BBA401600198997 /* CustomTabView.swift */; };
 		121BAD242BDF967F009E83A9 /* EnviromentalDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121BAD232BDF967F009E83A9 /* EnviromentalDataUseCase.swift */; };
 		121BAD272BDF97E5009E83A9 /* BioSignalDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121BAD262BDF97E5009E83A9 /* BioSignalDataUseCase.swift */; };
-		121BAD382BDF9C0C009E83A9 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121BAD302BDF9BEE009E83A9 /* ResearchKit.framework */; };
-		121BAD392BDF9C0C009E83A9 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 121BAD302BDF9BEE009E83A9 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1236025A2BD70CD000A2C657 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123602592BD70CCF00A2C657 /* APIManager.swift */; };
 		1236025C2BD8E1A700A2C657 /* DatabaseSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1236025B2BD8E1A700A2C657 /* DatabaseSetUp.swift */; };
 		123912F02B95B0E3009BD42C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 123912EF2B95B0E3009BD42C /* Poppins-Regular.ttf */; };
@@ -47,58 +45,12 @@
 		12EEFB042BB05FF3003053AB /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EEFB032BB05FF2003053AB /* SettingsScreen.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		121BAD2F2BDF9BEE009E83A9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 121BAD282BDF9BED009E83A9 /* ResearchKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B183A5951A8535D100C76870;
-			remoteInfo = ResearchKit;
-		};
-		121BAD312BDF9BEE009E83A9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 121BAD282BDF9BED009E83A9 /* ResearchKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
-			remoteInfo = ResearchKitTests;
-		};
-		121BAD332BDF9BEE009E83A9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 121BAD282BDF9BED009E83A9 /* ResearchKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CA1C7A5A288B0C68004DAB3A;
-			remoteInfo = "ResearchKitUI (iOS)";
-		};
-		121BAD352BDF9BEE009E83A9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 121BAD282BDF9BED009E83A9 /* ResearchKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CAD08967289DD747007B2A98;
-			remoteInfo = ResearchKitActiveTask;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		121BAD3A2BDF9C0C009E83A9 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				121BAD392BDF9C0C009E83A9 /* ResearchKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingExerciseScreen.swift; sourceTree = "<group>"; };
 		121A50D82BBA401600198997 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		121BAD232BDF967F009E83A9 /* EnviromentalDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviromentalDataUseCase.swift; sourceTree = "<group>"; };
 		121BAD252BDF9709009E83A9 /* Asthmaguard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Asthmaguard.entitlements; sourceTree = "<group>"; };
 		121BAD262BDF97E5009E83A9 /* BioSignalDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioSignalDataUseCase.swift; sourceTree = "<group>"; };
-		121BAD282BDF9BED009E83A9 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = "../../../../Downloads/ResearchKit-main/ResearchKit.xcodeproj"; sourceTree = "<group>"; };
 		123602592BD70CCF00A2C657 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		1236025B2BD8E1A700A2C657 /* DatabaseSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseSetUp.swift; sourceTree = "<group>"; };
 		123912EF2B95B0E3009BD42C /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -139,7 +91,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				121BAD382BDF9C0C009E83A9 /* ResearchKit.framework in Frameworks */,
 				12EEFB022BB05F61003053AB /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,17 +104,6 @@
 				1236025B2BD8E1A700A2C657 /* DatabaseSetUp.swift */,
 			);
 			path = Database;
-			sourceTree = "<group>";
-		};
-		121BAD292BDF9BED009E83A9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				121BAD302BDF9BEE009E83A9 /* ResearchKit.framework */,
-				121BAD322BDF9BEE009E83A9 /* ResearchKitTests.xctest */,
-				121BAD342BDF9BEE009E83A9 /* ResearchKitUI.framework */,
-				121BAD362BDF9BEE009E83A9 /* ResearchKitActiveTask.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		121BAD372BDF9C0C009E83A9 /* Frameworks */ = {
@@ -186,7 +126,6 @@
 		1276E3552B7ACD74002CBACB = {
 			isa = PBXGroup;
 			children = (
-				121BAD282BDF9BED009E83A9 /* ResearchKit.xcodeproj */,
 				1276E3602B7ACD74002CBACB /* Asthmaguard */,
 				1276E35F2B7ACD74002CBACB /* Products */,
 				121BAD372BDF9C0C009E83A9 /* Frameworks */,
@@ -204,9 +143,8 @@
 		1276E3602B7ACD74002CBACB /* Asthmaguard */ = {
 			isa = PBXGroup;
 			children = (
-				121BAD252BDF9709009E83A9 /* Asthmaguard.entitlements */,
-				1276E3632B7ACD74002CBACB /* ContentView.swift */,
 				1276E3612B7ACD74002CBACB /* AsthmaguardApp.swift */,
+				1276E3632B7ACD74002CBACB /* ContentView.swift */,
 				1276E37B2B7AD141002CBACB /* Features */,
 				1276E36F2B7ACD87002CBACB /* Presentation */,
 				1276E3722B7ACD99002CBACB /* Business */,
@@ -214,6 +152,7 @@
 				12E1EDEC2B95A9370016EDDE /* DataSource */,
 				1276E3652B7ACD76002CBACB /* Assets.xcassets */,
 				123912F52B95B339009BD42C /* Info.plist */,
+				121BAD252BDF9709009E83A9 /* Asthmaguard.entitlements */,
 				12DC71582BA30D5C002E7C9C /* Resources */,
 				1276E3672B7ACD76002CBACB /* Preview Content */,
 			);
@@ -421,7 +360,6 @@
 				1276E35A2B7ACD74002CBACB /* Sources */,
 				1276E35B2B7ACD74002CBACB /* Frameworks */,
 				1276E35C2B7ACD74002CBACB /* Resources */,
-				121BAD3A2BDF9C0C009E83A9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -464,49 +402,12 @@
 			);
 			productRefGroup = 1276E35F2B7ACD74002CBACB /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 121BAD292BDF9BED009E83A9 /* Products */;
-					ProjectRef = 121BAD282BDF9BED009E83A9 /* ResearchKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				1276E35D2B7ACD74002CBACB /* Asthmaguard */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		121BAD302BDF9BEE009E83A9 /* ResearchKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ResearchKit.framework;
-			remoteRef = 121BAD2F2BDF9BEE009E83A9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		121BAD322BDF9BEE009E83A9 /* ResearchKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ResearchKitTests.xctest;
-			remoteRef = 121BAD312BDF9BEE009E83A9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		121BAD342BDF9BEE009E83A9 /* ResearchKitUI.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ResearchKitUI.framework;
-			remoteRef = 121BAD332BDF9BEE009E83A9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		121BAD362BDF9BEE009E83A9 /* ResearchKitActiveTask.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ResearchKitActiveTask.framework;
-			remoteRef = 121BAD352BDF9BEE009E83A9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1276E35C2B7ACD74002CBACB /* Resources */ = {
@@ -533,7 +434,6 @@
 				12EEFB042BB05FF3003053AB /* SettingsScreen.swift in Sources */,
 				121A50D72BBA364500198997 /* BreathingExerciseScreen.swift in Sources */,
 				1236025C2BD8E1A700A2C657 /* DatabaseSetUp.swift in Sources */,
-				127D07CA2BDA4C710011A464 /* Algo.swift in Sources */,
 				123912FE2B95C53E009BD42C /* CustomTextField.swift in Sources */,
 				1258F13F2BB5741D0096DD9E /* Trigger.swift in Sources */,
 				123912F92B95BFD8009BD42C /* RegisterScreen.swift in Sources */,
