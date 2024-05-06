@@ -42,6 +42,7 @@
 		12BAFE2B2BA0428E003E7980 /* SurveyModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE282BA0428E003E7980 /* SurveyModelClass.swift */; };
 		12BAFE2D2BA042A7003E7980 /* SurveyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */; };
 		12C3F7D22BB576C6008B43ED /* CustomBioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3F7D12BB576C6008B43ED /* CustomBioData.swift */; };
+		12EAA2DE2BE8C50400C0A1DB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EAA2DD2BE8C50400C0A1DB /* LocationManager.swift */; };
 		12EEFB022BB05F61003053AB /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 12EEFB012BB05F61003053AB /* PythonKit */; };
 		12EEFB042BB05FF3003053AB /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EEFB032BB05FF2003053AB /* SettingsScreen.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		12BAFE282BA0428E003E7980 /* SurveyModelClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyModelClass.swift; sourceTree = "<group>"; };
 		12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyScreen.swift; sourceTree = "<group>"; };
 		12C3F7D12BB576C6008B43ED /* CustomBioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBioData.swift; sourceTree = "<group>"; };
+		12EAA2DD2BE8C50400C0A1DB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		12EEFB032BB05FF2003053AB /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +194,7 @@
 		1276E3722B7ACD99002CBACB /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				12EAA2DD2BE8C50400C0A1DB /* LocationManager.swift */,
 				12E1EDE82B95A73B0016EDDE /* Usecases */,
 			);
 			path = Business;
@@ -280,8 +283,8 @@
 		12E1EDE82B95A73B0016EDDE /* Usecases */ = {
 			isa = PBXGroup;
 			children = (
-				121BAD262BDF97E5009E83A9 /* BioSignalDataUseCase.swift */,
 				125DC0942BE85C6B0098BB1A /* AsthmaThreatCalculatorUseCase.swift */,
+				121BAD262BDF97E5009E83A9 /* BioSignalDataUseCase.swift */,
 				125DC0962BE868290098BB1A /* EnviromentalDataUseCase.swift */,
 			);
 			path = Usecases;
@@ -445,6 +448,7 @@
 				1236025A2BD70CD000A2C657 /* APIManager.swift in Sources */,
 				12BAFE2D2BA042A7003E7980 /* SurveyScreen.swift in Sources */,
 				121BAD272BDF97E5009E83A9 /* BioSignalDataUseCase.swift in Sources */,
+				12EAA2DE2BE8C50400C0A1DB /* LocationManager.swift in Sources */,
 				1276E3642B7ACD74002CBACB /* ContentView.swift in Sources */,
 				125DC0972BE868290098BB1A /* EnviromentalDataUseCase.swift in Sources */,
 				125DC0952BE85C6B0098BB1A /* AsthmaThreatCalculatorUseCase.swift in Sources */,

@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import Charts
+import CoreLocation
 
 struct AsthmaThreat: Identifiable {
     let id = UUID()
@@ -88,23 +89,12 @@ struct AsthmaThreatChart: View {
                 
             
             Spacer()
-            
-      
-          //button to call API Herre
-            Button(action: {
-                makePollenRequest()
-                makeAirQualityRequest()
-            }) {
-                Label("Call API", systemImage: "sun.min")
-            }
-
-            
-            Spacer()
         }
     }
 }
 
 struct AnalyticsView: View {
+    
     let asthmaThreats: [AsthmaThreat] = [
         AsthmaThreat(title: "Biosignals", risks: 0.5),
 //        AsthmaThreat(title: "Heart Rate", risks: 0.3),
@@ -134,9 +124,16 @@ struct AnalyticsView: View {
                 }
                 .padding(.horizontal)
             }
+            
+            Spacer()
+            
+            Spacer()
+            
             CustomBioData(bioSignal: "Respiratory Rate", time: "12:00", data: "No data")
             
             CustomBioData(bioSignal: "Heart Rate", time: "12:01", data: "130 BPM")
+            
+            Spacer()
         }
     }
 }

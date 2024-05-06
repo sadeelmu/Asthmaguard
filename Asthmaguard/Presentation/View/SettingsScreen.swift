@@ -7,6 +7,16 @@
 
 import Foundation
 import SwiftUI
+ /**    let repositoryRateValue =
+  let bloodOxygenValue =
+  
+  
+  var weightRepositoryrate = repositoryRateValue
+  var weightBloodoxygen = bloodOxygenValue
+  var weightedHeartrate = heartRateValue
+  var weightPollution = pollutionValue
+  var weightPollen = pollenValue*/
+
 
 @available(iOS 17.0, *)
 struct SettingsScreen: View {

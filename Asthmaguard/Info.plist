@@ -2,8 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We need your location to fetch air quality and pollen forecast data.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>We need your location to fetch air quality and pollen forecast data.</string>
 	<key>NSHealthShareUsageDescription</key>
-	<string>Your health data is used to predict asthma attacks</string>
+	<string>We need your health data to predict asthma attacks</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Poppins-Regular.ttf</string>

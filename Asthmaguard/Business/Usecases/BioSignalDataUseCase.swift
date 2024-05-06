@@ -8,7 +8,7 @@
 import Foundation
 import HealthKit
 
-class HealthData {
+class BioSignalData {
     
     static let healthStore: HKHealthStore = HKHealthStore()
     
