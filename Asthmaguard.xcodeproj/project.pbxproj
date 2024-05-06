@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		121A50D72BBA364500198997 /* BreathingExerciseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */; };
 		121A50D92BBA401600198997 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A50D82BBA401600198997 /* CustomTabView.swift */; };
-		121BAD272BDF97E5009E83A9 /* BioSignalDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121BAD262BDF97E5009E83A9 /* BioSignalDataUseCase.swift */; };
+		121BAD272BDF97E5009E83A9 /* BioSignalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121BAD262BDF97E5009E83A9 /* BioSignalData.swift */; };
 		1236025A2BD70CD000A2C657 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123602592BD70CCF00A2C657 /* APIManager.swift */; };
 		1236025C2BD8E1A700A2C657 /* DatabaseSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1236025B2BD8E1A700A2C657 /* DatabaseSetUp.swift */; };
 		123912F02B95B0E3009BD42C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 123912EF2B95B0E3009BD42C /* Poppins-Regular.ttf */; };
@@ -26,8 +26,9 @@
 		1258F1432BB5743F0096DD9E /* BiometricData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258F1422BB5743F0096DD9E /* BiometricData.swift */; };
 		1258F1452BB5745C0096DD9E /* AsthmaTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258F1442BB5745C0096DD9E /* AsthmaTrigger.swift */; };
 		1258F1472BB5746B0096DD9E /* Companion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258F1462BB5746B0096DD9E /* Companion.swift */; };
-		125DC0952BE85C6B0098BB1A /* AsthmaThreatCalculatorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DC0942BE85C6B0098BB1A /* AsthmaThreatCalculatorUseCase.swift */; };
-		125DC0972BE868290098BB1A /* EnviromentalDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DC0962BE868290098BB1A /* EnviromentalDataUseCase.swift */; };
+		125DC0952BE85C6B0098BB1A /* AsthmaThreatCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DC0942BE85C6B0098BB1A /* AsthmaThreatCalculator.swift */; };
+		125DC0972BE868290098BB1A /* EnviromentalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DC0962BE868290098BB1A /* EnviromentalData.swift */; };
+		1267AC2E2BE8DFEB0051FA38 /* HealthDataAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1267AC2D2BE8DFEB0051FA38 /* HealthDataAnalyzer.swift */; };
 		126FC2782BA2FFCC00BE1FDD /* CompanionRegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FC2772BA2FFCC00BE1FDD /* CompanionRegisterScreen.swift */; };
 		126FC27A2BA3002100BE1FDD /* CompanionRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FC2792BA3002100BE1FDD /* CompanionRegisterViewModel.swift */; };
 		126FC27C2BA30B1B00BE1FDD /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FC27B2BA30B1B00BE1FDD /* DashboardView.swift */; };
@@ -51,7 +52,7 @@
 		121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingExerciseScreen.swift; sourceTree = "<group>"; };
 		121A50D82BBA401600198997 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		121BAD252BDF9709009E83A9 /* Asthmaguard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Asthmaguard.entitlements; sourceTree = "<group>"; };
-		121BAD262BDF97E5009E83A9 /* BioSignalDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioSignalDataUseCase.swift; sourceTree = "<group>"; };
+		121BAD262BDF97E5009E83A9 /* BioSignalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioSignalData.swift; sourceTree = "<group>"; };
 		123602592BD70CCF00A2C657 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		1236025B2BD8E1A700A2C657 /* DatabaseSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseSetUp.swift; sourceTree = "<group>"; };
 		123912EF2B95B0E3009BD42C /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -69,8 +70,9 @@
 		1258F1422BB5743F0096DD9E /* BiometricData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricData.swift; sourceTree = "<group>"; };
 		1258F1442BB5745C0096DD9E /* AsthmaTrigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaTrigger.swift; sourceTree = "<group>"; };
 		1258F1462BB5746B0096DD9E /* Companion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Companion.swift; sourceTree = "<group>"; };
-		125DC0942BE85C6B0098BB1A /* AsthmaThreatCalculatorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaThreatCalculatorUseCase.swift; sourceTree = "<group>"; };
-		125DC0962BE868290098BB1A /* EnviromentalDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviromentalDataUseCase.swift; sourceTree = "<group>"; };
+		125DC0942BE85C6B0098BB1A /* AsthmaThreatCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaThreatCalculator.swift; sourceTree = "<group>"; };
+		125DC0962BE868290098BB1A /* EnviromentalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviromentalData.swift; sourceTree = "<group>"; };
+		1267AC2D2BE8DFEB0051FA38 /* HealthDataAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataAnalyzer.swift; sourceTree = "<group>"; };
 		126FC2772BA2FFCC00BE1FDD /* CompanionRegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionRegisterScreen.swift; sourceTree = "<group>"; };
 		126FC2792BA3002100BE1FDD /* CompanionRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionRegisterViewModel.swift; sourceTree = "<group>"; };
 		126FC27B2BA30B1B00BE1FDD /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -283,9 +285,10 @@
 		12E1EDE82B95A73B0016EDDE /* Usecases */ = {
 			isa = PBXGroup;
 			children = (
-				125DC0942BE85C6B0098BB1A /* AsthmaThreatCalculatorUseCase.swift */,
-				121BAD262BDF97E5009E83A9 /* BioSignalDataUseCase.swift */,
-				125DC0962BE868290098BB1A /* EnviromentalDataUseCase.swift */,
+				125DC0942BE85C6B0098BB1A /* AsthmaThreatCalculator.swift */,
+				121BAD262BDF97E5009E83A9 /* BioSignalData.swift */,
+				125DC0962BE868290098BB1A /* EnviromentalData.swift */,
+				1267AC2D2BE8DFEB0051FA38 /* HealthDataAnalyzer.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -447,11 +450,12 @@
 				123912FB2B95C197009BD42C /* RegisterViewModel.swift in Sources */,
 				1236025A2BD70CD000A2C657 /* APIManager.swift in Sources */,
 				12BAFE2D2BA042A7003E7980 /* SurveyScreen.swift in Sources */,
-				121BAD272BDF97E5009E83A9 /* BioSignalDataUseCase.swift in Sources */,
+				121BAD272BDF97E5009E83A9 /* BioSignalData.swift in Sources */,
 				12EAA2DE2BE8C50400C0A1DB /* LocationManager.swift in Sources */,
+				1267AC2E2BE8DFEB0051FA38 /* HealthDataAnalyzer.swift in Sources */,
 				1276E3642B7ACD74002CBACB /* ContentView.swift in Sources */,
-				125DC0972BE868290098BB1A /* EnviromentalDataUseCase.swift in Sources */,
-				125DC0952BE85C6B0098BB1A /* AsthmaThreatCalculatorUseCase.swift in Sources */,
+				125DC0972BE868290098BB1A /* EnviromentalData.swift in Sources */,
+				125DC0952BE85C6B0098BB1A /* AsthmaThreatCalculator.swift in Sources */,
 				1258F1412BB5742C0096DD9E /* AsthmaPrediction.swift in Sources */,
 				126FC27C2BA30B1B00BE1FDD /* DashboardView.swift in Sources */,
 				1258F1372BB573780096DD9E /* User.swift in Sources */,

@@ -13,8 +13,12 @@ class EnviromentalData{
         let dateTime: String
         let regionCode: String
         let universalAQI: Int?
-        let localAQI: Int?
     }
+    
+    struct CustomLocalAqi {
+          let regionCode: String
+          let aqi: String
+      }
 
     struct PollenForecastData {
         let date: Date
@@ -31,70 +35,83 @@ class EnviromentalData{
         let displayName: String
     }
 
-
     func fetchAirQuality(latitude: Double, longitude: Double, completion: @escaping (AirQualityData?) -> Void) {
-        let urlString = "https://airquality.googleapis.com/v1/currentConditions:lookup?key=AIzaSyBsEgk_PWNwRVmGAA_ihIF1JmBtJskuur8"
-        guard let url = URL(string: urlString) else {
+        let requestBody = AirQualityRequest(location: AirQualityRequest.Location(latitude: latitude, longitude: longitude))
+
+        guard let jsonData = try? JSONEncoder().encode(requestBody) else {
+            print("Error encoding request")
             completion(nil)
             return
         }
-        
-        let parameters: [String: Any] = [
-            "universalAqi": true,
-            "location": [
-                "latitude": latitude,
-                "longitude": longitude
-            ],
-            "extraComputations": ["LOCAL_AQI"],
-            "languageCode": "en"
-        ]
-        
+
+        let urlString = "https://airquality.googleapis.com/v1/currentConditions:lookup?key=AIzaSyBsEgk_PWNwRVmGAA_ihIF1JmBtJskuur8"
+        guard let url = URL(string: urlString) else {
+            print("Invalid URL")
+            completion(nil)
+            return
+        }
+
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = try? JSONSerialization.data(withJSONObject: parameters)
-        
+        request.httpBody = jsonData
+
         let session = URLSession.shared
+
         let task = session.dataTask(with: request) { (data, response, error) in
-            guard let data = data else {
-                print("No data returned from API.")
+            if let error = error {
+                print("Error: \(error)")
                 completion(nil)
                 return
             }
-            
-            if let airQualityData = self.parseAirQualityResponse(data) {
-                completion(airQualityData)
-            } else {
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("No response")
+                completion(nil)
+                return
+            }
+
+            guard (200...299).contains(httpResponse.statusCode) else {
+                print("HTTP status code \(httpResponse.statusCode)")
+                completion(nil)
+                return
+            }
+
+            guard let responseData = data else {
+                print("No data received")
+                completion(nil)
+                return
+            }
+
+            do {
+                if let airQualityData = try self.parseAirQualityResponse(responseData) {
+                    completion(airQualityData)
+                } else {
+                    print("Failed to parse air quality data")
+                    completion(nil)
+                }
+            } catch {
+                print("Error decoding JSON: \(error)")
                 completion(nil)
             }
         }
-        
+
         task.resume()
     }
 
-    func parseAirQualityResponse(_ data: Data) -> AirQualityData? {
-        do {
-            guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
-                print("Invalid JSON format.")
-                return nil
-            }
-            
-            guard
-                let dateTime = json["dateTime"] as? String,
-                let regionCode = json["regionCode"] as? String,
-                let indexes = json["indexes"] as? [[String: Any]],
-                let universalAQI = indexes.first(where: { ($0["code"] as? String) == "uaqi" })?["aqi"] as? Int,
-                let localAQI = indexes.first(where: { ($0["code"] as? String) == "local_aqi" })?["aqi"] as? Int
-            else {
-                print("Missing or invalid data in API response.")
-                return nil
-            }
-            
-            return AirQualityData(dateTime: dateTime, regionCode: regionCode, universalAQI: universalAQI, localAQI: localAQI)
-        } catch {
-            print("Error parsing JSON: \(error.localizedDescription)")
+    private func parseAirQualityResponse(_ data: Data) throws -> AirQualityData? {
+        let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+        guard let dateTime = json?["dateTime"] as? String,
+              let regionCode = json?["regionCode"] as? String,
+              let indexes = json?["indexes"] as? [[String: Any]],
+              let index = indexes.first,
+              let universalAQI = index["aqi"] as? Int
+        else {
+            print("Failed to parse air quality data")
             return nil
         }
+
+        return AirQualityData(dateTime: dateTime, regionCode: regionCode, universalAQI: universalAQI)
     }
 
 

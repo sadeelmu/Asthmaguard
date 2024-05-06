@@ -15,32 +15,27 @@ class BioSignalData {
     // MARK: - Authorization
 
     class func requestHealthDataAccessIfNeeded(completion: @escaping (_ success: Bool) -> Void) {
-        guard HKHealthStore.isHealthDataAvailable() else {
-            fatalError("Health data is not available!")
-        }
-        
-        let readDataTypes: Set<HKObjectType> = [
-            HKObjectType.quantityType(forIdentifier: .heartRate)!,
-            HKObjectType.quantityType(forIdentifier: .restingHeartRate)!,
-            HKObjectType.quantityType(forIdentifier: .walkingHeartRateAverage)!,
-            HKObjectType.quantityType(forIdentifier: .oxygenSaturation)!,
-            HKObjectType.quantityType(forIdentifier: .respiratoryRate)!
-        ]
-        
-        healthStore.requestAuthorization(toShare: nil, read: readDataTypes) { (success, error) in
-            if let error = error {
-                print("requestAuthorization error:", error.localizedDescription)
-            }
-            
-            if success {
-                print("HealthKit authorization request was successful!")
-            } else {
-                print("HealthKit authorization was not successful.")
-            }
-            
-            completion(success)
-        }
-    }
+          guard HKHealthStore.isHealthDataAvailable() else {
+              completion(false)
+              return
+          }
+
+          let readDataTypes: Set<HKObjectType> = [
+              HKObjectType.quantityType(forIdentifier: .heartRate)!,
+              HKObjectType.quantityType(forIdentifier: .respiratoryRate)!,
+              HKObjectType.quantityType(forIdentifier: .oxygenSaturation)!
+          ]
+
+          healthStore.requestAuthorization(toShare: nil, read: readDataTypes) { (success, error) in
+              if let error = error {
+                  print("HealthKit authorization error:", error.localizedDescription)
+                  completion(false)
+                  return
+              }
+
+              completion(success)
+          }
+      }
     
     // MARK: - Fetch Vital Signs
     

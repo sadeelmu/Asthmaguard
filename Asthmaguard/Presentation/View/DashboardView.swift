@@ -129,9 +129,11 @@ struct AnalyticsView: View {
             
             Button(action: {
                 AsthmaThreatCalculatorUseCase.fetchData()
+                AsthmaThreatCalculatorUseCase.fetchDataAndCalculateAsthmaSeverity()
             }) {
-                Label("Call API", systemImage: "sun.min")
+                Label("Show data", systemImage: "sun.min")
             }
+        
             
             Spacer()
             
@@ -147,9 +149,11 @@ struct AnalyticsView: View {
 
 @available(iOS 17.0, *)
 struct DashboardView: View {
+
     @State private var selection = 0
     
     var body: some View {
+        
         TabView(selection:$selection) {
             NavigationView {
                 AsthmaThreatChart()
