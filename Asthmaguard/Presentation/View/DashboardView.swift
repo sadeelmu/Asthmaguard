@@ -60,33 +60,33 @@ struct AsthmaThreatChart: View {
     ]
     
     @State private var showDetailsView = false
-
+    
     var body: some View {
         VStack {
             Spacer()
             let chartColors: [Color] = [
                 .pink, .pink, .blue
-              ]
+            ]
             
             Chart(asthmathreat) { asthmathreat in
-                    SectorMark(
-                        angle: .value(
-                            Text(asthmathreat.title),
-                            asthmathreat.risks
-                        ),
-                        innerRadius: .ratio(0.6),
-                        angularInset: 0.8
-                    )
-                    .cornerRadius(4)
-                    .foregroundStyle(by: .value("Threats", asthmathreat.title))
-                }.frame(width: 300, height: 300)
+                SectorMark(
+                    angle: .value(
+                        Text(asthmathreat.title),
+                        asthmathreat.risks
+                    ),
+                    innerRadius: .ratio(0.6),
+                    angularInset: 0.8
+                )
+                .cornerRadius(4)
+                .foregroundStyle(by: .value("Threats", asthmathreat.title))
+            }.frame(width: 300, height: 300)
                 .chartForegroundStyleScale(domain: .automatic, range: chartColors)
-           
+            
             
             
             Text("Asthma Threat: 80%")
                 .font(Font.custom("Poppins-Bold", size: 26))
-                
+            
             
             Spacer()
         }
@@ -97,14 +97,14 @@ struct AnalyticsView: View {
     
     let asthmaThreats: [AsthmaThreat] = [
         AsthmaThreat(title: "Biosignals", risks: 0.5),
-//        AsthmaThreat(title: "Heart Rate", risks: 0.3),
-//        AsthmaThreat(title: "Respitory Rate", risks: 0.2),
-
+        //        AsthmaThreat(title: "Heart Rate", risks: 0.3),
+        //        AsthmaThreat(title: "Respitory Rate", risks: 0.2),
+        
         AsthmaThreat(title: "Environmental", risks: 0.2),
-//        AsthmaThreat(title: "Allergies", risks: 0.1),
-//        AsthmaThreat(title: "Weather", risks: 0.1),
-
-
+        //        AsthmaThreat(title: "Allergies", risks: 0.1),
+        //        AsthmaThreat(title: "Weather", risks: 0.1),
+        
+        
     ]
     
     var body: some View {
@@ -126,6 +126,12 @@ struct AnalyticsView: View {
             }
             
             Spacer()
+            
+            Button(action: {
+                AsthmaThreatCalculatorUseCase.fetchData()
+            }) {
+                Label("Call API", systemImage: "sun.min")
+            }
             
             Spacer()
             

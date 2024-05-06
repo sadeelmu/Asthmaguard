@@ -39,6 +39,15 @@ class AsthmaThreatCalculatorUseCase {
         }
     }
     
+    static func fetchData(){
+        fetchBiosignalData { biosignalSamples in
+            // Fetch environmental data
+            fetchEnvironmentalData { airQualityData, pollenForecastData in
+                print("airQuality data \(airQualityData), pollenforecastData \(pollenForecastData), bioSignalData \(biosignalSamples)")
+            }
+        }
+    }
+    
     static func fetchBiosignalData(completion: @escaping ([HKQuantitySample]?) -> Void) {
         BioSignalData.fetchHeartRateSamples { heartRateSamples, _ in
             // Handle heart rate samples
