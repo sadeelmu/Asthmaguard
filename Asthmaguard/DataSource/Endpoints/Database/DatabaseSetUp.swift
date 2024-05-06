@@ -11,7 +11,7 @@ import SQLite3
 class SQLiteDatabase {
     var dbPointer: OpaquePointer?
     
-    private init(dbPointer: OpaquePointer?) {
+    init(dbPointer: OpaquePointer?) {
         self.dbPointer = dbPointer
     }
     
@@ -66,9 +66,9 @@ class SQLiteDatabase {
 
 class DatabaseManager {
     static let shared = DatabaseManager()
-    private var database: SQLiteDatabase
+    var database: SQLiteDatabase
     
-    private init() {
+    init() {
         let dbPath = try! FileManager.default
             .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             .appendingPathComponent("YourDatabaseName.sqlite").path

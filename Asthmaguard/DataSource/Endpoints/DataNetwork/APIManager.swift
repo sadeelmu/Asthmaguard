@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import CoreLocation
+import WeatherKit
 
 // Define struct for Air Quality Request
 struct AirQualityRequest: Codable {
@@ -16,7 +18,6 @@ struct AirQualityRequest: Codable {
         let longitude: Double
     }
 }
-
 // Function to make HTTP POST request
 func makeAirQualityRequest() {
     let requestBody = AirQualityRequest(location: AirQualityRequest.Location(latitude: 32.023090, longitude: 35.875825))
