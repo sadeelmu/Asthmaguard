@@ -21,7 +21,7 @@ import SwiftUI
 @available(iOS 17.0, *)
 struct SettingsScreen: View {
     @State private var notificationsChoice:Bool = true
-    @State private var userName:String = "Sadeel"
+    @State private var userName:String = "Patient"
     @State private var selection = 0
     
     var body: some View {
@@ -63,13 +63,13 @@ struct SettingsScreen: View {
                             }
                         }
                         
-                        Section(header: Text("Patients")) {
+                        Section(header: Text("Companions")) {
                             NavigationLink(destination: PatientsView()) {
-                                Label("Add new patient", systemImage: "person")
+                                Label("Add companion doctor", systemImage: "person")
                             }
                         }
                         
-                        Section(header: Text("Pop-up Notification")) {
+                        Section(header: Text("Notifications")) {
                             Toggle(isOn: $notificationsChoice) {
                                 Label("Pop-up Notification", systemImage: "bell")
                             }.tint(.pink)

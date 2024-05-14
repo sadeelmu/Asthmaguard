@@ -230,16 +230,8 @@ class AsthmaThreatCalculatorUseCase {
         
         let pollenSeverity = calculatePollenSeverity(environmentalData.1)
         
-        let heartRateWeight = 0.25
-        let respiratoryRateWeight = 0.45
-        let bloodOxygenWeight = 0.1
-        let airQualityWeight = 0.1
-        let pollenWeight = 0.1
         
-        
-        let weightedSeverity = ((heartRateSeverity * heartRateWeight) + (respiratoryRateSeverity*respiratoryRateWeight) + (oxygenSaturationSeverity*bloodOxygenWeight) + (airQualitySeverity *airQualityWeight) + (pollenSeverity * pollenWeight))/5
-        
-        return weightedSeverity
+        return heartRateSeverity + respiratoryRateSeverity + oxygenSaturationSeverity + airQualitySeverity + pollenSeverity
     }
 
 }

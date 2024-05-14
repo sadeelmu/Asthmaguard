@@ -19,9 +19,12 @@ struct LoginScreen: View {
         else{
             VStack {
                 Spacer()
-                Text("AsthmaGuard")
+                Text("Asthma")
                     .font(Font.custom("Poppins-Regular", size: 32).weight(.bold))
                     .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
+                + Text("Guard")
+                    .font(Font.custom("Poppins-Regular", size: 32).weight(.bold))
+                    .foregroundColor(Color(red: 0.57, green: 0.64, blue: 0.99))
                 
                 Text("Take a breath\n")
                     .font(Font.custom("Poppins-Regular", size: 16))
@@ -70,10 +73,17 @@ struct LoginScreen: View {
                             .shadow(color: Color(red: 0.58, green: 0.68, blue: 1, opacity: 0.30), radius: 22, y: 10)
                     }
                     
-                    Text("Do not have an account? Get Started!")
-                        .font(Font.custom("Poppins", size: 14))
-                        .lineSpacing(21)
-                        .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
+                    HStack(spacing: 3){
+                        Text("Do not have an account?")
+                            .font(Font.custom("Poppins", size: 14))
+                            .lineSpacing(21)
+                            .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
+                        Button(action:{loginViewModel.register()}){
+                            Text("Get Started!")
+                                .font(Font.custom("Poppins", size: 14))
+                                .foregroundColor(Color(red: 0.57, green: 0.64, blue: 0.99))
+                        }
+                    }
                     
                 }
                 .padding(.horizontal, 32)

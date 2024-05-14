@@ -24,5 +24,8 @@ class LoginViewModel:ObservableObject{
     func companion(){
         print("companion")
     }
+    func register(){
+        
+    }
 }
 

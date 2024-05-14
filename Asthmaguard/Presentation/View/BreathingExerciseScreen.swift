@@ -12,61 +12,59 @@ struct BreathingExerciseScreen: View {
     @State private var selection = 0
 
     var body: some View {
-        TabView(selection:$selection) {
-            ZStack {
-                Color.white.edgesIgnoringSafeArea(.all)
-                
-                VStack(spacing: 10) {
-                    Text("Breathing Exercises")
-                        .font(Font.custom("Poppins-Bold", size: 25))
-                        .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
-                    
-                    Text("Recommended Duration: 5 minutes")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                    
-                    Divider()
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        VStack(alignment:.leading,spacing: 20) {
-                            Text("Set 1")
-                                .font(Font.custom("Poppins-Regular", size: 20))
-                            
-                            HStack{
-                                BreathingExerciseCard(title: "Breathe In", duration: "01:00", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "breathin")
-                                BreathingExerciseCard(title: "Breathe Out", duration: "01:00", color: Color(red: 0.77, green: 0.55, blue: 0.95), imageName: "breatheout")
+ 
+            TabView(selection:$selection) {
+                ZStack {
+                    VStack(spacing: 5) {
+                        Spacer()
+                        Text("Breathing Exercises")
+                            .font(Font.custom("Poppins-Bold", size: 25))
+                            .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
+                        
+                        Text("Recommended Duration: 5 minutes")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                        
+                        Divider()
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            VStack(alignment:.leading,spacing: 20) {
+                                Text("Set 1")
+                                    .font(Font.custom("Poppins-Regular", size: 20))
+                                
+                                HStack{
+                                    BreathingExerciseCard(title: "Breathe In", duration: "01:00", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "breathin")
+                                    BreathingExerciseCard(title: "Breathe Out", duration: "01:00", color: Color(red: 0.77, green: 0.55, blue: 0.95), imageName: "breatheout")
+                                }
+                                
+                                Divider()
+                                Text("Set 2")
+                                    .font(Font.custom("Poppins-Regular", size: 20))
+                                
+                                BreathingExerciseCard(title: "Meditate", duration: "02:00", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "meditate")
                             }
-                            
-                            Divider()
-                            Text("Set 2")
-                                .font(Font.custom("Poppins-Regular", size: 20))
-                            
-                            BreathingExerciseCard(title: "Meditate", duration: "02:00", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "meditate")
+                            .padding(.horizontal, 16)
+                            .padding(.top, 16)
+                        }
+                        Spacer()
+                        Button(action: {
+                            // Action for starting exercises
+                        }) {
+                            Text("Start Selected Exercise")
+                                .font(Font.custom("Poppins-Regular", size: 16).weight(.bold))
+                                .foregroundColor(.white)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 55)
+                                .background(.black)
+                                .cornerRadius(25)
                         }
                         .padding(.horizontal, 16)
-                        .padding(.top, 16)
+                        .padding(.bottom, 24)
+                        
+                        Spacer()
                     }
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        // Action for starting exercises
-                    }) {
-                        Text("Start Selected Exercise")
-                            .font(Font.custom("Poppins-Regular", size: 16).weight(.bold))
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 55)
-                            .background(.black)
-                            .cornerRadius(25)
-                    }
-                    .padding(.horizontal, 16)
-                    .padding(.bottom, 24)
-                    
-                    Spacer()
                 }
             }
-        }
     }
 }
 

@@ -24,6 +24,10 @@ class RegisterViewModel: ObservableObject {
     func registerWithApple() {
         print("Register with Apple")
     }
+    
+    func login(){
+        
+    }
 }
 
 

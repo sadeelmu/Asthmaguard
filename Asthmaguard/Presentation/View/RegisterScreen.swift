@@ -18,7 +18,14 @@ struct RegisterScreen: View {
             LoginScreen()
         }
         else{
+            Spacer()
             VStack(spacing: 20) {
+                Text("Asthma")
+                    .font(Font.custom("Poppins-Regular", size: 32).weight(.bold))
+                    .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
+                + Text("Guard")
+                    .font(Font.custom("Poppins-Regular", size: 32).weight(.bold))
+                    .foregroundColor(Color(red: 0.57, green: 0.64, blue: 0.99))
                 Spacer()
                 VStack(spacing:5){
                     Text("Hey there,")
@@ -86,15 +93,24 @@ struct RegisterScreen: View {
                     }
                 }
                 
-                Text("Already have an account? Login")
-                    .font(Font.custom("Poppins-Regular", size: 14))
-                    .lineSpacing(21)
-                    .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
+                HStack(spacing: 3){
+                    Text("Already have an account?")
+                        .font(Font.custom("Poppins", size: 14))
+                        .lineSpacing(21)
+                        .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
+                    Button(action:{registerViewModel.login()}){
+                        Text("Login!")
+                        .font(Font.custom("Poppins", size: 14))
+                        .foregroundColor(Color(red: 0.57, green: 0.64, blue: 0.99))
+                    }
+                }
             }
             .padding()
             .background(Color.white)
+            
+            Spacer()
         }
-        }
+    }
     
     
 }
