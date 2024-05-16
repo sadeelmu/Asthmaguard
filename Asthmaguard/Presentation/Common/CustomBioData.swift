@@ -19,28 +19,29 @@ public struct CustomBioData: View {
                 HStack(alignment: .center) {
                     HStack(spacing: 2) {
                         Text(bioSignal)
-                            .font(Font.custom("Poppins-Regular", size: 16))
+                            .font(Font.custom("Poppins-Regular", size: 14))
                             .foregroundColor(Color(red: 0.92, green: 0.29, blue: 0.38))
                     }
                     Spacer()
                     HStack(spacing: 2) {
                         Text(time)
-                            .font(Font.custom("Poppins-Bold", size: 14))
+                            .font(Font.custom("Poppins-Bold", size: 12))
                             .foregroundColor(Color(red: 0.52, green: 0.52, blue: 0.52))
                     }
                 }
                 .frame(maxWidth: .infinity)
                 
                 Text(data)
-                    .font(Font.custom("Poppins-Regular", size: 20).weight(.black))
-                    .foregroundColor(Color(red: 0.52, green: 0.52, blue: 0.52))
+                    .font(Font.custom("Poppins-Regular", size: 16))
+                    .foregroundColor(.black)
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .padding(20)
-        .frame(width: 335, height: 90)
-        .background(Color(red: 1, green: 0.80, blue: 0.85))
+        .frame(width: 300, height: 75)
+        .background(Color(red: 1, green: 0.80, blue: 0.85).opacity(0.4))
+        
         .cornerRadius(10)
     }
 }

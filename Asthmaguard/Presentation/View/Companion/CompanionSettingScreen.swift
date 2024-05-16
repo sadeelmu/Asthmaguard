@@ -1,27 +1,18 @@
 //
-//  SettingsScreen.swift
+//  CompanionSettingScreen.swift
 //  Asthmaguard
 //
-//  Created by Sadeel Muwahed on 17/03/2024.
+//  Created by Sadeel Muwahed on 16/05/2024.
 //
 
 import Foundation
 import SwiftUI
- /**    let repositoryRateValue =
-  let bloodOxygenValue =
-  
-  
-  var weightRepositoryrate = repositoryRateValue
-  var weightBloodoxygen = bloodOxygenValue
-  var weightedHeartrate = heartRateValue
-  var weightPollution = pollutionValue
-  var weightPollen = pollenValue*/
 
 
 @available(iOS 17.0, *)
-struct SettingsScreen: View {
+struct CompanionSettingsScreen: View {
     @State private var notificationsChoice:Bool = true
-    @State private var userName:String = "Patient"
+    @State private var userName:String = "Doctor"
     @State private var selection = 0
     
     var body: some View {
@@ -31,7 +22,7 @@ struct SettingsScreen: View {
                     Form {
                         ZStack(alignment: .leading) {
                             HStack {
-                                Image("patient")
+                                Image("doctor")
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 40, height: 40)
@@ -53,18 +44,15 @@ struct SettingsScreen: View {
                             }
                         }
                         Section(header: Text("Account")) {
-                            NavigationLink(destination: PersonalDataView()) {
-                                Label("Personal Data", systemImage: "person")
-                            }
                             
                             NavigationLink(destination: AccountView()) {
-                                Label("Asthma Attacks", systemImage: "chart.pie.fill")
+                                Label("Patient Asthma Attacks", systemImage: "chart.pie.fill")
                             }
                         }
                         
-                        Section(header: Text("Companions")) {
+                        Section(header: Text("Patient")) {
                             NavigationLink(destination: PatientsView()) {
-                                Label("Add companion doctor", systemImage: "person")
+                                Label("Add a patient", systemImage: "person")
                             }
                         }
                         
@@ -92,44 +80,10 @@ struct SettingsScreen: View {
     }
 }
 
-struct PersonalDataView: View {
-    var body: some View {
-        Text("Personal Data View")
-    }
-}
 
-struct AccountView: View {
-    var body: some View {
-        Text("Asthma Attacks View")
-    }
-}
-
-struct PatientsView: View {
-    var body: some View {
-        Text("Patients View")
-    }
-}
-
-struct NotificationView: View {
-    var body: some View {
-        Text("Notification View")
-    }
-}
-
-struct ContactView: View {
-    var body: some View {
-        Text("Contact View")
-    }
-}
-
-struct PrivacyView: View {
-    var body: some View {
-        Text("Privacy View")
-    }
-}
 
 @available(iOS 17.0, *)
-struct SettingsScreen_Previews: PreviewProvider {
+struct CompanionSettingsScreen_Previews: PreviewProvider {
     static var previews: some View {
         SettingsScreen()
     }

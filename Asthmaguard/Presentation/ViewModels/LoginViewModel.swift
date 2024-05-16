@@ -11,6 +11,8 @@ class LoginViewModel:ObservableObject{
     @Published var email:String = ""
     @Published var password:String = ""
     @Published var isLogin: Bool = false
+    @Published var shouldNavigateToCompanionDashboard: Bool = false
+
     
     func login(){
         DatabaseManager.shared.fetchUsers()
@@ -22,10 +24,10 @@ class LoginViewModel:ObservableObject{
     }
     
     func companion(){
-        print("companion")
+        isLogin = true
+        shouldNavigateToCompanionDashboard = true
     }
     func register(){
-        
     }
 }
 

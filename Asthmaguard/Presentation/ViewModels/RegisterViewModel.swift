@@ -26,7 +26,6 @@ class RegisterViewModel: ObservableObject {
     }
     
     func login(){
-        
     }
 }
 

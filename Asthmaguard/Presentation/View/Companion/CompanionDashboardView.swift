@@ -1,8 +1,8 @@
 //
-//  DashboardView.swift
+//  CompanionDashboardView.swift
 //  Asthmaguard
 //
-//  Created by Sadeel Muwahed on 13/03/2024.
+//  Created by Sadeel Muwahed on 16/05/2024.
 //
 
 import Foundation
@@ -10,41 +10,8 @@ import SwiftUI
 import Charts
 import CoreLocation
 
-struct AsthmaThreat: Identifiable {
-    let id = UUID()
-    let title: String
-    let risks: Double
-}
-
-struct Enviromental: Identifiable{
-    var id = UUID()
-    let title: String
-    let severity: Double
-}
-struct BioSignal: Identifiable{
-    var id = UUID()
-    let title: String
-    let severity: Double
-}
-
-
-func colorForRisk(_ title: String) -> Color {
-    switch title {
-    case "Biosignals":
-        return .pink
-    case "Enviromental":
-        return .pink
-    case "Normal":
-        return .blue
-    default:
-        return .blue
-    }
-}
-
-
-
 @available(iOS 17.0, *)
-struct AsthmaThreatChart: View {
+struct CompanionAsthmaThreatChart: View {
     @State var asthmathreat: [AsthmaThreat] = [
         .init(title: "Biosignals", risks: 0.3),
         .init(title: "Enviromental", risks: 0.1),
@@ -62,14 +29,27 @@ struct AsthmaThreatChart: View {
                 .padding(.all)
             
             let chartColors: [Color] = [
-                .pink.opacity(0.5), .pink, .blue
+                .pink, .pink, .blue
             ]
             
-          
             let asthmaThreatRisks:Double = 0.4
             
+            HStack {
+                Image("patient")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 40, height: 40)
+                    .clipShape(Circle())
+                    .padding(.leading, 10)
+                VStack(alignment: .leading) {
+                    Text("Patient Name")
+                        .font(.title3)
+                }
+            
+            }
+            
             Text("Asthma Threat: \(asthmaThreatRisks * 100,  specifier: "%.1f")%")
-                .font(Font.custom("Poppins-Regular", size: 18))
+                .font(Font.custom("Poppins-Regular", size: 26))
             
             Chart(asthmathreat) { asthmathreat in
                 SectorMark(
@@ -84,8 +64,8 @@ struct AsthmaThreatChart: View {
                 .foregroundStyle(by: .value("Threats", asthmathreat.title))
             }.frame(width: 300, height: 250)
                 .chartForegroundStyleScale(domain: .automatic, range: chartColors)
-            
-        Spacer()
+                        
+            Spacer()
             VStack(spacing:10){
                 CustomBioData(bioSignal: "Respiratory Rate", time: "11:55 AM", data: "19 breathes/min")
                 
@@ -100,7 +80,7 @@ struct AsthmaThreatChart: View {
 
 
 @available(iOS 17.0, *)
-struct DashboardView: View {
+struct CompanionDashboardView: View {
 
     @State private var selection = 0
     
@@ -108,7 +88,7 @@ struct DashboardView: View {
         
         TabView(selection:$selection) {
             NavigationView {
-                AsthmaThreatChart()
+                CompanionAsthmaThreatChart()
                     .navigationTitle("")
                     .navigationBarBackButtonHidden(false)
             }.tabItem {
@@ -121,19 +101,18 @@ struct DashboardView: View {
                     Label("Analytics", systemImage: "chart.xyaxis.line")
                 }
                 .tag(1)
+        
             
-            BreathingExerciseScreen().tabItem { Label("Breathing", systemImage:"figure.mind.and.body")}.tag(2)
-            
-            SettingsScreen().tabItem { Label("Settings", systemImage: "gearshape") }.tag(3)
+            CompanionSettingsScreen().tabItem { Label("Settings", systemImage: "gearshape") }.tag(2)
         }
     }
 }
 
 
 @available(iOS 17.0, *)
-struct AsthmaThreatChart_Previews: PreviewProvider {
+struct CompanionAsthmaThreatChart_Previews: PreviewProvider {
     static var previews: some View {
-        DashboardView()
+        CompanionDashboardView()
     }
 }
 

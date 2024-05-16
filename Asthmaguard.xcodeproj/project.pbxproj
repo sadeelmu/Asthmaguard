@@ -43,6 +43,10 @@
 		12BAFE2B2BA0428E003E7980 /* SurveyModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE282BA0428E003E7980 /* SurveyModelClass.swift */; };
 		12BAFE2D2BA042A7003E7980 /* SurveyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */; };
 		12C3F7D22BB576C6008B43ED /* CustomBioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3F7D12BB576C6008B43ED /* CustomBioData.swift */; };
+		12E0B08A2BF5F3BB003E18D6 /* howtouseinhaler.gif in Resources */ = {isa = PBXBuildFile; fileRef = 12E0B0892BF5F3BA003E18D6 /* howtouseinhaler.gif */; };
+		12E0B08E2BF60E5E003E18D6 /* CompanionDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E0B08D2BF60E5E003E18D6 /* CompanionDashboardView.swift */; };
+		12E0B0902BF60EBE003E18D6 /* CompanionSettingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E0B08F2BF60EBE003E18D6 /* CompanionSettingScreen.swift */; };
+		12E0B0922BF60F89003E18D6 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E0B0912BF60F89003E18D6 /* AnalyticsView.swift */; };
 		12EAA2DE2BE8C50400C0A1DB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EAA2DD2BE8C50400C0A1DB /* LocationManager.swift */; };
 		12EEFB022BB05F61003053AB /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 12EEFB012BB05F61003053AB /* PythonKit */; };
 		12EEFB042BB05FF3003053AB /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EEFB032BB05FF2003053AB /* SettingsScreen.swift */; };
@@ -88,6 +92,10 @@
 		12BAFE282BA0428E003E7980 /* SurveyModelClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyModelClass.swift; sourceTree = "<group>"; };
 		12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyScreen.swift; sourceTree = "<group>"; };
 		12C3F7D12BB576C6008B43ED /* CustomBioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBioData.swift; sourceTree = "<group>"; };
+		12E0B0892BF5F3BA003E18D6 /* howtouseinhaler.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = howtouseinhaler.gif; path = ../../../../Downloads/howtouseinhaler.gif; sourceTree = "<group>"; };
+		12E0B08D2BF60E5E003E18D6 /* CompanionDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionDashboardView.swift; sourceTree = "<group>"; };
+		12E0B08F2BF60EBE003E18D6 /* CompanionSettingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionSettingScreen.swift; sourceTree = "<group>"; };
+		12E0B0912BF60F89003E18D6 /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		12EAA2DD2BE8C50400C0A1DB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		12EEFB032BB05FF2003053AB /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +140,7 @@
 		1276E3552B7ACD74002CBACB = {
 			isa = PBXGroup;
 			children = (
+				12E0B0892BF5F3BA003E18D6 /* howtouseinhaler.gif */,
 				1276E3602B7ACD74002CBACB /* Asthmaguard */,
 				1276E35F2B7ACD74002CBACB /* Products */,
 				121BAD372BDF9C0C009E83A9 /* Frameworks */,
@@ -267,17 +276,28 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		12E0B0932BF60FC4003E18D6 /* Companion */ = {
+			isa = PBXGroup;
+			children = (
+				126FC2772BA2FFCC00BE1FDD /* CompanionRegisterScreen.swift */,
+				12E0B08F2BF60EBE003E18D6 /* CompanionSettingScreen.swift */,
+				12E0B08D2BF60E5E003E18D6 /* CompanionDashboardView.swift */,
+			);
+			path = Companion;
+			sourceTree = "<group>";
+		};
 		12E1EDE72B95A72A0016EDDE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				12E0B0932BF60FC4003E18D6 /* Companion */,
 				1276E3752B7ACF56002CBACB /* LoginScreen.swift */,
 				123912F82B95BFD8009BD42C /* RegisterScreen.swift */,
 				12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */,
 				12BAFE262BA0428E003E7980 /* SurveyView.swift */,
-				126FC2772BA2FFCC00BE1FDD /* CompanionRegisterScreen.swift */,
 				126FC27B2BA30B1B00BE1FDD /* DashboardView.swift */,
 				12EEFB032BB05FF2003053AB /* SettingsScreen.swift */,
 				121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */,
+				12E0B0912BF60F89003E18D6 /* AnalyticsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -427,6 +447,7 @@
 				1276E3692B7ACD76002CBACB /* Preview Assets.xcassets in Resources */,
 				1276E3662B7ACD76002CBACB /* Assets.xcassets in Resources */,
 				123912F22B95B0F9009BD42C /* Poppins-Bold.ttf in Resources */,
+				12E0B08A2BF5F3BB003E18D6 /* howtouseinhaler.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,12 +477,15 @@
 				1276E3642B7ACD74002CBACB /* ContentView.swift in Sources */,
 				125DC0972BE868290098BB1A /* EnviromentalData.swift in Sources */,
 				125DC0952BE85C6B0098BB1A /* AsthmaThreatCalculator.swift in Sources */,
+				12E0B0922BF60F89003E18D6 /* AnalyticsView.swift in Sources */,
 				1258F1412BB5742C0096DD9E /* AsthmaPrediction.swift in Sources */,
 				126FC27C2BA30B1B00BE1FDD /* DashboardView.swift in Sources */,
+				12E0B0902BF60EBE003E18D6 /* CompanionSettingScreen.swift in Sources */,
 				1258F1372BB573780096DD9E /* User.swift in Sources */,
 				1258F13B2BB573BE0096DD9E /* Treatment.swift in Sources */,
 				12BAFE2A2BA0428E003E7980 /* SurveyHelper.swift in Sources */,
 				121A50D92BBA401600198997 /* CustomTabView.swift in Sources */,
+				12E0B08E2BF60E5E003E18D6 /* CompanionDashboardView.swift in Sources */,
 				12BAFE292BA0428E003E7980 /* SurveyView.swift in Sources */,
 				1276E3762B7ACF56002CBACB /* LoginScreen.swift in Sources */,
 				1258F1472BB5746B0096DD9E /* Companion.swift in Sources */,

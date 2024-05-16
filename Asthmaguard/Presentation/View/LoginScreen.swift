@@ -14,8 +14,14 @@ struct LoginScreen: View {
     
     var body: some View {
         if loginViewModel.isLogin {
-            DashboardView()
+            if loginViewModel.shouldNavigateToCompanionDashboard{
+                CompanionDashboardView()
+            }
+            else{
+                DashboardView()
+            }
         }
+        
         else{
             VStack {
                 Spacer()
