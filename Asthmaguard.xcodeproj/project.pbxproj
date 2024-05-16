@@ -26,6 +26,7 @@
 		1258F1432BB5743F0096DD9E /* BiometricData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258F1422BB5743F0096DD9E /* BiometricData.swift */; };
 		1258F1452BB5745C0096DD9E /* AsthmaTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258F1442BB5745C0096DD9E /* AsthmaTrigger.swift */; };
 		1258F1472BB5746B0096DD9E /* Companion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258F1462BB5746B0096DD9E /* Companion.swift */; };
+		125D34042BF66ADD00057658 /* WeatherKitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125D34032BF66ADD00057658 /* WeatherKitData.swift */; };
 		125DC0952BE85C6B0098BB1A /* AsthmaThreatCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DC0942BE85C6B0098BB1A /* AsthmaThreatCalculator.swift */; };
 		125DC0972BE868290098BB1A /* EnviromentalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125DC0962BE868290098BB1A /* EnviromentalData.swift */; };
 		1267AC2E2BE8DFEB0051FA38 /* HealthDataAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1267AC2D2BE8DFEB0051FA38 /* HealthDataAnalyzer.swift */; };
@@ -74,6 +75,7 @@
 		1258F1422BB5743F0096DD9E /* BiometricData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricData.swift; sourceTree = "<group>"; };
 		1258F1442BB5745C0096DD9E /* AsthmaTrigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaTrigger.swift; sourceTree = "<group>"; };
 		1258F1462BB5746B0096DD9E /* Companion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Companion.swift; sourceTree = "<group>"; };
+		125D34032BF66ADD00057658 /* WeatherKitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKitData.swift; sourceTree = "<group>"; };
 		125DC0942BE85C6B0098BB1A /* AsthmaThreatCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaThreatCalculator.swift; sourceTree = "<group>"; };
 		125DC0962BE868290098BB1A /* EnviromentalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviromentalData.swift; sourceTree = "<group>"; };
 		1267AC2D2BE8DFEB0051FA38 /* HealthDataAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataAnalyzer.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				121BAD262BDF97E5009E83A9 /* BioSignalData.swift */,
 				125DC0962BE868290098BB1A /* EnviromentalData.swift */,
 				1267AC2D2BE8DFEB0051FA38 /* HealthDataAnalyzer.swift */,
+				125D34032BF66ADD00057658 /* WeatherKitData.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				12BAFE2D2BA042A7003E7980 /* SurveyScreen.swift in Sources */,
 				121BAD272BDF97E5009E83A9 /* BioSignalData.swift in Sources */,
 				12EAA2DE2BE8C50400C0A1DB /* LocationManager.swift in Sources */,
+				125D34042BF66ADD00057658 /* WeatherKitData.swift in Sources */,
 				1267AC2E2BE8DFEB0051FA38 /* HealthDataAnalyzer.swift in Sources */,
 				1276E3642B7ACD74002CBACB /* ContentView.swift in Sources */,
 				125DC0972BE868290098BB1A /* EnviromentalData.swift in Sources */,

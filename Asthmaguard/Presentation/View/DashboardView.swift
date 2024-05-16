@@ -41,8 +41,6 @@ func colorForRisk(_ title: String) -> Color {
     }
 }
 
-
-
 @available(iOS 17.0, *)
 struct AsthmaThreatChart: View {
     @State var asthmathreat: [AsthmaThreat] = [
@@ -56,44 +54,46 @@ struct AsthmaThreatChart: View {
     
     var body: some View {
         
-        VStack(spacing:20){
-            Text("Dashboard")
-                .font(Font.custom("Poppins-Bold", size: 18))
-                .padding(.all)
-            
-            let chartColors: [Color] = [
-                .pink.opacity(0.5), .pink, .blue
-            ]
-            
-          
-            let asthmaThreatRisks:Double = 0.4
-            
-            Text("Asthma Threat: \(asthmaThreatRisks * 100,  specifier: "%.1f")%")
-                .font(Font.custom("Poppins-Regular", size: 18))
-            
-            Chart(asthmathreat) { asthmathreat in
-                SectorMark(
-                    angle: .value(
-                        Text(asthmathreat.title),
-                        asthmathreat.risks
-                    ),
-                    innerRadius: .ratio(0.6),
-                    angularInset: 0.8
-                )
-                .cornerRadius(4)
-                .foregroundStyle(by: .value("Threats", asthmathreat.title))
-            }.frame(width: 300, height: 250)
-                .chartForegroundStyleScale(domain: .automatic, range: chartColors)
-            
-        Spacer()
-            VStack(spacing:10){
-                CustomBioData(bioSignal: "Respiratory Rate", time: "11:55 AM", data: "19 breathes/min")
+        ScrollView(showsIndicators:false){
+            VStack(spacing:20){
+                Text("Dashboard")
+                    .font(Font.custom("Poppins-Bold", size: 18))
+                    .padding(.all)
                 
-                CustomBioData(bioSignal: "Heart Rate", time: "12:01 PM", data: "96 BPM")
+                let chartColors: [Color] = [
+                    .pink.opacity(0.5), .pink, .blue
+                ]
                 
-                CustomBioData(bioSignal: "Blood Oxygen", time: "12:03 PM", data: "98.5%")
-            }
+              
+                let asthmaThreatRisks:Double = 0.4
+                
+                Text("Asthma Threat: \(asthmaThreatRisks * 100,  specifier: "%.1f")%")
+                    .font(Font.custom("Poppins-Bold", size: 26))
+                
+                Chart(asthmathreat) { asthmathreat in
+                    SectorMark(
+                        angle: .value(
+                            Text(asthmathreat.title),
+                            asthmathreat.risks
+                        ),
+                        innerRadius: .ratio(0.6),
+                        angularInset: 0.8
+                    )
+                    .cornerRadius(4)
+                    .foregroundStyle(by: .value("Threats", asthmathreat.title))
+                }.frame(width: 300, height: 250)
+                    .chartForegroundStyleScale(domain: .automatic, range: chartColors)
+                
             Spacer()
+                VStack(spacing:10){
+                    CustomBioData(bioSignal: "Respiratory Rate", time: "11:55 AM", data: "19 breathes/min")
+                    
+                    CustomBioData(bioSignal: "Heart Rate", time: "12:01 PM", data: "96 BPM")
+                    
+                    CustomBioData(bioSignal: "Blood Oxygen", time: "12:03 PM", data: "98.5%")
+                }
+                Spacer()
+            }
         }
     }
 }

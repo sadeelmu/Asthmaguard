@@ -16,9 +16,6 @@ struct BreathingExerciseScreen: View {
         TabView {
             ZStack {
                 VStack(spacing: 5) {
-                    Spacer()
-                    Spacer()
-                    Spacer()
                     VStack(spacing: 5) {
                         Text("Breathing Exercises")
                             .font(Font.custom("Poppins-Bold", size: 25))
@@ -34,45 +31,54 @@ struct BreathingExerciseScreen: View {
                     Divider()
                     Spacer()
                     VStack(spacing: 20){
-                        ScrollView(.horizontal, showsIndicators: false) {
+                        ScrollView(.vertical, showsIndicators: false) {
                             VStack(alignment: .leading, spacing: 20) {
                                 HStack {
-                                    BreathingExerciseCard(exercise: BreathingExercise(title: "Use inhaler", duration: "1 minute", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "useinhaler", gifName: "howtouseinhaler.gif"), selectedExercise: $selectedExercise)
-                                    
+                                    BreathingExerciseCard(exercise: BreathingExercise(title: "Inhaler", duration: "1 minute", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "useinhaler", gifName: "howtouseinhaler.gif"), selectedExercise: $selectedExercise)
+                                    Text("Helps open airways and improve breathing.")
+                                        .font(Font.custom("Poppins-Regular", size: 12))
+                                        .multilineTextAlignment(.leading)
                                 }
                                 Divider()
-                                HStack{
-                                    BreathingExerciseCard(exercise: BreathingExercise(title: "Diaphragmatic Breathing", duration: "2 minute", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "breathin", gifName: "diaphragmaticbreathing.gif"), selectedExercise: $selectedExercise)
-                                }
-                                Divider()
-
                                 HStack {
                                 
                                     BreathingExerciseCard(exercise: BreathingExercise(title: "Meditate", duration: "5 minute", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "meditation", gifName: "meditation.gif"), selectedExercise: $selectedExercise)
+                                    Text("Helps relax and improve breathing.")
+                                        .font(Font.custom("Poppins-Regular", size: 12))
+                                        .multilineTextAlignment(.leading)
                                 }
+                                Divider()
+                                HStack {
+                                
+                                    BreathingExerciseCard(exercise: BreathingExercise(title: "Breathe", duration: "5 minute", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "breathin", gifName: "breathin.gif"), selectedExercise: $selectedExercise)
+                                    Text("Breath in and out from your nasal.")
+                                        .font(Font.custom("Poppins-Regular", size: 12))
+                                        .multilineTextAlignment(.leading)
+                                }
+
                             }
-                            .padding(.horizontal, 16)
-                            .padding(.top, 16)
+                            .padding(.bottom, 10)
+                            .padding(.top, 10)
+                            .padding(.horizontal, 20)
+
+                            Button(action: {
+                                // Start the selected exercise
+                                isExerciseStarted = true
+                            }) {
+                                Text("Start Selected Exercise")
+                                    .font(Font.custom("Poppins-Regular", size: 16).weight(.bold))
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity)
+                                    .frame(height: 55)
+                                    .background(selectedExercise != nil ? Color.black : Color.gray.opacity(0.5))
+                                    .cornerRadius(25)
+                                    .disabled(selectedExercise == nil)
+                            }
+                            .padding(.all, 10)
                         }
-                        Spacer()
-                        Button(action: {
-                            // Start the selected exercise
-                            isExerciseStarted = true
-                        }) {
-                            Text("Start Selected Exercise")
-                                .font(Font.custom("Poppins-Regular", size: 16).weight(.bold))
-                                .foregroundColor(.white)
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 55)
-                                .background(selectedExercise != nil ? Color.black : Color.gray.opacity(0.5))
-                                .cornerRadius(25)
-                                .disabled(selectedExercise == nil)
-                        }
-                        .padding(.horizontal, 16)
-                        .padding(.bottom, 24)
+                     
                     }
 
-                    Spacer()
                 }
             }
         }
@@ -91,19 +97,19 @@ struct BreathingExerciseCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text(exercise.title)
-                .font(Font.custom("Poppins-Regular", size: 16).weight(.bold))
+                .font(Font.custom("Poppins-Regular", size: 18).weight(.bold))
                 .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
             Text(exercise.duration)
                 .font(Font.custom("Poppins-Regular", size: 12))
                 .foregroundColor(Color(red: 0.48, green: 0.44, blue: 0.45))
             RoundedRectangle(cornerRadius: 12)
                 .foregroundColor(exercise.title == selectedExercise?.title ? Color(red: 0.97, green: 0.61, blue: 0.69) : exercise.color.opacity(0.3))
-                .frame(width: 75, height: 75)
+                .frame(width: 80, height: 80)
                 .overlay(
                     Image(exercise.imageName)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 50, height: 50)
+                        .frame(width: 60, height: 60)
                 )
         }
         .onTapGesture {
