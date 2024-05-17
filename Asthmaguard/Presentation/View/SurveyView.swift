@@ -634,11 +634,11 @@ struct SurveyView: View {
                     .opacity( processing ? 1.0 : 0.0 )
                 
                 Button(action: { submitSurveyTapped() }, label: {
-                    Text("Submit Survey").bold()
+                    Text("Submit questionaire").bold()
                 }).buttonStyle(CustomButtonStyle(bgColor: Color.black)).padding()
                 
                 Button(action: { self.restartSurveyTapped() }, label: {
-                    Text("Retake Survey")
+                    Text("Retake questionaire")
                 }).padding().buttonStyle(CustomButtonStyle(bgColor: Color.black)).padding()
             }
             

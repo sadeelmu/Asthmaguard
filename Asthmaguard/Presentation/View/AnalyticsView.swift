@@ -32,7 +32,7 @@ struct AnalyticsView: View {
     
     var body: some View {
         ScrollView {
-            Text("Patient Analytics")
+            Text("Analytics")
                 .font(Font.custom("Poppins-Bold", size: 18))
                 .padding(.all, 5)
             
@@ -72,7 +72,7 @@ struct AnalyticsView: View {
                             }.frame(width: 300, height: 175)
                                 .chartForegroundStyleScale(domain: .automatic, range: biosignalChartColors)
                             
-                            Text("The biosignal data and vital signs are increasing the asthma threat by 40%. The chart above shows the breakdown of this precentage.")
+                            Text("The biosignal data and vital signs are increasing the asthma threat by 30%.")
                                 .font(Font.custom("Poppins-Regular", size: 14))
                                 .padding()
                                 .multilineTextAlignment(.leading)
@@ -98,7 +98,7 @@ struct AnalyticsView: View {
                             }.frame(width: 300, height: 175)
                                 .chartForegroundStyleScale(domain: .automatic, range: enviromentalChartColors)
                             
-                            Text("The enviromental data is increasing the asthma threat by a total of 20%. The chart above shows the breakdown of this precentage.")
+                            Text("The enviromental data is increasing the asthma threat by a total of 10%.")
                                 .font(Font.custom("Poppins-Regular", size: 14))
                                 .padding()
                                 .multilineTextAlignment(.leading)

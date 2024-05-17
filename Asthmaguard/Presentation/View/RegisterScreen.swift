@@ -81,16 +81,7 @@ struct RegisterScreen: View {
                     
                     Divider().padding(.vertical, 5)
                     
-                    Button(action: registerViewModel.registerWithApple) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 14)
-                                .stroke(Color(red: 0.87, green: 0.85, blue: 0.86), lineWidth: 0.40)
-                            Text("Register with Apple")
-                                .font(Font.custom("Poppins-Regular", size: 14).weight(.bold))
-                                .foregroundColor(.black)
-                        }
-                        .frame(width: 192, height: 50)
-                    }
+                    
                 }
                 
                 HStack(spacing: 3){

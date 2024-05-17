@@ -55,16 +55,7 @@ struct LoginScreen: View {
                             .shadow(color: Color(red: 0.58, green: 0.68, blue: 1, opacity: 0.30), radius: 22, y: 10)
                     }
                     
-                    Button(action: {loginViewModel.loginWithApple()}) {
-                        Text("Login with Apple")
-                            .font(Font.custom("Poppins-Regular", size: 14).weight(.bold))
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 60)
-                            .background(Color.black)
-                            .cornerRadius(99)
-                            .shadow(color: Color(red: 0.58, green: 0.68, blue: 1, opacity: 0.30), radius: 22, y: 10)
-                    }
+                
                     
                     Button(action: {loginViewModel.companion()}) {
                         Text("Companion’s portal")

@@ -21,7 +21,7 @@ import SwiftUI
 @available(iOS 17.0, *)
 struct SettingsScreen: View {
     @State private var notificationsChoice:Bool = true
-    @State private var userName:String = "Patient"
+    @State private var userName:String = "Ahmad Mohammad"
     @State private var selection = 0
     
     var body: some View {
@@ -31,7 +31,7 @@ struct SettingsScreen: View {
                     Form {
                         ZStack(alignment: .leading) {
                             HStack {
-                                Image("patient")
+                                Image("colorpatientwithinhaler")
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 40, height: 40)

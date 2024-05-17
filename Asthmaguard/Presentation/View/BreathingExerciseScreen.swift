@@ -18,11 +18,11 @@ struct BreathingExerciseScreen: View {
                 VStack(spacing: 5) {
                     VStack(spacing: 5) {
                         Text("Breathing Exercises")
-                            .font(Font.custom("Poppins-Bold", size: 25))
-                            .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
+                            .font(Font.custom("Poppins-Bold", size: 18))
+                            .padding(.all, 5)
 
                         Text("Clinically proven breathing exercises designed to improve your asthma symptoms.")
-                            .font(Font.custom("Poppins-Bold", size: 12))
+                            .font(Font.custom("Poppins-Bold", size: 14))
                             .foregroundColor(.gray)
                             .multilineTextAlignment(.leading)
                     }
