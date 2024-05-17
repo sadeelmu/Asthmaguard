@@ -197,24 +197,6 @@ struct CustomButtonStyle: ButtonStyle {
             .opacity(configuration.isPressed ? 0.7 : 1)
             .scaleEffect(configuration.isPressed ? 0.8 : 1)
             .animation(.easeInOut(duration: 0.2))
-        
-    }
-}
-
-struct YesNoButtonStyle: ButtonStyle {
-    let bgColor : Color
-    init(bgColor: Color = Color.gray) {
-        self.bgColor = bgColor
-    }
-    func makeBody(configuration: Self.Configuration) -> some View {
-        return configuration.label
-            .padding(EdgeInsets(top: 20, leading: 40, bottom: 20, trailing: 40))
-            .background(bgColor)
-            .cornerRadius(26.0)
-            .foregroundColor(Color.white)
-            .opacity(configuration.isPressed ? 0.7 : 1)
-            .scaleEffect(configuration.isPressed ? 0.8 : 1)
-            .animation(.easeInOut(duration: 0.2))
     }
 }
 
@@ -239,160 +221,6 @@ extension Shape {
             .background(self.fill(fillStyle))
     }
 }
-
-
-struct BinaryChoiceQuestionView : View {
-    
-    @State var selectedIndices : Set<Int> = []
-    @ObservedObject var question : BinaryQuestion
-    
-    let onChoiceMade : (() -> Void)?
-    
-    @State private var autoAdvanceProgress : CGFloat = 0.0
-    @State private var goingToNext : Bool = true
-    
-    var body : some View {
-        
-        VStack {
-            
-            //Text(question.title).font(.title).padding(16)
-            Text(question.title).font(.title).fontWeight(.bold).padding(15)
-            
-            //Spacer()
-            //Text("Choice2: ".appendingFormat("%i", selectedIndices.count)).opacity(0.5) // view refresh hack
-            
-            HStack {
-                
-                Button(action: { selectChoice(0) }, label: {
-                    Text(question.choices[0].text).font(.title).bold()
-                }).buttonStyle(YesNoButtonStyle(bgColor: selectedIndices.contains(0) ? Color.green : Color.gray))
-                    .padding(6)
-                
-                
-                Button(action: { selectChoice(1) }, label: {
-                    Text(question.choices[1].text).font(.title)
-                }).buttonStyle(YesNoButtonStyle(bgColor: selectedIndices.contains(1) ? Color.green : Color.gray))
-                    .padding(6)
-                
-                
-            }
-            //.frame(height: UIScreen.main.bounds.height * 0.6)
-            .padding(EdgeInsets(top: 40, leading: 20, bottom: 20, trailing: 20))
-            
-        }.onAppear(perform: {
-            self.autoAdvanceProgress = 0
-            self.updateChoices()
-        })
-        .frame(maxWidth: .infinity) // stretch whole width
-        //.background(Color.red)
-        .overlay(Rectangle().frame(width: autoAdvanceProgress, height: 3, alignment: .top).foregroundColor(Color(.systemBlue)), alignment: .top)
-        .animation(.easeInOut(duration: 0.51))
-        
-    }
-    
-    // Update the local @State with selected choice
-    // TODO: figure out how to directly use the question to update UI
-    //        tried observable stuff with no luck
-    func updateChoices() {
-        selectedIndices = []
-        for (i,choice) in question.choices.enumerated() {
-            if choice.selected {
-                selectedIndices.insert(i)
-            }
-        }
-    }
-    
-    func selectChoice( _ choiceIndex : Int ) {
-        selectedIndices = []
-        selectedIndices.insert(choiceIndex)
-        //question.choices[choiceIndex].selected = true;
-        for (i,choice) in question.choices.enumerated() {
-            choice.selected = i == choiceIndex
-            question.choices[i].selected = choice.selected
-        }
-        
-        self.goingToNext = true
-        if question.autoAdvanceOnChoice {
-            self.autoAdvanceProgress = UIScreen.main.bounds.width
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.51) {
-            if question.autoAdvanceOnChoice {
-                self.onChoiceMade?()
-            }
-            self.autoAdvanceProgress = 0
-        }
-        
-        
-    }
-    
-}
-
-
-
-struct ContactFormQuestionView : View {
-    
-    @ObservedObject var question : ContactFormQuestion
-    
-    init(question: ContactFormQuestion ) {
-        self.question = question
-    }
-    
-    
-    var body : some View {
-        VStack {
-            //Text(question.title).font(.title).padding(16)
-            Text(question.title).font(.title).fontWeight(.bold).padding(16)
-            
-            VStack(alignment: .leading) {
-                Text("Name (optional)")
-                    .font(.callout)
-                    .bold()
-                TextField("Name", text: $question.name)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .disableAutocorrection(true)
-            }.padding()
-            
-            
-            VStack(alignment: .leading) {
-                Text("Email Address")
-                    .font(.callout)
-                    .bold()
-                TextField("Email Address", text: $question.emailAddress)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .disableAutocorrection(true)
-                    .textContentType(.emailAddress)
-                
-                
-            }.padding()
-            
-            VStack(alignment: .leading) {
-                Text("Company ( optional )")
-                    .font(.callout)
-                    .bold()
-                TextField("Company", text: $question.company)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .disableAutocorrection(true)
-            }.padding()
-            
-            
-            VStack(alignment: .leading) {
-                Text("Comments ( optional )")
-                    .font(.callout)
-                    .bold()
-                TextField("Comments / Feedback", text: $question.feedback)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .disableAutocorrection(true)
-            }.padding()
-            
-        }
-        
-        
-    }
-    
-    
-}
-
 
 struct InlineMultipleChoiceQuestionGroupView : View {
     
@@ -424,7 +252,7 @@ struct InlineMultipleChoiceQuestionView : View {
     @ObservedObject var question : MultipleChoiceQuestion
     @State var selectedChoices : Set<UUID> = []
     
-    let colors : [Color] = [.pink, .pink, .pink, .pink, .pink]
+    let colors : [Color] = [.red, .orange, .yellow, .green, .blue]
     private func getColor( _ choice : MultipleChoiceResponse ) -> Color {
         return self.colors[ self.question.choices.firstIndex(where: { $0.uuid == choice.uuid })! ]
     }
@@ -445,7 +273,7 @@ struct InlineMultipleChoiceQuestionView : View {
                         Spacer()
                         
                         Text( choice.text )
-                            .font(.system(size: 12, weight: choice.selected ? .bold : .semibold)).multilineTextAlignment(.center)
+                            .font(.system(size: 10, weight: choice.selected ? .bold : .semibold)).multilineTextAlignment(.center)
                             .foregroundColor( choice.selected ? Color(.label ) : Color(.label ).opacity(0.65) )
                         
                             .padding(2)
@@ -453,7 +281,7 @@ struct InlineMultipleChoiceQuestionView : View {
                         Spacer()
                         
                     })
-                    .frame(width: 100, height: 40)
+                    .frame(width: 60, height: 30)
                     
                     .background(getColor(choice).opacity( choice.selected ? 0.25 : 0.1 ))
                     .cornerRadius(12)
@@ -505,9 +333,6 @@ struct InlineMultipleChoiceQuestionView : View {
         
     }
 }
-
-
-
 
 struct MultipleChoiceResponseView : View {
     
@@ -751,9 +576,9 @@ struct MultipleChoiceQuestionView : View {
 
 protocol SurveyViewDelegate : AnyObject {
     func surveyCompleted( with survey : Survey )
-    func surveyDeclined()
-    func surveyRemindMeLater()
 }
+
+
 
 struct SurveyView: View {
     
@@ -814,12 +639,12 @@ struct SurveyView: View {
                 
                 Button(action: { self.restartSurveyTapped() }, label: {
                     Text("Retake Survey")
-                }).padding()
+                }).padding().buttonStyle(CustomButtonStyle(bgColor: Color.black)).padding()
             }
             
         } else {
             
-            VStack(spacing:0) {
+            VStack(spacing:10) {
                 
                 ScrollViewReader { proxy in
                     ScrollView {
@@ -831,7 +656,7 @@ struct SurveyView: View {
                     .overlay(Rectangle().frame(width: nil, height: 1, alignment: .top).foregroundColor(Color(.systemGray4)), alignment: .top)
                 }
                 
-
+                
                 HStack() {
                     Button(action: { previousTapped() }, label: {
                         Text("Previous").foregroundColor(Color(.secondaryLabel)).bold()
@@ -846,10 +671,10 @@ struct SurveyView: View {
                 
                     .background(Color(.systemGray6))
                     .edgesIgnoringSafeArea( [.leading, .trailing] )
-            }
-            .background(Color.white)
+            }.padding(.all, 10)
+                .background(Color.white)
             
-            .edgesIgnoringSafeArea( .bottom )
+                .edgesIgnoringSafeArea( .bottom )
             
         }
         
@@ -914,6 +739,8 @@ struct SurveyView: View {
         
         self.delegate?.surveyCompleted(with: self.survey)
         
+        
+        
         self.processing = false
         
     }
@@ -921,15 +748,7 @@ struct SurveyView: View {
     func takeSurveyTapped() {
         self.surveyState = .taking
     }
-    
-    func noThanksTapped() {
-        self.delegate?.surveyDeclined()
-    }
-    
-    func remindMeLaterTapped() {
-        self.delegate?.surveyRemindMeLater()
-    }
-    
+
     func restartSurveyTapped() {
         
         self.currentQuestion = 0

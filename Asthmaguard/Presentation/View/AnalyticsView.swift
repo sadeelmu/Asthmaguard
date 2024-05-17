@@ -19,7 +19,6 @@ struct AnalyticsView: View {
     @State var enviromental: [Enviromental] = [
         .init(title: "Pollen", severity: 0.2),
         .init(title: "Air Quality", severity: 0.4),
-        .init(title: "Particulate Matter", severity: 0.1),
         .init(title: "Cloudover", severity: 0.05),
         .init(title:"Humidity", severity: 0.15),
         .init(title: "Temperature", severity: 0.1)
@@ -45,7 +44,7 @@ struct AnalyticsView: View {
                 VStack(spacing:5){
                     
                     let enviromentalChartColors: [Color] = [
-                        .pink, .cyan, .green, .blue, .purple, .yellow
+                        .pink, .cyan, .green, .blue, .yellow
                     ]
                     
                     let biosignalChartColors: [Color] = [
@@ -73,7 +72,7 @@ struct AnalyticsView: View {
                             }.frame(width: 300, height: 175)
                                 .chartForegroundStyleScale(domain: .automatic, range: biosignalChartColors)
                             
-                            Text("The biosignal data and vital signs are increasing the asthma threat by 30%")
+                            Text("The biosignal data and vital signs are increasing the asthma threat by 40%. The chart above shows the breakdown of this precentage.")
                                 .font(Font.custom("Poppins-Regular", size: 14))
                                 .padding()
                                 .multilineTextAlignment(.leading)
@@ -99,7 +98,7 @@ struct AnalyticsView: View {
                             }.frame(width: 300, height: 175)
                                 .chartForegroundStyleScale(domain: .automatic, range: enviromentalChartColors)
                             
-                            Text("The enviromental data is increasing the asthma threat by 10%")
+                            Text("The enviromental data is increasing the asthma threat by a total of 20%. The chart above shows the breakdown of this precentage.")
                                 .font(Font.custom("Poppins-Regular", size: 14))
                                 .padding()
                                 .multilineTextAlignment(.leading)
