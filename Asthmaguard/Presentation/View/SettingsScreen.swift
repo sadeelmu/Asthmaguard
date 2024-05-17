@@ -36,7 +36,7 @@ struct SettingsScreen: View {
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 40, height: 40)
                                     .clipShape(Circle())
-                                    .padding(.leading, 10)
+                                    .padding(.leading, 1)
                                 VStack(alignment: .leading) {
                                     Text(userName)
                                         .font(.title3)
@@ -47,31 +47,29 @@ struct SettingsScreen: View {
                                     Text("Edit")
                                         .padding(.vertical, 5)
                                         .padding(.horizontal, 20)
-                                        .background(.pink.opacity(0.4))        .foregroundColor(.white)
+                                        .background(.pink)        .foregroundColor(.white)
                                         .cornerRadius(50)
                                 }
                             }
                         }
-                        Section(header: Text("Account")) {
-                            NavigationLink(destination: PersonalDataView()) {
-                                Label("Personal Data", systemImage: "person")
-                            }
+                        Section(header: Text("Data")) {
+
                             
-                            NavigationLink(destination: AccountView()) {
-                                Label("Asthma Attacks", systemImage: "chart.pie.fill")
+                            NavigationLink(destination: AnalyticsView()) {
+                                Label("Analytics", systemImage: "chart.pie.fill")
                             }
                         }
                         
                         Section(header: Text("Companions")) {
                             NavigationLink(destination: PatientsView()) {
-                                Label("Add companion doctor", systemImage: "person")
+                                Label("Add Companion Doctor", systemImage: "person")
                             }
                         }
                         
                         Section(header: Text("Notifications")) {
                             Toggle(isOn: $notificationsChoice) {
                                 Label("Pop-up Notification", systemImage: "bell")
-                            }.tint(.pink.opacity(0.4))
+                            }.tint(.pink)
                         }
                         
                         Section(header: Text("Other")) {
@@ -80,6 +78,13 @@ struct SettingsScreen: View {
                             }
                             NavigationLink(destination: PrivacyView()) {
                                 Label("Privacy Policy", systemImage: "checkmark.shield.fill")
+                            }
+                        }
+                        Section(header: Text("Logout")){
+                            Button(action: {
+                            }) {
+                                Label("Log Out", systemImage: "power")
+                                    .foregroundColor(.pink)
                             }
                         }
                     }
@@ -92,17 +97,6 @@ struct SettingsScreen: View {
     }
 }
 
-struct PersonalDataView: View {
-    var body: some View {
-        Text("Personal Data View")
-    }
-}
-
-struct AccountView: View {
-    var body: some View {
-        Text("Asthma Attacks View")
-    }
-}
 
 struct PatientsView: View {
     var body: some View {

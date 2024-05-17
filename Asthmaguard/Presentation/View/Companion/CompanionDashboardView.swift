@@ -13,9 +13,9 @@ import CoreLocation
 @available(iOS 17.0, *)
 struct CompanionAsthmaThreatChart: View {
     @State var asthmathreat: [AsthmaThreat] = [
-        .init(title: "Biosignals", risks: 0.3),
-        .init(title: "Enviromental", risks: 0.1),
-        .init(title: "Normal", risks: 0.6)
+        .init(title: "Enviromental", risks: 0.15),
+        .init(title: "BioSignal", risks: 0.35),
+        .init(title: "Normal", risks: 0.5)
     ]
     
     
@@ -23,29 +23,28 @@ struct CompanionAsthmaThreatChart: View {
     
     var body: some View {
         
-        VStack(spacing:20){
-            Text("Dashboard")
+        VStack(spacing:10){
+            Text("Companion Dashboard")
                 .font(Font.custom("Poppins-Bold", size: 18))
                 .padding(.all)
             
             let chartColors: [Color] = [
-                .pink, .pink, .blue
+                .pink.opacity(0.7), .pink, .blue
             ]
             
             let asthmaThreatRisks:Double = 0.4
             
             HStack {
-                Image("patient")
+                Image("colorpatientwithinhaler")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())
                     .padding(.leading, 10)
                 VStack(alignment: .leading) {
-                    Text("Patient Name")
+                    Text("Ahmad Mohammad")
                         .font(.title3)
                 }
-            
             }
             
             Text("Asthma Threat: \(asthmaThreatRisks * 100,  specifier: "%.1f")%")

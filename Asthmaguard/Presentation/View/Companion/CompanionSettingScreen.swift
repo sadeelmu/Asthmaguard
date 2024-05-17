@@ -12,7 +12,7 @@ import SwiftUI
 @available(iOS 17.0, *)
 struct CompanionSettingsScreen: View {
     @State private var notificationsChoice:Bool = true
-    @State private var userName:String = "Doctor"
+    @State private var userName:String = "Dr. Samer Sawlha"
     @State private var selection = 0
     
     var body: some View {
@@ -22,7 +22,7 @@ struct CompanionSettingsScreen: View {
                     Form {
                         ZStack(alignment: .leading) {
                             HStack {
-                                Image("doctor")
+                                Image("doctorcolor")
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 40, height: 40)
@@ -38,28 +38,21 @@ struct CompanionSettingsScreen: View {
                                     Text("Edit")
                                         .padding(.vertical, 5)
                                         .padding(.horizontal, 20)
-                                        .background(.pink.opacity(0.4))        .foregroundColor(.white)
+                                        .background(.pink)        .foregroundColor(.white)
                                         .cornerRadius(50)
                                 }
                             }
                         }
                         Section(header: Text("Account")) {
-                            
-                            NavigationLink(destination: AccountView()) {
-                                Label("Patient Asthma Attacks", systemImage: "chart.pie.fill")
-                            }
-                        }
-                        
-                        Section(header: Text("Patient")) {
-                            NavigationLink(destination: PatientsView()) {
-                                Label("Add a patient", systemImage: "person")
+                            NavigationLink(destination: AnalyticsView()) {
+                                Label("Patient Analaytics", systemImage: "chart.pie.fill")
                             }
                         }
                         
                         Section(header: Text("Notifications")) {
                             Toggle(isOn: $notificationsChoice) {
                                 Label("Pop-up Notification", systemImage: "bell")
-                            }.tint(.pink.opacity(0.4))
+                            }.tint(.pink)
                         }
                         
                         Section(header: Text("Other")) {
@@ -69,9 +62,18 @@ struct CompanionSettingsScreen: View {
                             NavigationLink(destination: PrivacyView()) {
                                 Label("Privacy Policy", systemImage: "checkmark.shield.fill")
                             }
+                           
+                        }
+                        
+                        Section(header: Text("Logout")){
+                            Button(action: {
+                            }) {
+                                Label("Log Out", systemImage: "power")
+                                    .foregroundColor(.pink)
+                            }
                         }
                     }
-                    .listStyle(.grouped) // Use the grouped list style
+                    .listStyle(.grouped)
                     .background(Color.clear)
                     .navigationBarTitle("Settings")
                 }
@@ -85,7 +87,7 @@ struct CompanionSettingsScreen: View {
 @available(iOS 17.0, *)
 struct CompanionSettingsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsScreen()
+        CompanionSettingsScreen()
     }
 }
 

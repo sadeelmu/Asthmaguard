@@ -39,7 +39,7 @@ public struct CustomBioData: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .padding(20)
-        .frame(width: 300, height: 100)
+        .frame(width: 300, height: 80)
         .background(Color(red: 1, green: 0.80, blue: 0.85).opacity(0.4))
         
         .cornerRadius(10)
