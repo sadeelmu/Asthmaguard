@@ -18,8 +18,8 @@ class CompanionRegisterViewModel:ObservableObject{
         print("register")
     }
     
-    func registerWithApple(){
-        print("register with apple")
+    func login(){
+        print("login")
     }
 }
 

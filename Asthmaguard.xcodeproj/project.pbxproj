@@ -30,6 +30,8 @@
 		1276E3692B7ACD76002CBACB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1276E3682B7ACD76002CBACB /* Preview Assets.xcassets */; };
 		1276E3742B7ACEE3002CBACB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1276E3732B7ACEE3002CBACB /* LoginViewModel.swift */; };
 		1276E3762B7ACF56002CBACB /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1276E3752B7ACF56002CBACB /* LoginScreen.swift */; };
+		1295B2DC2BF944BF0053A4BC /* CompanionLoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1295B2DB2BF944BF0053A4BC /* CompanionLoginScreen.swift */; };
+		1295B2DE2BF946130053A4BC /* CompanionLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1295B2DD2BF946130053A4BC /* CompanionLoginViewModel.swift */; };
 		12BAFE292BA0428E003E7980 /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE262BA0428E003E7980 /* SurveyView.swift */; };
 		12BAFE2A2BA0428E003E7980 /* SurveyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE272BA0428E003E7980 /* SurveyHelper.swift */; };
 		12BAFE2B2BA0428E003E7980 /* SurveyModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE282BA0428E003E7980 /* SurveyModelClass.swift */; };
@@ -70,6 +72,8 @@
 		1276E3682B7ACD76002CBACB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1276E3732B7ACEE3002CBACB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		1276E3752B7ACF56002CBACB /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		1295B2DB2BF944BF0053A4BC /* CompanionLoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionLoginScreen.swift; sourceTree = "<group>"; };
+		1295B2DD2BF946130053A4BC /* CompanionLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionLoginViewModel.swift; sourceTree = "<group>"; };
 		12BAFE262BA0428E003E7980 /* SurveyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
 		12BAFE272BA0428E003E7980 /* SurveyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyHelper.swift; sourceTree = "<group>"; };
 		12BAFE282BA0428E003E7980 /* SurveyModelClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyModelClass.swift; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 				126FC2772BA2FFCC00BE1FDD /* CompanionRegisterScreen.swift */,
 				12E0B08F2BF60EBE003E18D6 /* CompanionSettingScreen.swift */,
 				12E0B08D2BF60E5E003E18D6 /* CompanionDashboardView.swift */,
+				1295B2DB2BF944BF0053A4BC /* CompanionLoginScreen.swift */,
 			);
 			path = Companion;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 				1276E3732B7ACEE3002CBACB /* LoginViewModel.swift */,
 				123912FA2B95C197009BD42C /* RegisterViewModel.swift */,
 				126FC2792BA3002100BE1FDD /* CompanionRegisterViewModel.swift */,
+				1295B2DD2BF946130053A4BC /* CompanionLoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -396,6 +402,8 @@
 				12EAA2DE2BE8C50400C0A1DB /* LocationManager.swift in Sources */,
 				125D34042BF66ADD00057658 /* WeatherKitData.swift in Sources */,
 				1267AC2E2BE8DFEB0051FA38 /* HealthDataAnalyzer.swift in Sources */,
+				1295B2DC2BF944BF0053A4BC /* CompanionLoginScreen.swift in Sources */,
+				1295B2DE2BF946130053A4BC /* CompanionLoginViewModel.swift in Sources */,
 				1276E3642B7ACD74002CBACB /* ContentView.swift in Sources */,
 				125DC0972BE868290098BB1A /* EnviromentalData.swift in Sources */,
 				125DC0952BE85C6B0098BB1A /* AsthmaThreatCalculator.swift in Sources */,
