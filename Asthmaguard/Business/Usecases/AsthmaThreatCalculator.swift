@@ -129,7 +129,7 @@ class AsthmaThreatCalculatorUseCase {
             
             var airQualitySeverity = 0.0
             if let airQualityData = environmentalData.0 {
-                airQualitySeverity = self.calculateAQISeverity(universalAQI: airQualityData.universalAQI)
+                airQualitySeverity = self.calculateAQISeverity(aqiLevel: airQualityData.universalAQI)
             }
             
             let pollenSeverity = self.calculatePollenSeverity(pollenForecastData: environmentalData.1)
@@ -153,21 +153,21 @@ class AsthmaThreatCalculatorUseCase {
         }
     }
     
-    private func calculateAQISeverity(universalAQI: Int?) -> Double {
-        guard let universalAQI = universalAQI else {
+    func calculateAQISeverity(aqiLevel: Int?) -> Double {
+        guard let aqiLevel = aqiLevel else {
             return 0.0
         }
         
-        if universalAQI >= 101 {
+        if aqiLevel >= 101 {
             return 1.0
-        } else if universalAQI >= 51 {
+        } else if aqiLevel >= 51 {
             return 0.5
         } else {
             return 0.0
         }
     }
     
-    private func calculatePollenSeverity(pollenForecastData: EnviromentalData.PollenForecastData?) -> Double {
+    func calculatePollenSeverity(pollenForecastData: EnviromentalData.PollenForecastData?) -> Double {
         guard let pollenTypes = pollenForecastData?.pollenTypes else {
             return 0.0
         }

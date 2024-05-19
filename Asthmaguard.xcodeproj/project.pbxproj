@@ -32,6 +32,9 @@
 		1276E3762B7ACF56002CBACB /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1276E3752B7ACF56002CBACB /* LoginScreen.swift */; };
 		1295B2DC2BF944BF0053A4BC /* CompanionLoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1295B2DB2BF944BF0053A4BC /* CompanionLoginScreen.swift */; };
 		1295B2DE2BF946130053A4BC /* CompanionLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1295B2DD2BF946130053A4BC /* CompanionLoginViewModel.swift */; };
+		1295B2E62BF9D93A0053A4BC /* AsthmaguardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1295B2E52BF9D93A0053A4BC /* AsthmaguardTests.swift */; };
+		1295B2ED2BF9DA250053A4BC /* AsthmaThreatCalculatorUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1295B2EC2BF9DA250053A4BC /* AsthmaThreatCalculatorUseCaseTests.swift */; };
+		1295B2EF2BF9DAB00053A4BC /* HealthDataAnalyzerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1295B2EE2BF9DAB00053A4BC /* HealthDataAnalyzerTests.swift */; };
 		12BAFE292BA0428E003E7980 /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE262BA0428E003E7980 /* SurveyView.swift */; };
 		12BAFE2A2BA0428E003E7980 /* SurveyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE272BA0428E003E7980 /* SurveyHelper.swift */; };
 		12BAFE2B2BA0428E003E7980 /* SurveyModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE282BA0428E003E7980 /* SurveyModelClass.swift */; };
@@ -44,6 +47,16 @@
 		12EEFB022BB05F61003053AB /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 12EEFB012BB05F61003053AB /* PythonKit */; };
 		12EEFB042BB05FF3003053AB /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EEFB032BB05FF2003053AB /* SettingsScreen.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1295B2E72BF9D93A0053A4BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1276E3562B7ACD74002CBACB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1276E35D2B7ACD74002CBACB;
+			remoteInfo = Asthmaguard;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingExerciseScreen.swift; sourceTree = "<group>"; };
@@ -74,6 +87,10 @@
 		1276E3752B7ACF56002CBACB /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		1295B2DB2BF944BF0053A4BC /* CompanionLoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionLoginScreen.swift; sourceTree = "<group>"; };
 		1295B2DD2BF946130053A4BC /* CompanionLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionLoginViewModel.swift; sourceTree = "<group>"; };
+		1295B2E32BF9D93A0053A4BC /* AsthmaguardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsthmaguardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1295B2E52BF9D93A0053A4BC /* AsthmaguardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaguardTests.swift; sourceTree = "<group>"; };
+		1295B2EC2BF9DA250053A4BC /* AsthmaThreatCalculatorUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaThreatCalculatorUseCaseTests.swift; sourceTree = "<group>"; };
+		1295B2EE2BF9DAB00053A4BC /* HealthDataAnalyzerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataAnalyzerTests.swift; sourceTree = "<group>"; };
 		12BAFE262BA0428E003E7980 /* SurveyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
 		12BAFE272BA0428E003E7980 /* SurveyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyHelper.swift; sourceTree = "<group>"; };
 		12BAFE282BA0428E003E7980 /* SurveyModelClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyModelClass.swift; sourceTree = "<group>"; };
@@ -92,6 +109,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				12EEFB022BB05F61003053AB /* PythonKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1295B2E02BF9D93A0053A4BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				1276E3602B7ACD74002CBACB /* Asthmaguard */,
+				1295B2E42BF9D93A0053A4BC /* AsthmaguardTests */,
 				1276E35F2B7ACD74002CBACB /* Products */,
 				121BAD372BDF9C0C009E83A9 /* Frameworks */,
 			);
@@ -136,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				1276E35E2B7ACD74002CBACB /* Asthmaguard.app */,
+				1295B2E32BF9D93A0053A4BC /* AsthmaguardTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,6 +218,16 @@
 				12E1EDE82B95A73B0016EDDE /* Usecases */,
 			);
 			path = Business;
+			sourceTree = "<group>";
+		};
+		1295B2E42BF9D93A0053A4BC /* AsthmaguardTests */ = {
+			isa = PBXGroup;
+			children = (
+				1295B2E52BF9D93A0053A4BC /* AsthmaguardTests.swift */,
+				1295B2EC2BF9DA250053A4BC /* AsthmaThreatCalculatorUseCaseTests.swift */,
+				1295B2EE2BF9DAB00053A4BC /* HealthDataAnalyzerTests.swift */,
+			);
+			path = AsthmaguardTests;
 			sourceTree = "<group>";
 		};
 		12BAFE252BA04231003E7980 /* Survey */ = {
@@ -333,6 +369,24 @@
 			productReference = 1276E35E2B7ACD74002CBACB /* Asthmaguard.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1295B2E22BF9D93A0053A4BC /* AsthmaguardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1295B2E92BF9D93A0053A4BC /* Build configuration list for PBXNativeTarget "AsthmaguardTests" */;
+			buildPhases = (
+				1295B2DF2BF9D93A0053A4BC /* Sources */,
+				1295B2E02BF9D93A0053A4BC /* Frameworks */,
+				1295B2E12BF9D93A0053A4BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1295B2E82BF9D93A0053A4BC /* PBXTargetDependency */,
+			);
+			name = AsthmaguardTests;
+			productName = AsthmaguardTests;
+			productReference = 1295B2E32BF9D93A0053A4BC /* AsthmaguardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -340,11 +394,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					1276E35D2B7ACD74002CBACB = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					1295B2E22BF9D93A0053A4BC = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 1276E35D2B7ACD74002CBACB;
 					};
 				};
 			};
@@ -365,6 +423,7 @@
 			projectRoot = "";
 			targets = (
 				1276E35D2B7ACD74002CBACB /* Asthmaguard */,
+				1295B2E22BF9D93A0053A4BC /* AsthmaguardTests */,
 			);
 		};
 /* End PBXProject section */
@@ -378,6 +437,13 @@
 				1276E3692B7ACD76002CBACB /* Preview Assets.xcassets in Resources */,
 				1276E3662B7ACD76002CBACB /* Assets.xcassets in Resources */,
 				123912F22B95B0F9009BD42C /* Poppins-Bold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1295B2E12BF9D93A0053A4BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +488,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1295B2DF2BF9D93A0053A4BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1295B2E62BF9D93A0053A4BC /* AsthmaguardTests.swift in Sources */,
+				1295B2ED2BF9DA250053A4BC /* AsthmaThreatCalculatorUseCaseTests.swift in Sources */,
+				1295B2EF2BF9DAB00053A4BC /* HealthDataAnalyzerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1295B2E82BF9D93A0053A4BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1276E35D2B7ACD74002CBACB /* Asthmaguard */;
+			targetProxy = 1295B2E72BF9D93A0053A4BC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1276E36A2B7ACD76002CBACB /* Debug */ = {
@@ -603,6 +687,51 @@
 			};
 			name = Release;
 		};
+		1295B2EA2BF9D93A0053A4BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PW6U8F3M2Z;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sadlye.AsthmaguardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Asthmaguard.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Asthmaguard";
+			};
+			name = Debug;
+		};
+		1295B2EB2BF9D93A0053A4BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PW6U8F3M2Z;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sadlye.AsthmaguardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Asthmaguard.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Asthmaguard";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -620,6 +749,15 @@
 			buildConfigurations = (
 				1276E36D2B7ACD76002CBACB /* Debug */,
 				1276E36E2B7ACD76002CBACB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1295B2E92BF9D93A0053A4BC /* Build configuration list for PBXNativeTarget "AsthmaguardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1295B2EA2BF9D93A0053A4BC /* Debug */,
+				1295B2EB2BF9D93A0053A4BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
