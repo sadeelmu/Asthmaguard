@@ -185,7 +185,7 @@ class AsthmaThreatCalculatorUseCase {
         return maxSeverity
     }
     
-    private func calculateWeightedSeverity(
+     func calculateWeightedSeverity(
         heartRateSeverity: Double,
         respiratoryRateSeverity: Double,
         oxygenSaturationSeverity: Double,
