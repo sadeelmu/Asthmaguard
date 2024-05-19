@@ -11,67 +11,62 @@ import HealthKit
 
 class AsthmaThreatCalculatorUseCase {
     private let locationManager = LocationManager.shared
+    private let weatherKitData = WeatherKitData()
+    private let healthStore = HKHealthStore()
 
     // MARK: - Monitoring
 
-    static func startMonitoring() {
+    func startMonitoring() {
         Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
-            fetchDataAndCalculateAsthmaSeverity()
+            self.fetchDataAndCalculateAsthmaSeverity()
         }
     }
     
     // MARK: - Data Fetching
-    static func fetchDataAndCalculateAsthmaSeverity() {
-        LocationManager.shared.requestLocation()
-        
-        BioSignalData.requestHealthDataAccessIfNeeded { success in
-            guard success else {
-                print("Failed to authorize HealthKit access.")
+    
+    private func fetchDataAndCalculateAsthmaSeverity() {
+        self.fetchBiosignalData { biosignalSamples in
+            guard let biosignalSamples = biosignalSamples else {
+                print("Failed to fetch biosignal data.")
                 return
             }
             
-            fetchBiosignalData { biosignalSamples in
-                guard let biosignalSamples = biosignalSamples else {
-                    print("Failed to fetch biosignal data.")
+            self.fetchEnvironmentalData { airQualityData, pollenForecastData in
+                guard let airQualityData = airQualityData, let pollenForecastData = pollenForecastData else {
+                    print("Failed to fetch environmental data.")
                     return
                 }
                 
-                // Fetch environmental data
-                fetchEnvironmentalData { airQualityData, pollenForecastData in
-                    guard let airQualityData = airQualityData, let pollenForecastData = pollenForecastData else {
-                        print("Failed to fetch environmental data.")
+                self.fetchWeatherData { weatherData in
+                    guard let weatherData = weatherData else {
+                        print("Failed to fetch weather data.")
                         return
                     }
                     
-                    // Calculate asthma severity
-                    let severity = calculateAsthmaSeverity(biosignalSamples: biosignalSamples, environmentalData: (airQualityData, pollenForecastData))
+                    let severity = self.calculateAsthmaSeverity(
+                        biosignalSamples: biosignalSamples,
+                        environmentalData: (airQualityData, pollenForecastData),
+                        weatherData: weatherData
+                    )
                     print("Asthma Threat: \(Int(severity * 100))%")
                 }
             }
         }
     }
     
-    static func fetchData() {
-        // Request user's location permission
-        LocationManager.shared.requestLocation()
-        
-        BioSignalData.requestHealthDataAccessIfNeeded { success in
-            guard success else {
-                print("Failed to authorize HealthKit access.")
-                return
-            }
-        }
-        
-        fetchBiosignalData { biosignalSamples in
-            // Fetch environmental data
-            fetchEnvironmentalData { airQualityData, pollenForecastData in
-                print("airQuality data \(airQualityData), pollenforecastData \(pollenForecastData), bioSignalData \(biosignalSamples)")
+    func fetchData() {
+        self.fetchBiosignalData { biosignalSamples in
+            self.fetchEnvironmentalData { airQualityData, pollenForecastData in
+                self.fetchWeatherData { weatherData in
+                    print("airQuality data \(String(describing: airQualityData)), pollenForecastData \(String(describing: pollenForecastData)), weatherData \(String(describing: weatherData)), bioSignalData \(String(describing: biosignalSamples))")
+                }
             }
         }
     }
+    
     // MARK: - Biosignal Data
     
-    static func fetchBiosignalData(completion: @escaping ([HKQuantitySample]?) -> Void) {
+    private func fetchBiosignalData(completion: @escaping ([HKQuantitySample]?) -> Void) {
         BioSignalData.requestHealthDataAccessIfNeeded { success in
             guard success else {
                 print("Failed to authorize HealthKit access.")
@@ -79,111 +74,92 @@ class AsthmaThreatCalculatorUseCase {
                 return
             }
             
-            var biosignalSamples: [HKQuantitySample] = []
-            
-            BioSignalData.fetchHeartRateSamples { heartRateSamples, _ in
-                if let heartRateSamples = heartRateSamples {
-                    print("Heart rate samples fetched: \(heartRateSamples.count)")
-                    biosignalSamples.append(contentsOf: heartRateSamples)
+            BioSignalData.fetchAllSamples { samples, error in
+                if let samples = samples {
+                    completion(samples)
+                } else {
+                    print("Failed to fetch biosignal data: \(error?.localizedDescription ?? "unknown error")")
+                    completion(nil)
                 }
-                
-                // Print the heart rate samples to verify their content
-                for sample in biosignalSamples {
-                    print("Sample type: \(sample.quantityType)")
-                }
-                
-                // Process biosignal data
-                completion(biosignalSamples)
             }
         }
     }
 
-    
-    // MARK: - Biosignal Data Processing
-
-    static func processBiosignalData(_ biosignalSamples: [HKQuantitySample]) {
-        // Print biosignal data
-        for sample in biosignalSamples {
-            let identifier = sample.uuid.uuidString
-            var valueString = ""
-            var unitString = ""
-            let timestamp = sample.startDate
-            
-            switch sample.quantityType.identifier {
-            case HKQuantityTypeIdentifier.heartRate.rawValue:
-                // Heart rate unit is beats per minute
-                valueString = "\(sample.quantity.doubleValue(for: HKUnit(from: "count/min")))"
-                unitString = "count/min"
-            case HKQuantityTypeIdentifier.respiratoryRate.rawValue:
-                // Respiratory rate unit is breaths per minute
-                valueString = "\(sample.quantity.doubleValue(for: HKUnit.count().unitDivided(by: HKUnit.minute())))"
-                unitString = "breaths/min"
-            case HKQuantityTypeIdentifier.oxygenSaturation.rawValue:
-                // Oxygen saturation unit is percentage
-                valueString = "\(sample.quantity.doubleValue(for: HKUnit.percent()))"
-                unitString = "%"
-            default:
-                break
-            }
-            
-            print("\(identifier) \(valueString) \(unitString) recorded at \(timestamp)")
-        }
-    }
-    
     // MARK: - Environmental Data
-
     
-    static func fetchEnvironmentalData(completion: @escaping (EnviromentalData.AirQualityData?, EnviromentalData.PollenForecastData?) -> Void) {
+    private func fetchEnvironmentalData(completion: @escaping (EnviromentalData.AirQualityData?, EnviromentalData.PollenForecastData?) -> Void) {
         guard let userLocation = LocationManager.shared.getCurrentLocation() else {
             print("User location not available")
+            completion(nil, nil)
             return
         }
         
         let latitude = userLocation.coordinate.latitude
         let longitude = userLocation.coordinate.longitude
         
-        // Fetch environmental data using user's location
-        EnviromentalData().fetchAirQuality(latitude: latitude, longitude: longitude) { airQualityData in
-            EnviromentalData().fetchPollenForecast(latitude: latitude, longitude: longitude) { pollenForecastData in
+        let environmentalData = EnviromentalData()
+        environmentalData.fetchAirQuality(latitude: latitude, longitude: longitude) { airQualityData in
+            environmentalData.fetchPollenForecast(latitude: latitude, longitude: longitude) { pollenForecastData in
                 completion(airQualityData, pollenForecastData)
             }
         }
     }
-    
-    // MARK: - AQI Calculation
 
-    static func calculateAQIThreatLevel(latitude: Double, longitude: Double, completion: @escaping (Double) -> Void) {
-        EnviromentalData().fetchAirQuality(latitude: latitude, longitude: longitude) { (airQualityData) in
-            var aqiSeverity = 0.0
-            
-            if let universalAQI = airQualityData?.universalAQI {
-                print("Universal AQI: \(universalAQI)")
-                if universalAQI >= 101 {
-                    print("Air quality is unhealthy for people with asthma.")
-                    aqiSeverity = 1.0
-                } else if universalAQI >= 51 {
-                    print("Air quality can worsen asthma symptoms.")
-                    aqiSeverity = 0.5
-                } else {
-                    print("Air quality is good for people with asthma.")
-                    aqiSeverity = 0.0
-                }
-            } else {
-                print("Failed to fetch air quality data.")
-            }
-            
-            completion(aqiSeverity)
+    // MARK: - Weather Data
+    
+    private func fetchWeatherData(completion: @escaping (WeatherKitData.WeatherData?) -> Void) {
+        guard let userLocation = LocationManager.shared.getCurrentLocation() else {
+            print("User location not available")
+            completion(nil)
+            return
+        }
+        
+        let latitude = userLocation.coordinate.latitude
+        let longitude = userLocation.coordinate.longitude
+        
+        weatherKitData.fetchWeatherData(latitude: latitude, longitude: longitude) { weatherData in
+            completion(weatherData)
+        }
+    }
+
+    // MARK: - Asthma Severity Calculation
+    
+    private func calculateAsthmaSeverity(biosignalSamples: [HKQuantitySample], environmentalData: (EnviromentalData.AirQualityData?, EnviromentalData.PollenForecastData?), weatherData: WeatherKitData.WeatherData) -> Double {
+        let heartRateSeverity = HealthDataAnalyzer.calculateHeartRateSeverity(samples: biosignalSamples)
+        let respiratoryRateSeverity = HealthDataAnalyzer.calculateRespiratoryRateSeverity(samples: biosignalSamples)
+        let oxygenSaturationSeverity = HealthDataAnalyzer.calculateOxygenSaturationSeverity(samples: biosignalSamples)
+        
+        var airQualitySeverity = 0.0
+        if let airQualityData = environmentalData.0 {
+            airQualitySeverity = calculateAQISeverity(universalAQI: airQualityData.universalAQI)
+        }
+        
+        let pollenSeverity = calculatePollenSeverity(pollenForecastData: environmentalData.1)
+        let weatherSeverity = weatherKitData.calculateOverallWeatherSeverity(weatherData: weatherData)
+        
+        let overallSeverity = heartRateSeverity + respiratoryRateSeverity + oxygenSaturationSeverity + airQualitySeverity + pollenSeverity + weatherSeverity
+        return overallSeverity
+    }
+    
+    private func calculateAQISeverity(universalAQI: Int?) -> Double {
+        guard let universalAQI = universalAQI else {
+            return 0.0
+        }
+        
+        if universalAQI >= 101 {
+            return 1.0
+        } else if universalAQI >= 51 {
+            return 0.5
+        } else {
+            return 0.0
         }
     }
     
-    // MARK: - Pollen Severity Calculation
-
-    static func calculatePollenSeverity(_ pollenForecastData: EnviromentalData.PollenForecastData?) -> Double {
+    private func calculatePollenSeverity(pollenForecastData: EnviromentalData.PollenForecastData?) -> Double {
         guard let pollenTypes = pollenForecastData?.pollenTypes else {
-            return 0.0 // No pollen data available, severity is minimal
+            return 0.0
         }
         
-        // Map pollen categories to severity levels
         let categorySeverityMap: [String: Double] = [
             "None": 0.0,
             "Very Low": 0.2,
@@ -193,46 +169,7 @@ class AsthmaThreatCalculatorUseCase {
             "Very High": 1.0
         ]
         
-        // Calculate severity based on the maximum severity level of all pollen types
         let maxSeverity = pollenTypes.map { categorySeverityMap[$0.indexInfo.category] ?? 0.0 }.max() ?? 0.0
         return maxSeverity
     }
-    
-    // MARK: - Asthma Severity Calculation
-
-    static func calculateAsthmaSeverity(biosignalSamples: [HKQuantitySample]?, environmentalData: (EnviromentalData.AirQualityData?, EnviromentalData.PollenForecastData?)) -> Double {
-        guard let biosignalSamples = biosignalSamples else {
-            return 0.0 // No biosignal data available, severity is minimal
-        }
-        
-        let heartRateSeverity = HealthDataAnalyzer.calculateHeartRateSeverity(samples: biosignalSamples)
-        let respiratoryRateSeverity = HealthDataAnalyzer.calculateRespiratoryRateSeverity(samples: biosignalSamples)
-        let oxygenSaturationSeverity = HealthDataAnalyzer.calculateOxygenSaturationSeverity(samples: biosignalSamples)
-        
-        guard let airQualityData = environmentalData.0 else {
-            print("Air quality data not available")
-            return 0.0
-        }
-        
-        let locationManager = LocationManager.shared
-        guard let userLocation = locationManager.getCurrentLocation() else {
-            print("User location not available")
-            return 0.0
-        }
-        
-        let latitude = userLocation.coordinate.latitude
-        let longitude = userLocation.coordinate.longitude
-        
-        var airQualitySeverity = 0.0
-        calculateAQIThreatLevel(latitude: latitude, longitude: longitude) { aqiSeverity in
-            airQualitySeverity = aqiSeverity
-        }
-        
-        let pollenSeverity = calculatePollenSeverity(environmentalData.1)
-        
-        
-        return heartRateSeverity + respiratoryRateSeverity + oxygenSaturationSeverity + airQualitySeverity + pollenSeverity
-    }
-
 }
-

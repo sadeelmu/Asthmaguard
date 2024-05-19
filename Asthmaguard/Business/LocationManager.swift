@@ -43,6 +43,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     func getCurrentLocation() -> CLLocation? {
-         return locationManager.location
-     }
+        return locationManager.location
+    }
 }
