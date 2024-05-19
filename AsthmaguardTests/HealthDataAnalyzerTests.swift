@@ -43,7 +43,6 @@ class HealthDataAnalyzerTests: XCTestCase {
         XCTAssertEqual(overallSeverity, 1.0, "Overall severity calculation is incorrect")
     }
     
-    // Helper methods to create mock data
     private func createHeartRateSamples(values: [Double]) -> [HKQuantitySample] {
         return values.map { value in
             let quantity = HKQuantity(unit: HKUnit(from: "count/min"), doubleValue: value)

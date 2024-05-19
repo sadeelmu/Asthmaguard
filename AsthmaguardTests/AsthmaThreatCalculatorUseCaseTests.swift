@@ -46,7 +46,6 @@ class AsthmaThreatCalculatorUseCaseTests: XCTestCase {
         XCTAssertEqual(asthmaThreatCalculator.calculatePollenSeverity(pollenForecastData: pollenForecastData), 0.8, "High pollen category should return severity of 0.8")
     }
 
-    // New tests for weather severity calculations
 
     func testCalculateHumiditySeverity() {
         let lowHumidity = 45.0
@@ -78,7 +77,6 @@ class AsthmaThreatCalculatorUseCaseTests: XCTestCase {
         XCTAssertEqual(weatherKitData.calculateTemperatureSeverity(temperature: veryColdTemperature), 1.0, "Very cold temperature should return severity of 1.0")
     }
 
-    // Updated test for calculating weighted severity including weather factors
 
     func testCalculateWeightedSeverity() {
         let heartRateSeverity = 0.5
