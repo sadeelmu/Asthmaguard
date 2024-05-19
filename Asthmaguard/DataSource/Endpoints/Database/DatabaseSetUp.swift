@@ -542,16 +542,27 @@ extension DatabaseManager {
     
     // MARK: - Fetch Asthma Triggers
     
-    func fetchAsthmaTriggers() {
-        let querySQL = "SELECT TriggerID, PatientID, Grade FROM AsthmaTriggers;"
-        executeFetch(querySQL: querySQL, handleRow: { (statement) in
-            let triggerID = sqlite3_column_int(statement, 0)
-            let patientID = sqlite3_column_int(statement, 1)
-            let grade = sqlite3_column_int(statement, 2)
-            
-            print("Trigger ID: \(triggerID), Patient ID: \(patientID), Grade: \(grade)")
-        })
-    }
+    func fetchAsthmaTriggers(forUserID userID: Int, completion: @escaping ([Int]) -> Void) {
+         let querySQL = "SELECT Grade FROM AsthmaTriggers WHERE PatientID = ? ORDER BY TriggerID;"
+         var queryStatement: OpaquePointer? = nil
+         var grades: [Int] = []
+
+         if sqlite3_prepare_v2(database.dbPointer, querySQL, -1, &queryStatement, nil) == SQLITE_OK {
+             sqlite3_bind_int(queryStatement, 1, Int32(userID))
+
+             while sqlite3_step(queryStatement) == SQLITE_ROW {
+                 let grade = sqlite3_column_int(queryStatement, 0)
+                 grades.append(Int(grade))
+             }
+
+             sqlite3_finalize(queryStatement)
+         } else {
+             let errmsg = String(cString: sqlite3_errmsg(database.dbPointer))
+             print("Error preparing select statement: \(errmsg)")
+         }
+
+         completion(grades)
+     }
     
     // MARK: - Fetch Biometric Data
     

@@ -13,6 +13,7 @@ class AsthmaThreatCalculatorUseCase {
     private let locationManager = LocationManager.shared
     private let weatherKitData = WeatherKitData()
     private let healthStore = HKHealthStore()
+    private let databaseManager = DatabaseManager.shared
 
     // MARK: - Monitoring
 
@@ -43,12 +44,7 @@ class AsthmaThreatCalculatorUseCase {
                         return
                     }
                     
-                    let severity = self.calculateAsthmaSeverity(
-                        biosignalSamples: biosignalSamples,
-                        environmentalData: (airQualityData, pollenForecastData),
-                        weatherData: weatherData
-                    )
-                    print("Asthma Threat: \(Int(severity * 100))%")
+                    self.calculateAsthmaSeverity(biosignalSamples: biosignalSamples, environmentalData: (airQualityData, pollenForecastData), weatherData: weatherData)
                 }
             }
         }
@@ -124,21 +120,37 @@ class AsthmaThreatCalculatorUseCase {
 
     // MARK: - Asthma Severity Calculation
     
-    private func calculateAsthmaSeverity(biosignalSamples: [HKQuantitySample], environmentalData: (EnviromentalData.AirQualityData?, EnviromentalData.PollenForecastData?), weatherData: WeatherKitData.WeatherData) -> Double {
-        let heartRateSeverity = HealthDataAnalyzer.calculateHeartRateSeverity(samples: biosignalSamples)
-        let respiratoryRateSeverity = HealthDataAnalyzer.calculateRespiratoryRateSeverity(samples: biosignalSamples)
-        let oxygenSaturationSeverity = HealthDataAnalyzer.calculateOxygenSaturationSeverity(samples: biosignalSamples)
-        
-        var airQualitySeverity = 0.0
-        if let airQualityData = environmentalData.0 {
-            airQualitySeverity = calculateAQISeverity(universalAQI: airQualityData.universalAQI)
+    private func calculateAsthmaSeverity(biosignalSamples: [HKQuantitySample], environmentalData: (EnviromentalData.AirQualityData?, EnviromentalData.PollenForecastData?), weatherData: WeatherKitData.WeatherData) {
+        let userID = 1 // Example userID, replace with actual user ID
+        databaseManager.fetchAsthmaTriggers(forUserID: userID) { triggerGrades in
+            let heartRateSeverity = HealthDataAnalyzer.calculateHeartRateSeverity(samples: biosignalSamples)
+            let respiratoryRateSeverity = HealthDataAnalyzer.calculateRespiratoryRateSeverity(samples: biosignalSamples)
+            let oxygenSaturationSeverity = HealthDataAnalyzer.calculateOxygenSaturationSeverity(samples: biosignalSamples)
+            
+            var airQualitySeverity = 0.0
+            if let airQualityData = environmentalData.0 {
+                airQualitySeverity = self.calculateAQISeverity(universalAQI: airQualityData.universalAQI)
+            }
+            
+            let pollenSeverity = self.calculatePollenSeverity(pollenForecastData: environmentalData.1)
+            let humiditySeverity = self.weatherKitData.calculateHumiditySeverity(humidity: weatherData.humidity)
+            let cloudCoverSeverity = self.weatherKitData.calculateCloudCoverSeverity(cloudCover: weatherData.cloudCover)
+            let temperatureSeverity = self.weatherKitData.calculateTemperatureSeverity(temperature: weatherData.temperature)
+            
+            let weightedSeverity = self.calculateWeightedSeverity(
+                heartRateSeverity: heartRateSeverity,
+                respiratoryRateSeverity: respiratoryRateSeverity,
+                oxygenSaturationSeverity: oxygenSaturationSeverity,
+                airQualitySeverity: airQualitySeverity,
+                pollenSeverity: pollenSeverity,
+                humiditySeverity: humiditySeverity,
+                cloudCoverSeverity: cloudCoverSeverity,
+                temperatureSeverity: temperatureSeverity,
+                triggerGrades: triggerGrades
+            )
+            
+            print("Asthma Threat: \(Int(weightedSeverity * 100))%")
         }
-        
-        let pollenSeverity = calculatePollenSeverity(pollenForecastData: environmentalData.1)
-        let weatherSeverity = weatherKitData.calculateOverallWeatherSeverity(weatherData: weatherData)
-        
-        let overallSeverity = heartRateSeverity + respiratoryRateSeverity + oxygenSaturationSeverity + airQualitySeverity + pollenSeverity + weatherSeverity
-        return overallSeverity
     }
     
     private func calculateAQISeverity(universalAQI: Int?) -> Double {
@@ -171,5 +183,32 @@ class AsthmaThreatCalculatorUseCase {
         
         let maxSeverity = pollenTypes.map { categorySeverityMap[$0.indexInfo.category] ?? 0.0 }.max() ?? 0.0
         return maxSeverity
+    }
+    
+    private func calculateWeightedSeverity(
+        heartRateSeverity: Double,
+        respiratoryRateSeverity: Double,
+        oxygenSaturationSeverity: Double,
+        airQualitySeverity: Double,
+        pollenSeverity: Double,
+        humiditySeverity: Double,
+        cloudCoverSeverity: Double,
+        temperatureSeverity: Double,
+        triggerGrades: [Int]
+    ) -> Double {
+        let totalGrade = Double(triggerGrades.reduce(0, +))
+        
+        let weightedSeverity = (
+            (heartRateSeverity * Double(triggerGrades[0])) +
+            (respiratoryRateSeverity * Double(triggerGrades[1])) +
+            (oxygenSaturationSeverity * Double(triggerGrades[2])) +
+            (airQualitySeverity * Double(triggerGrades[3])) +
+            (pollenSeverity * Double(triggerGrades[4])) +
+            (humiditySeverity * Double(triggerGrades[5])) +
+            (cloudCoverSeverity * Double(triggerGrades[6])) +
+            (temperatureSeverity * Double(triggerGrades[7]))
+        ) / totalGrade
+        
+        return weightedSeverity
     }
 }
