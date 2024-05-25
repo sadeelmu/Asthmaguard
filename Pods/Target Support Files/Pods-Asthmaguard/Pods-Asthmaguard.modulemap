@@ -1,0 +1,6 @@
+framework module Pods_Asthmaguard {
+  umbrella header "Pods-Asthmaguard-umbrella.h"
+
+  export *
+  module * { export * }
+}

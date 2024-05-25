@@ -39,13 +39,15 @@
 		12BAFE2A2BA0428E003E7980 /* SurveyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE272BA0428E003E7980 /* SurveyHelper.swift */; };
 		12BAFE2B2BA0428E003E7980 /* SurveyModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE282BA0428E003E7980 /* SurveyModelClass.swift */; };
 		12BAFE2D2BA042A7003E7980 /* SurveyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */; };
+		12BD11E52C02563E0096C47D /* howtouseinhaler.gif in Resources */ = {isa = PBXBuildFile; fileRef = 12BD11E42C02563E0096C47D /* howtouseinhaler.gif */; };
 		12C3F7D22BB576C6008B43ED /* CustomBioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3F7D12BB576C6008B43ED /* CustomBioData.swift */; };
 		12E0B08E2BF60E5E003E18D6 /* CompanionDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E0B08D2BF60E5E003E18D6 /* CompanionDashboardView.swift */; };
 		12E0B0902BF60EBE003E18D6 /* CompanionSettingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E0B08F2BF60EBE003E18D6 /* CompanionSettingScreen.swift */; };
 		12E0B0922BF60F89003E18D6 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E0B0912BF60F89003E18D6 /* AnalyticsView.swift */; };
 		12EAA2DE2BE8C50400C0A1DB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EAA2DD2BE8C50400C0A1DB /* LocationManager.swift */; };
-		12EEFB022BB05F61003053AB /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 12EEFB012BB05F61003053AB /* PythonKit */; };
 		12EEFB042BB05FF3003053AB /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EEFB032BB05FF2003053AB /* SettingsScreen.swift */; };
+		36495D3769F738E52AE09E55 /* Pods_AsthmaguardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A473D07D19F4891C0EC3EA46 /* Pods_AsthmaguardTests.framework */; };
+		3FF0674C489C293D17AD478C /* Pods_Asthmaguard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D86664A7B056AD9D5A4532B /* Pods_Asthmaguard.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,12 +97,19 @@
 		12BAFE272BA0428E003E7980 /* SurveyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyHelper.swift; sourceTree = "<group>"; };
 		12BAFE282BA0428E003E7980 /* SurveyModelClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyModelClass.swift; sourceTree = "<group>"; };
 		12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyScreen.swift; sourceTree = "<group>"; };
+		12BD11E42C02563E0096C47D /* howtouseinhaler.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = howtouseinhaler.gif; sourceTree = "<group>"; };
 		12C3F7D12BB576C6008B43ED /* CustomBioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBioData.swift; sourceTree = "<group>"; };
 		12E0B08D2BF60E5E003E18D6 /* CompanionDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionDashboardView.swift; sourceTree = "<group>"; };
 		12E0B08F2BF60EBE003E18D6 /* CompanionSettingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionSettingScreen.swift; sourceTree = "<group>"; };
 		12E0B0912BF60F89003E18D6 /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		12EAA2DD2BE8C50400C0A1DB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		12EEFB032BB05FF2003053AB /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		47517DB559739E3571B31F22 /* Pods-AsthmaguardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaguardTests.debug.xcconfig"; path = "Target Support Files/Pods-AsthmaguardTests/Pods-AsthmaguardTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5810EE9B8C5719A14118CF19 /* Pods-AsthmaguardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaguardTests.release.xcconfig"; path = "Target Support Files/Pods-AsthmaguardTests/Pods-AsthmaguardTests.release.xcconfig"; sourceTree = "<group>"; };
+		711CB4D76AD25FABB75C23A2 /* Pods-Asthmaguard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Asthmaguard.debug.xcconfig"; path = "Target Support Files/Pods-Asthmaguard/Pods-Asthmaguard.debug.xcconfig"; sourceTree = "<group>"; };
+		89E9D2EB1B2D78FF67E2D280 /* Pods-Asthmaguard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Asthmaguard.release.xcconfig"; path = "Target Support Files/Pods-Asthmaguard/Pods-Asthmaguard.release.xcconfig"; sourceTree = "<group>"; };
+		9D86664A7B056AD9D5A4532B /* Pods_Asthmaguard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Asthmaguard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A473D07D19F4891C0EC3EA46 /* Pods_AsthmaguardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsthmaguardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12EEFB022BB05F61003053AB /* PythonKit in Frameworks */,
+				3FF0674C489C293D17AD478C /* Pods_Asthmaguard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36495D3769F738E52AE09E55 /* Pods_AsthmaguardTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +143,8 @@
 		121BAD372BDF9C0C009E83A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9D86664A7B056AD9D5A4532B /* Pods_Asthmaguard.framework */,
+				A473D07D19F4891C0EC3EA46 /* Pods_AsthmaguardTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -154,6 +166,7 @@
 				1295B2E42BF9D93A0053A4BC /* AsthmaguardTests */,
 				1276E35F2B7ACD74002CBACB /* Products */,
 				121BAD372BDF9C0C009E83A9 /* Frameworks */,
+				52E6FDB4B93EAB815D264E86 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,6 +182,7 @@
 		1276E3602B7ACD74002CBACB /* Asthmaguard */ = {
 			isa = PBXGroup;
 			children = (
+				12BD11E42C02563E0096C47D /* howtouseinhaler.gif */,
 				1276E3612B7ACD74002CBACB /* AsthmaguardApp.swift */,
 				1276E3632B7ACD74002CBACB /* ContentView.swift */,
 				1276E36F2B7ACD87002CBACB /* Presentation */,
@@ -346,6 +360,17 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		52E6FDB4B93EAB815D264E86 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				711CB4D76AD25FABB75C23A2 /* Pods-Asthmaguard.debug.xcconfig */,
+				89E9D2EB1B2D78FF67E2D280 /* Pods-Asthmaguard.release.xcconfig */,
+				47517DB559739E3571B31F22 /* Pods-AsthmaguardTests.debug.xcconfig */,
+				5810EE9B8C5719A14118CF19 /* Pods-AsthmaguardTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -353,9 +378,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1276E36C2B7ACD76002CBACB /* Build configuration list for PBXNativeTarget "Asthmaguard" */;
 			buildPhases = (
+				F7B1B2FC47A07C19D8F5B6D5 /* [CP] Check Pods Manifest.lock */,
 				1276E35A2B7ACD74002CBACB /* Sources */,
 				1276E35B2B7ACD74002CBACB /* Frameworks */,
 				1276E35C2B7ACD74002CBACB /* Resources */,
+				7D67E8254F8ADFC3561023D0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -363,7 +390,6 @@
 			);
 			name = Asthmaguard;
 			packageProductDependencies = (
-				12EEFB012BB05F61003053AB /* PythonKit */,
 			);
 			productName = Asthmaguard;
 			productReference = 1276E35E2B7ACD74002CBACB /* Asthmaguard.app */;
@@ -373,6 +399,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1295B2E92BF9D93A0053A4BC /* Build configuration list for PBXNativeTarget "AsthmaguardTests" */;
 			buildPhases = (
+				3B2FB279776F2ED548EF711D /* [CP] Check Pods Manifest.lock */,
 				1295B2DF2BF9D93A0053A4BC /* Sources */,
 				1295B2E02BF9D93A0053A4BC /* Frameworks */,
 				1295B2E12BF9D93A0053A4BC /* Resources */,
@@ -416,7 +443,6 @@
 			);
 			mainGroup = 1276E3552B7ACD74002CBACB;
 			packageReferences = (
-				12EEFB002BB05F61003053AB /* XCRemoteSwiftPackageReference "PythonKit" */,
 			);
 			productRefGroup = 1276E35F2B7ACD74002CBACB /* Products */;
 			projectDirPath = "";
@@ -436,6 +462,7 @@
 				123912F02B95B0E3009BD42C /* Poppins-Regular.ttf in Resources */,
 				1276E3692B7ACD76002CBACB /* Preview Assets.xcassets in Resources */,
 				1276E3662B7ACD76002CBACB /* Assets.xcassets in Resources */,
+				12BD11E52C02563E0096C47D /* howtouseinhaler.gif in Resources */,
 				123912F22B95B0F9009BD42C /* Poppins-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +475,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3B2FB279776F2ED548EF711D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AsthmaguardTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D67E8254F8ADFC3561023D0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Asthmaguard/Pods-Asthmaguard-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Asthmaguard/Pods-Asthmaguard-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Asthmaguard/Pods-Asthmaguard-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7B1B2FC47A07C19D8F5B6D5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Asthmaguard-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1276E35A2B7ACD74002CBACB /* Sources */ = {
@@ -625,6 +716,7 @@
 		};
 		1276E36D2B7ACD76002CBACB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 711CB4D76AD25FABB75C23A2 /* Pods-Asthmaguard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -657,6 +749,7 @@
 		};
 		1276E36E2B7ACD76002CBACB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89E9D2EB1B2D78FF67E2D280 /* Pods-Asthmaguard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -689,6 +782,7 @@
 		};
 		1295B2EA2BF9D93A0053A4BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47517DB559739E3571B31F22 /* Pods-AsthmaguardTests.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -712,6 +806,7 @@
 		};
 		1295B2EB2BF9D93A0053A4BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5810EE9B8C5719A14118CF19 /* Pods-AsthmaguardTests.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -763,25 +858,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		12EEFB002BB05F61003053AB /* XCRemoteSwiftPackageReference "PythonKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pvieito/PythonKit";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		12EEFB012BB05F61003053AB /* PythonKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 12EEFB002BB05F61003053AB /* XCRemoteSwiftPackageReference "PythonKit" */;
-			productName = PythonKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1276E3562B7ACD74002CBACB /* Project object */;
 }

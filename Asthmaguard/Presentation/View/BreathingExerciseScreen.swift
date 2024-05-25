@@ -31,32 +31,29 @@ struct BreathingExerciseScreen: View {
 
                     Divider()
                     Spacer()
-                    VStack(spacing: 20){
+                    VStack(spacing: 20) {
                         ScrollView(.vertical, showsIndicators: false) {
                             VStack(alignment: .leading, spacing: 20) {
                                 HStack {
-                                    BreathingExerciseCard(exercise: BreathingExercise(title: "Inhaler", duration: "1 minute", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "useinhaler", gifName: "howtouseinhaler.gif"), selectedExercise: $selectedExercise)
+                                    BreathingExerciseCard(exercise: BreathingExercise(title: "Inhaler", duration: "2 minutes", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "useinhaler", gifName: "howtouseinhaler"), selectedExercise: $selectedExercise)
                                     Text("Helps open airways and improve breathing.")
                                         .font(Font.custom("Poppins-Regular", size: 12))
                                         .multilineTextAlignment(.leading)
                                 }
                                 Divider()
                                 HStack {
-                                
-                                    BreathingExerciseCard(exercise: BreathingExercise(title: "Meditate", duration: "5 minute", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "meditation", gifName: "meditation.gif"), selectedExercise: $selectedExercise)
+                                    BreathingExerciseCard(exercise: BreathingExercise(title: "Meditate", duration: "5 minutes", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "meditation", gifName: "meditation"), selectedExercise: $selectedExercise)
                                     Text("Helps relax and improve breathing.")
                                         .font(Font.custom("Poppins-Regular", size: 12))
                                         .multilineTextAlignment(.leading)
                                 }
                                 Divider()
                                 HStack {
-                                
-                                    BreathingExerciseCard(exercise: BreathingExercise(title: "Breathe", duration: "5 minute", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "breathin", gifName: "breathin.gif"), selectedExercise: $selectedExercise)
-                                    Text("Breath in and out from your nasal.")
+                                    BreathingExerciseCard(exercise: BreathingExercise(title: "Breathe", duration: "5 minutes", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "breathin", gifName: "breathin"), selectedExercise: $selectedExercise)
+                                    Text("Breathe in and out from your nasal.")
                                         .font(Font.custom("Poppins-Regular", size: 12))
                                         .multilineTextAlignment(.leading)
                                 }
-
                             }
                             .padding(.bottom, 10)
                             .padding(.top, 10)
@@ -66,7 +63,7 @@ struct BreathingExerciseScreen: View {
                                 // Start the selected exercise
                                 isExerciseStarted = true
                             }) {
-                                Text("Start Selected Exercise")
+                                Text("Start Selected Breathing Exercise")
                                     .font(Font.custom("Poppins-Regular", size: 16).weight(.bold))
                                     .foregroundColor(.white)
                                     .frame(maxWidth: .infinity)
@@ -77,9 +74,7 @@ struct BreathingExerciseScreen: View {
                             }
                             .padding(.all, 10)
                         }
-                     
                     }
-
                 }
             }
         }
@@ -131,52 +126,66 @@ struct BreathingExercise {
     let duration: String
     let color: Color
     let imageName: String
-    let gifName:String
+    let gifName: String
 }
+
 
 @available(iOS 17.0, *)
 struct BreathingExerciseView: View {
     let exercise: BreathingExercise
     @State private var timerValue = 0
     @State private var timer: Timer?
-    @State private var gifImage: UIImage?
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        VStack {
-            Text(exercise.title)
-                .font(.title)
-                .padding()
+        VStack(spacing:20){
             Spacer()
-            if let gifImage = gifImage {
-                Image(uiImage: gifImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 200, height: 200)
+            Text("\(exercise.title) Breathing Exercise")
+                .font(Font.custom("Poppins-Regular", size: 26).weight(.bold))
+                .padding()
+            Divider()
+            VStack(spacing:5){
+                Text("Timer: \(timerValue) seconds")
+                    .font(Font.custom("Poppins-Regular", size: 16).weight(.bold))
+                    .multilineTextAlignment(.leading)
+                Text("Please do the breathing excerise for the complete duration of the advised time: \(exercise.duration).")
+                    .multilineTextAlignment(.leading)
+                    .padding(.all, 10)
+                    .font(Font.custom("Poppins-Regular", size: 16))
+             
+
             }
-            Text("Timer: \(timerValue) seconds")
-                .font(.title)
+            Divider()
+            
+                WebImage(url: Bundle.main.url(forResource: exercise.gifName, withExtension: "gif"))
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 350, height: 175)
+                    .padding(.all, 10)
+
+            
+            Divider()
+            Button(action: {
+                timer?.invalidate()
+                presentationMode.wrappedValue.dismiss()
+            }) {
+                Text("Stop Breathing Exercise")
+                    .font(Font.custom("Poppins-Regular", size: 20).weight(.bold))
+                    .foregroundColor(.white)
+                    .frame(width: 375)
+                    .frame(height: 100)
+                    .background(.black)
+                    .frame(height: 50)
+                    .cornerRadius(25)
+            }
+            .padding(.all, 10)
             Spacer()
         }
         .onAppear {
-            loadGif()
             startTimer()
         }
         .onDisappear {
             timer?.invalidate()
-        }
-    }
-    
-    func loadGif() {
-        guard let gifURL = Bundle.main.url(forResource: exercise.gifName, withExtension: "gif") else {
-            print("Failed to load GIF: \(exercise.gifName)")
-            return
-        }
-        
-        do {
-            let gifData = try Data(contentsOf: gifURL)
-            gifImage = UIImage(data: gifData)
-        } catch {
-            print("Failed to load GIF data: \(error)")
         }
     }
     
