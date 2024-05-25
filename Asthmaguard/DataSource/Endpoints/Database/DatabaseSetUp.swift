@@ -657,6 +657,8 @@ extension DatabaseManager {
         })
     }
     
+    // MARK: - Fetch Doctor
+    
     func fetchDoctorByToken(token: Int) {
         let querySQL = "SELECT Token FROM Doctors WHERE Token = ?;"
         var queryStatement: OpaquePointer? = nil

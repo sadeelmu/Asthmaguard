@@ -16,7 +16,7 @@ class RegisterViewModel: ObservableObject {
 
     
     func register() {
-        DatabaseManager.shared.addUser(username: firstName+lastName, password: password, email: email)
+        DatabaseManager.shared.addUser(username: firstName+lastName, password: password, email: email, token: 123)
         isRegistered = true
 
     }

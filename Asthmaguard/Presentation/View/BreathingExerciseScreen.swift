@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 @available(iOS 17.0, *)
 struct BreathingExerciseScreen: View {

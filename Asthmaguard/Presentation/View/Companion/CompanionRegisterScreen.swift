@@ -15,7 +15,7 @@ struct CompanionRegisterScreen: View {
     
     var body: some View {
         
-        VStack(spacing: 20) {
+        VStack(spacing: 25) {
             Text("Asthma")
                 .font(Font.custom("Poppins-Regular", size: 32).weight(.bold))
                 .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
@@ -23,8 +23,7 @@ struct CompanionRegisterScreen: View {
                 .font(Font.custom("Poppins-Regular", size: 32).weight(.bold))
                 .foregroundColor(Color(red: 0.57, green: 0.64, blue: 0.99))
             
-            Spacer()
-            VStack(spacing:5){
+            VStack(spacing:20){
                 Text("Stay in touch with your asthma patient,")
                     .font(Font.custom("Poppins-Regular", size: 16))
                     .lineSpacing(24)
@@ -36,7 +35,6 @@ struct CompanionRegisterScreen: View {
                     .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
             }
             
-            Spacer()
             
             VStack(spacing:2){
                 CustomTextField(systemName: "person", placeholder: "First Name", text: $companionRegisterViewModel.firstName).padding(10)
@@ -46,9 +44,7 @@ struct CompanionRegisterScreen: View {
                 CustomTextField(systemName: "envelope", placeholder: "Email", text: $companionRegisterViewModel.email).padding(10)
                     .keyboardType(.emailAddress)
                 
-                CustomTextField(systemName: "lock", placeholder: "Password", text: $companionRegisterViewModel.password).padding(10)
-                
-                CustomTextField(systemName: "person", placeholder: "Companion’s referral", text: $companionRegisterViewModel.companionReferral).padding(10)
+                CustomTextField(systemName: "lock", placeholder: "Companion’s referral", text: $companionRegisterViewModel.companionReferral).padding(10)
 
                 
                 HStack {
