@@ -16,14 +16,14 @@ struct HistoricalDataView: View {
     
     var body: some View {
         VStack {
-            Text("\(bioSignal) Historical Data")
-                .font(Font.custom("Poppins-Bold", size: 22))
+            Text("🫀 \(bioSignal) Historical Data")
+                .font(Font.custom("Poppins-Bold", size: 18))
                 .padding()
             
             List(samples, id: \.uuid) { sample in
                 VStack(alignment: .leading) {
-                    Text("\(sample.quantity.doubleValue(for: HKUnit.count().unitDivided(by: HKUnit.minute())))")
-                    Text("\(sample.startDate)")
+                    Text(String(format: "%.1f", sample.quantity.doubleValue(for: HKUnit.count().unitDivided(by: HKUnit.minute()))))
+                    Text("\(sample.startDate.formatted(.dateTime.year().month().day().hour().minute().second()))")
                         .font(.subheadline)
                         .foregroundColor(.gray)
                 }
@@ -75,7 +75,7 @@ struct HealthDataListView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(title)
-                .font(.headline)
+                .font(Font.custom("Poppins-Regular", size: 18))
                 .padding(.bottom, 4)
             
             ForEach(samples, id: \.uuid) { sample in

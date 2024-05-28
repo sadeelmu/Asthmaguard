@@ -60,7 +60,6 @@ class BioSignalData {
             }
             dispatchGroup.leave()
         }
-        
         dispatchGroup.enter()
         fetchOxygenSaturationSamples { oxygenSaturationSamples, error in
             if let oxygenSaturationSamples = oxygenSaturationSamples {

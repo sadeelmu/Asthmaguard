@@ -40,7 +40,8 @@ public class AsthmaThreatCalculatorUseCase {
         }
     }
     
-    // MARK: - Data Fetching
+    
+    // MARK: - Fetch Asthma and Calculate
     
     func fetchDataAndCalculateAsthmaSeverity() {
          guard let patientToken = getPatientToken() else {
@@ -78,7 +79,6 @@ public class AsthmaThreatCalculatorUseCase {
              }
          }
      }
-    
     func fetchData() {
         guard let patientToken = getPatientToken() else {
             print("Current username not available.")
@@ -102,7 +102,6 @@ public class AsthmaThreatCalculatorUseCase {
     }
     
     // MARK: - Biosignal Data
-    
     private func fetchBiosignalData(completion: @escaping ([HKQuantitySample]?) -> Void) {
         BioSignalData.requestHealthDataAccessIfNeeded { success in
             guard success else {
@@ -123,7 +122,6 @@ public class AsthmaThreatCalculatorUseCase {
     }
 
     // MARK: - Environmental Data
-    
     private func fetchEnvironmentalData(completion: @escaping (EnviromentalData.AirQualityData?, EnviromentalData.PollenForecastData?) -> Void) {
         guard let userLocation = LocationManager.shared.getCurrentLocation() else {
             print("User location not available")

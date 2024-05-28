@@ -29,9 +29,9 @@ struct AsthmaThreatChart: View {
         asthmaThreatCalculatorUseCase.fetchDataAndCalculateAsthmaSeverity()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             // Use a delay to allow for data fetching; adjust timing as necessary
-            self.biosignalRisk = 0.3
-            self.environmentalRisk = 0.1
-            self.totalWeightedSeverity = 0.4
+            self.biosignalRisk = asthmaThreatCalculatorUseCase.weightedBioSignalRisk
+            self.biosignalRisk = asthmaThreatCalculatorUseCase.weightedBioSignalRisk
+            self.totalWeightedSeverity = asthmaThreatCalculatorUseCase.totalWeightedSeverity
 
             if totalWeightedSeverity > 0.75 {
                 showVeryHighThreatActionSheet = true
@@ -44,7 +44,7 @@ struct AsthmaThreatChart: View {
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
-                VStack(spacing: 20) {
+                VStack(spacing: 5) {
                     Text("Dashboard")
                         .font(Font.custom("Poppins-Bold", size: 18))
                         .padding(.all)
@@ -73,13 +73,13 @@ struct AsthmaThreatChart: View {
                     Spacer()
                     VStack(spacing: 10) {
                         NavigationLink(destination: HistoricalDataView(bioSignal: "Respiratory Rate")) {
-                            CustomBioData(bioSignal: "Respiratory Rate", time: "11:55 AM", data: "19 breaths/min")
+                            CustomBioData(bioSignal: "🫁 Respiratory Rate", time: "7:23 PM", data: "20 breaths/min")
                         }
                         NavigationLink(destination: HistoricalDataView(bioSignal: "Heart Rate")) {
-                            CustomBioData(bioSignal: "Heart Rate", time: "12:01 PM", data: "96 BPM")
+                            CustomBioData(bioSignal: "🫀 Heart Rate", time: "7:25 PM", data: "90 BPM")
                         }
                         NavigationLink(destination: HistoricalDataView(bioSignal: "Blood Oxygen")) {
-                            CustomBioData(bioSignal: "Blood Oxygen", time: "12:03 PM", data: "98.5%")
+                            CustomBioData(bioSignal: "🩸 Blood Oxygen", time: "7:30 PM", data: "97.5%")
                         }
                     }
                     Spacer()

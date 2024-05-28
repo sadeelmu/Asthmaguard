@@ -89,3 +89,4 @@ class WeatherKitData {
         return humiditySeverity + cloudCoverSeverity + temperatureSeverity
     }
 }
+
