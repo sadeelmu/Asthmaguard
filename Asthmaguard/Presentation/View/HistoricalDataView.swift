@@ -16,7 +16,7 @@ struct HistoricalDataView: View {
     
     var body: some View {
         VStack {
-            Text("🫀 \(bioSignal) Historical Data")
+            Text("\(bioSignal) Historical Data")
                 .font(Font.custom("Poppins-Bold", size: 18))
                 .padding()
             

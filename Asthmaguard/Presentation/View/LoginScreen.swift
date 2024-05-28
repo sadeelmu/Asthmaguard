@@ -16,7 +16,7 @@ struct LoginScreen: View {
     var body: some View {
         if loginViewModel.isLogin {
             if loginViewModel.shouldNavigateToCompanionDashboard {
-                CompanionDashboardView()
+                CompanionLoginScreen()
             } else {
                 DashboardView()
             }
