@@ -41,6 +41,7 @@
 		12BAFE2D2BA042A7003E7980 /* SurveyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */; };
 		12BD11E52C02563E0096C47D /* howtouseinhaler.gif in Resources */ = {isa = PBXBuildFile; fileRef = 12BD11E42C02563E0096C47D /* howtouseinhaler.gif */; };
 		12C3F7D22BB576C6008B43ED /* CustomBioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3F7D12BB576C6008B43ED /* CustomBioData.swift */; };
+		12DD4C7A2C0638C70032E5A5 /* AsthmaThreatChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD4C792C0638C70032E5A5 /* AsthmaThreatChart.swift */; };
 		12E0B08E2BF60E5E003E18D6 /* CompanionDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E0B08D2BF60E5E003E18D6 /* CompanionDashboardView.swift */; };
 		12E0B0902BF60EBE003E18D6 /* CompanionSettingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E0B08F2BF60EBE003E18D6 /* CompanionSettingScreen.swift */; };
 		12E0B0922BF60F89003E18D6 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E0B0912BF60F89003E18D6 /* AnalyticsView.swift */; };
@@ -102,6 +103,7 @@
 		12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyScreen.swift; sourceTree = "<group>"; };
 		12BD11E42C02563E0096C47D /* howtouseinhaler.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = howtouseinhaler.gif; sourceTree = "<group>"; };
 		12C3F7D12BB576C6008B43ED /* CustomBioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBioData.swift; sourceTree = "<group>"; };
+		12DD4C792C0638C70032E5A5 /* AsthmaThreatChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaThreatChart.swift; sourceTree = "<group>"; };
 		12E0B08D2BF60E5E003E18D6 /* CompanionDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionDashboardView.swift; sourceTree = "<group>"; };
 		12E0B08F2BF60EBE003E18D6 /* CompanionSettingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionSettingScreen.swift; sourceTree = "<group>"; };
 		12E0B0912BF60F89003E18D6 /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				12E0B0932BF60FC4003E18D6 /* Companion */,
 				1276E3752B7ACF56002CBACB /* LoginScreen.swift */,
 				123912F82B95BFD8009BD42C /* RegisterScreen.swift */,
+				12DD4C792C0638C70032E5A5 /* AsthmaThreatChart.swift */,
 				12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */,
 				12BAFE262BA0428E003E7980 /* SurveyView.swift */,
 				126FC27B2BA30B1B00BE1FDD /* DashboardView.swift */,
@@ -572,6 +575,7 @@
 				126FC2782BA2FFCC00BE1FDD /* CompanionRegisterScreen.swift in Sources */,
 				1276E3742B7ACEE3002CBACB /* LoginViewModel.swift in Sources */,
 				1276E3622B7ACD74002CBACB /* AsthmaguardApp.swift in Sources */,
+				12DD4C7A2C0638C70032E5A5 /* AsthmaThreatChart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
