@@ -8,41 +8,36 @@
 import Foundation
 import CoreLocation
 
-class LocationManager: NSObject, CLLocationManagerDelegate {
+class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     static let shared = LocationManager()
 
-    private var locationManager: CLLocationManager
+    private var locationManager = CLLocationManager()
+    @Published var lastKnownLocation: CLLocation?
 
-    private override init() {
-        self.locationManager = CLLocationManager()
+    override private init() {
         super.init()
-        self.locationManager.delegate = self
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
 
-    func requestLocation() {
+    func requestLocationAccess() {
         locationManager.requestWhenInUseAuthorization()
+    }
+
+    func startUpdatingLocation() {
         locationManager.startUpdatingLocation()
     }
 
-    // MARK: - CLLocationManagerDelegate
+    func getCurrentLocation() -> CLLocation? {
+        return locationManager.location
+    }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else {
-            print("Failed to get user's location")
-            return
-        }
-        // Do something with the obtained location
-        print("User's Location: \(location.coordinate.latitude), \(location.coordinate.longitude)")
-
-        // Stop updating location to save battery
-        manager.stopUpdatingLocation()
+        guard let location = locations.last else { return }
+        lastKnownLocation = location
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Location manager failed with error: \(error.localizedDescription)")
-    }
-    
-    func getCurrentLocation() -> CLLocation? {
-        return locationManager.location
+        print("Failed to get user location: \(error.localizedDescription)")
     }
 }

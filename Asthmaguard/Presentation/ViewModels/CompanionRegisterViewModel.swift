@@ -7,19 +7,20 @@
 
 import Foundation
 
-class CompanionRegisterViewModel:ObservableObject{
-    @Published var firstName:String = ""
-    @Published var lastName:String = ""
-    @Published var email:String = ""
-    @Published var password:String = ""
-    @Published var companionReferral:String = ""
-    
-    func register(){
-        print("register")
+class CompanionRegisterViewModel: ObservableObject {
+    @Published var firstName: String = ""
+    @Published var lastName: String = ""
+    @Published var email: String = ""
+    @Published var companionReferral: String = ""
+    @Published var shouldNavigateToLogin: Bool = false
+
+    func register() {
+        // Registration logic here, if needed
+        shouldNavigateToLogin = true
     }
-    
-    func login(){
-        print("login")
+
+    func login() {
+        shouldNavigateToLogin = true
     }
 }
 

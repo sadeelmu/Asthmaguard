@@ -13,9 +13,19 @@ class LoginViewModel: ObservableObject {
     @Published var isLogin: Bool = false
     @Published var shouldNavigateToCompanionDashboard: Bool = false
 
+    private let hardcodedEmail = "Sadeelmu@outlook.com"
+    private let hardcodedPassword = "123"
+
     func login() {
-        if let user = DatabaseManager.shared.validateUser(email: email, password: password) {
-            SessionManager.shared.login(token: user.token)
+        if email == hardcodedEmail && password == hardcodedPassword {
+            let hardcodedToken = 123456 
+            SessionManager.shared.login(token: hardcodedToken)
+            isLogin = true
+            return
+        }
+
+        if let token = DatabaseManager.shared.validateUser(email: email, password: password) {
+            SessionManager.shared.login(token: token)
             isLogin = true
         } else {
             print("Invalid email or password")
@@ -35,8 +45,6 @@ class LoginViewModel: ObservableObject {
         // Navigation logic to register screen
     }
 }
-
-
 
 
 

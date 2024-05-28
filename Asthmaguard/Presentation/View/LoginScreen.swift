@@ -11,6 +11,7 @@ import SwiftUI
 @available(iOS 17.0, *)
 struct LoginScreen: View {
     @ObservedObject var loginViewModel: LoginViewModel = LoginViewModel()
+    @State private var shouldNavigateToRegister = false
     
     var body: some View {
         if loginViewModel.isLogin {
@@ -19,6 +20,8 @@ struct LoginScreen: View {
             } else {
                 DashboardView()
             }
+        } else if shouldNavigateToRegister {
+            RegisterScreen()
         } else {
             VStack {
                 Spacer()
@@ -70,7 +73,7 @@ struct LoginScreen: View {
                             .font(Font.custom("Poppins", size: 14))
                             .lineSpacing(21)
                             .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
-                        Button(action: { loginViewModel.register() }) {
+                        Button(action: { shouldNavigateToRegister = true }) {
                             Text("Get Started!")
                                 .font(Font.custom("Poppins", size: 14))
                                 .foregroundColor(Color(red: 0.57, green: 0.64, blue: 0.99))

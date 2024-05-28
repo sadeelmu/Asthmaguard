@@ -35,14 +35,14 @@ struct CompanionAsthmaThreatChart: View {
             let asthmaThreatRisks:Double = 0.4
             
             HStack {
-                Image("colorpatientwithinhaler")
+                Image("sadeel")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())
                     .padding(.leading, 10)
                 VStack(alignment: .leading) {
-                    Text("Ahmad Mohammad")
+                    Text("Sadeel Muwahed")
                         .font(.title3)
                 }
             }

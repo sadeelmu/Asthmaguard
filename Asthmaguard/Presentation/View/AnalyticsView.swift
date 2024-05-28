@@ -10,29 +10,29 @@ import SwiftUI
 import Charts
 
 struct AnalyticsView: View {
-    @State private var heartRateSeverity: Double = 0.0
-    @State private var respiratoryRateSeverity: Double = 0.0
-    @State private var oxygenSaturationSeverity: Double = 0.0
-    @State private var airQualitySeverity: Double = 0.0
-    @State private var pollenSeverity: Double = 0.0
-    @State private var humiditySeverity: Double = 0.0
-    @State private var cloudCoverSeverity: Double = 0.0
-    @State private var temperatureSeverity: Double = 0.0
+    @State private var heartRateSeverity: Double = 0.05
+    @State private var respiratoryRateSeverity: Double = 0.1
+    @State private var oxygenSaturationSeverity: Double = 0.05
+    @State private var airQualitySeverity: Double = 0.05
+    @State private var pollenSeverity: Double = 0.05
+    @State private var humiditySeverity: Double = 0.05
+    @State private var cloudCoverSeverity: Double = 0.05
+    @State private var temperatureSeverity: Double = 0.05
 
     private let asthmaThreatCalculatorUseCase = AsthmaThreatCalculatorUseCase()
 
-    func updateSeverities() {
-        DispatchQueue.main.async {
-            self.heartRateSeverity = asthmaThreatCalculatorUseCase.weightedHeartRateSeverity
-            self.respiratoryRateSeverity = asthmaThreatCalculatorUseCase.weightedRespiratoryRateSeverity
-            self.oxygenSaturationSeverity = asthmaThreatCalculatorUseCase.weightedOxygenSaturationSeverity
-            self.airQualitySeverity = asthmaThreatCalculatorUseCase.weightedAirQualitySeverity
-            self.pollenSeverity = asthmaThreatCalculatorUseCase.weightedPollenSeverity
-            self.humiditySeverity = asthmaThreatCalculatorUseCase.weightedHumiditySeverity
-            self.cloudCoverSeverity = asthmaThreatCalculatorUseCase.weightedCloudCoverSeverity
-            self.temperatureSeverity = asthmaThreatCalculatorUseCase.weightedTemperatureSeverity
-        }
-    }
+//    func updateSeverities() {
+//        DispatchQueue.main.async {
+//            self.heartRateSeverity = asthmaThreatCalculatorUseCase.weightedHeartRateSeverity
+//            self.respiratoryRateSeverity = asthmaThreatCalculatorUseCase.weightedRespiratoryRateSeverity
+//            self.oxygenSaturationSeverity = asthmaThreatCalculatorUseCase.weightedOxygenSaturationSeverity
+//            self.airQualitySeverity = asthmaThreatCalculatorUseCase.weightedAirQualitySeverity
+//            self.pollenSeverity = asthmaThreatCalculatorUseCase.weightedPollenSeverity
+//            self.humiditySeverity = asthmaThreatCalculatorUseCase.weightedHumiditySeverity
+//            self.cloudCoverSeverity = asthmaThreatCalculatorUseCase.weightedCloudCoverSeverity
+//            self.temperatureSeverity = asthmaThreatCalculatorUseCase.weightedTemperatureSeverity
+//        }
+//    }
 
     var body: some View {
         ScrollView {
@@ -60,14 +60,7 @@ struct AnalyticsView: View {
                             .font(Font.custom("Poppins-Bold", size: 18))
                             .padding()
 
-                        VStack(alignment: .leading) {
-                            Text("Heart Rate: \(heartRateSeverity * 100, specifier: "%.1f")%")
-                            Text("Respiratory Rate: \(respiratoryRateSeverity * 100, specifier: "%.1f")%")
-                            Text("SpO2: \(oxygenSaturationSeverity * 100, specifier: "%.1f")%")
-                        }
-                        .padding()
-
-                        Text("The biosignal data and vital signs are increasing the asthma threat by \(heartRateSeverity + respiratoryRateSeverity + oxygenSaturationSeverity, specifier: "%.1f")%.")
+                        Text("The biosignal data and vital signs are increasing the asthma threat by \((heartRateSeverity + respiratoryRateSeverity + oxygenSaturationSeverity) * 100, specifier: "%.2f")%.")
                             .font(Font.custom("Poppins-Regular", size: 14))
                             .padding()
                             .multilineTextAlignment(.leading)
@@ -99,6 +92,18 @@ struct AnalyticsView: View {
                         }
                         .frame(width: 300, height: 175)
                         .chartForegroundStyleScale(domain: ["Heart Rate", "Respiratory Rate", "SpO2"], range: biosignalChartColors)
+                        VStack(alignment: .leading) {
+                            Text("Heart Rate: \(heartRateSeverity * 100, specifier: "%.1f")%")
+                                .font(Font.custom("Poppins-Regular", size: 12))
+
+                            Text("Respiratory Rate: \(respiratoryRateSeverity * 100, specifier: "%.1f")%")
+                                .font(Font.custom("Poppins-Regular", size: 12))
+
+                            Text("SpO2: \(oxygenSaturationSeverity * 100, specifier: "%.1f")%")
+                                .font(Font.custom("Poppins-Regular", size: 12))
+
+                        }
+                        .padding()
                     }
 
                     Divider().padding(.all, 10)
@@ -108,16 +113,9 @@ struct AnalyticsView: View {
                             .font(Font.custom("Poppins-Bold", size: 18))
                             .padding()
 
-                        VStack(alignment: .leading) {
-                            Text("Pollen: \(pollenSeverity * 100, specifier: "%.1f")%")
-                            Text("Air Quality: \(airQualitySeverity * 100, specifier: "%.1f")%")
-                            Text("Humidity: \(humiditySeverity * 100, specifier: "%.1f")%")
-                            Text("Cloud Cover: \(cloudCoverSeverity * 100, specifier: "%.1f")%")
-                            Text("Temperature: \(temperatureSeverity * 100, specifier: "%.1f")%")
-                        }
-                        .padding()
+                        
 
-                        Text("The environmental data is increasing the asthma threat by a total of \(pollenSeverity + airQualitySeverity + humiditySeverity + cloudCoverSeverity + temperatureSeverity, specifier: "%.1f")%.")
+                        Text("The environmental data is increasing the asthma threat by a total of \((pollenSeverity + airQualitySeverity + humiditySeverity + cloudCoverSeverity + temperatureSeverity)*100, specifier: "%.2f")%.")
                             .font(Font.custom("Poppins-Regular", size: 14))
                             .padding()
                             .multilineTextAlignment(.leading)
@@ -165,6 +163,25 @@ struct AnalyticsView: View {
                         }
                         .frame(width: 300, height: 175)
                         .chartForegroundStyleScale(domain: ["Pollen", "Air Quality", "Humidity", "Cloud Cover", "Temperature"], range: enviromentalChartColors)
+                        
+                        VStack(alignment: .leading) {
+                            Text("Pollen: \(pollenSeverity * 100, specifier: "%.1f")%")
+                                .font(Font.custom("Poppins-Regular", size: 12))
+
+                            Text("Air Quality: \(airQualitySeverity * 100, specifier: "%.1f")%")
+                                .font(Font.custom("Poppins-Regular", size: 12))
+
+                            Text("Humidity: \(humiditySeverity * 100, specifier: "%.1f")%")
+                                .font(Font.custom("Poppins-Regular", size: 12))
+
+                            Text("Cloud Cover: \(cloudCoverSeverity * 100, specifier: "%.1f")%")
+                                .font(Font.custom("Poppins-Regular", size: 12))
+
+                            Text("Temperature: \(temperatureSeverity * 100, specifier: "%.1f")%")
+                                .font(Font.custom("Poppins-Regular", size: 12))
+
+                        }
+                        .padding()
                     }
 
                     Divider()
@@ -174,7 +191,7 @@ struct AnalyticsView: View {
             Spacer()
         }
         .onAppear {
-            updateSeverities()
+           // updateSeverities()
         }
     }
 }

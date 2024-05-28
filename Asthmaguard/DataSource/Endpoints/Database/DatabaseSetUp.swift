@@ -211,29 +211,29 @@ class DatabaseManager {
         }
     }
     
-    func validateUser(email: String, password: String) -> (username: String, token: Int)? {
-         let querySQL = "SELECT Username, Token FROM Users WHERE Email = ? AND Password = ?;"
-         var queryStatement: OpaquePointer? = nil
-         var user: (username: String, token: Int)? = nil
+    func validateUser(email: String, password: String) -> Int? {
+        let querySQL = "SELECT Token FROM Users WHERE Email = ? AND Password = ?;"
+        var queryStatement: OpaquePointer? = nil
+        var token: Int? = nil
 
-         if sqlite3_prepare_v2(database.dbPointer, querySQL, -1, &queryStatement, nil) == SQLITE_OK {
-             sqlite3_bind_text(queryStatement, 1, (email as NSString).utf8String, -1, nil)
-             sqlite3_bind_text(queryStatement, 2, (password as NSString).utf8String, -1, nil)
+        if sqlite3_prepare_v2(database.dbPointer, querySQL, -1, &queryStatement, nil) == SQLITE_OK {
+            sqlite3_bind_text(queryStatement, 1, (email as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(queryStatement, 2, (password as NSString).utf8String, -1, nil)
 
-             if sqlite3_step(queryStatement) == SQLITE_ROW {
-                 let username = String(cString: sqlite3_column_text(queryStatement, 0))
-                 let token = Int(sqlite3_column_int(queryStatement, 1))
-                 user = (username, token)
-             }
+            if sqlite3_step(queryStatement) == SQLITE_ROW {
+                token = Int(sqlite3_column_int(queryStatement, 0))
+            } else {
+                print("No user found with the given email and password")
+            }
 
-             sqlite3_finalize(queryStatement)
-         } else {
-             let errmsg = String(cString: sqlite3_errmsg(database.dbPointer))
-             print("Error preparing select statement: \(errmsg)")
-         }
+            sqlite3_finalize(queryStatement)
+        } else {
+            let errmsg = String(cString: sqlite3_errmsg(database.dbPointer))
+            print("Error preparing select statement: \(errmsg)")
+        }
 
-         return user
-     }
+        return token
+    }
     
     func updateUser(userID: Int, newUsername: String, newPassword: String, newEmail: String, newToken: Int?) {
          let updateSQL = "UPDATE Users SET Username = ?, Password = ?, Email = ?, Token = ? WHERE UserID = ?;"

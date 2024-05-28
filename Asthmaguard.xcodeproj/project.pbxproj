@@ -41,6 +41,8 @@
 		12BAFE2D2BA042A7003E7980 /* SurveyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */; };
 		12BD11E52C02563E0096C47D /* howtouseinhaler.gif in Resources */ = {isa = PBXBuildFile; fileRef = 12BD11E42C02563E0096C47D /* howtouseinhaler.gif */; };
 		12C3F7D22BB576C6008B43ED /* CustomBioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3F7D12BB576C6008B43ED /* CustomBioData.swift */; };
+		12D3D4622C0696D000455C0F /* nasal.gif in Resources */ = {isa = PBXBuildFile; fileRef = 12D3D4612C0696D000455C0F /* nasal.gif */; };
+		12D3D4642C0696E100455C0F /* meditation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 12D3D4632C0696E000455C0F /* meditation.gif */; };
 		12DD4C7A2C0638C70032E5A5 /* AsthmaThreatChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD4C792C0638C70032E5A5 /* AsthmaThreatChart.swift */; };
 		12DD4C7C2C0639F20032E5A5 /* HistoricalDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD4C7B2C0639F20032E5A5 /* HistoricalDataViewModel.swift */; };
 		12DD4C7E2C063A090032E5A5 /* HistoricalDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD4C7D2C063A090032E5A5 /* HistoricalDataView.swift */; };
@@ -105,6 +107,8 @@
 		12BAFE2C2BA042A7003E7980 /* SurveyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyScreen.swift; sourceTree = "<group>"; };
 		12BD11E42C02563E0096C47D /* howtouseinhaler.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = howtouseinhaler.gif; sourceTree = "<group>"; };
 		12C3F7D12BB576C6008B43ED /* CustomBioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBioData.swift; sourceTree = "<group>"; };
+		12D3D4612C0696D000455C0F /* nasal.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = nasal.gif; path = ../../../../nasal.gif; sourceTree = "<group>"; };
+		12D3D4632C0696E000455C0F /* meditation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = meditation.gif; path = ../../../../meditation.gif; sourceTree = "<group>"; };
 		12DD4C792C0638C70032E5A5 /* AsthmaThreatChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaThreatChart.swift; sourceTree = "<group>"; };
 		12DD4C7B2C0639F20032E5A5 /* HistoricalDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalDataViewModel.swift; sourceTree = "<group>"; };
 		12DD4C7D2C063A090032E5A5 /* HistoricalDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalDataView.swift; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				12BD11E42C02563E0096C47D /* howtouseinhaler.gif */,
+				12D3D4612C0696D000455C0F /* nasal.gif */,
+				12D3D4632C0696E000455C0F /* meditation.gif */,
 				1276E3612B7ACD74002CBACB /* AsthmaguardApp.swift */,
 				1276E3632B7ACD74002CBACB /* ContentView.swift */,
 				1276E36F2B7ACD87002CBACB /* Presentation */,
@@ -461,11 +467,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12D3D4622C0696D000455C0F /* nasal.gif in Resources */,
 				123912F02B95B0E3009BD42C /* Poppins-Regular.ttf in Resources */,
 				1276E3692B7ACD76002CBACB /* Preview Assets.xcassets in Resources */,
 				1276E3662B7ACD76002CBACB /* Assets.xcassets in Resources */,
 				12BD11E52C02563E0096C47D /* howtouseinhaler.gif in Resources */,
 				123912F22B95B0F9009BD42C /* Poppins-Bold.ttf in Resources */,
+				12D3D4642C0696E100455C0F /* meditation.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,13 +1,7 @@
-//
-//  AsthmaThreatChart.swift
-//  Asthmaguard
-//
-//  Created by Sadeel Muwahed on 28/05/2024.
-//
-
 import Foundation
 import SwiftUI
 import Charts
+import CoreLocation
 
 @available(iOS 17.0, *)
 struct AsthmaThreatChart: View {
@@ -16,22 +10,23 @@ struct AsthmaThreatChart: View {
     @State private var environmentalRisk: Double = 0.0
     @State private var showHighThreatAlert: Bool = false
     @State private var showVeryHighThreatActionSheet: Bool = false
+    @State private var navigateToBreathingExercises: Bool = false
 
     @State var asthmathreat: [AsthmaThreat] = [
-        .init(title: "Biosignals", risks: 0.3),
-        .init(title: "Environmental", risks: 0.1),
-        .init(title: "Normal", risks: 0.6)
+        .init(title: "Biosignals", risks: 0.2),
+        .init(title: "Environmental", risks: 0.25),
+        .init(title: "Normal", risks: 0.55)
     ]
 
     private let asthmaThreatCalculatorUseCase = AsthmaThreatCalculatorUseCase()
+    private let locationManager = LocationManager.shared
 
     func updateAsthmaThreat() {
         asthmaThreatCalculatorUseCase.fetchDataAndCalculateAsthmaSeverity()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            // Use a delay to allow for data fetching; adjust timing as necessary
-            self.biosignalRisk = asthmaThreatCalculatorUseCase.weightedBioSignalRisk
-            self.biosignalRisk = asthmaThreatCalculatorUseCase.weightedBioSignalRisk
-            self.totalWeightedSeverity = asthmaThreatCalculatorUseCase.totalWeightedSeverity
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            self.biosignalRisk = 0.2
+            self.environmentalRisk = 0.25
+            self.totalWeightedSeverity = 0.45
 
             if totalWeightedSeverity > 0.75 {
                 showVeryHighThreatActionSheet = true
@@ -84,34 +79,55 @@ struct AsthmaThreatChart: View {
                     }
                     Spacer()
                 }
-                .onAppear() {
-                    updateAsthmaThreat()
+                .onAppear {
+                    // Request location access
+                    locationManager.requestLocationAccess()
+                    locationManager.startUpdatingLocation()
+                    
+                    // Request HealthKit access
+                    BioSignalData.requestHealthDataAccessIfNeeded { success in
+                        if success {
+                            updateAsthmaThreat()
+                        } else {
+                            print("HealthKit authorization failed")
+                        }
+                    }
                 }
-                .alert(isPresented: $showHighThreatAlert) {
+                .alert(isPresented: $showVeryHighThreatActionSheet) {
                     Alert(
                         title: Text("High asthma threat detected"),
                         primaryButton: .default(Text("Contact emergency contact")) {
                             // Handle contact emergency action
+
                         },
                         secondaryButton: .cancel(Text("Dismiss"))
                     )
                 }
-                .actionSheet(isPresented: $showVeryHighThreatActionSheet) {
+                .actionSheet(isPresented: $showHighThreatAlert) {
                     ActionSheet(
                         title: Text("Very High Asthma threat detected!"),
                         message: Text("Would you like to start breathing exercises?"),
                         buttons: [
                             .default(Text("Start")) {
-                                // Handle start breathing exercises action
+                                navigateToBreathingExercises = true
                             },
                             .default(Text("Contact emergency contact")) {
                                 // Handle contact emergency action
+                                
                             },
                             .cancel(Text("Dismiss"))
                         ]
                     )
                 }
             }
+            .background(
+                NavigationLink(
+                    destination: BreathingExerciseScreen(),
+                    isActive: $navigateToBreathingExercises
+                ) {
+                    EmptyView()
+                }
+            )
         }
     }
 }

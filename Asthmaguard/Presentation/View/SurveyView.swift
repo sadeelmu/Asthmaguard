@@ -581,71 +581,52 @@ protocol SurveyViewDelegate : AnyObject {
 
 
 struct SurveyView: View {
-    
-    @ObservedObject var survey : Survey
-    
-    @State var currentQuestion : Int = 0
-    
+    @ObservedObject var survey: Survey
+    @State var currentQuestion: Int = 0
+    @State var surveyState: SurveyState = .showingIntroScreen
+    @State var processing = false
+    var onComplete: (() -> Void)?
+
     enum SurveyState {
         case showingIntroScreen
         case taking
         case complete
     }
-    
-    @State var surveyState : SurveyState = .showingIntroScreen
-    @State var processing = false
-    
-    @ObservedObject private var keyboard = KeyboardResponder()
-    
-    var delegate : SurveyViewDelegate?
-    
-    init(survey: Survey, delegate : SurveyViewDelegate? = nil) {
-        self.survey = survey
-        self.delegate = delegate
-    }
-    
-    
+
     var body: some View {
-        
         if surveyState == .showingIntroScreen {
-            
             VStack {
-                
-                Text("Please answer the following questionaire regarding your asthma health conditions.").font(.title2).padding(EdgeInsets(top: 0, leading: 40, bottom: 10, trailing: 45)).multilineTextAlignment(.center)
-                
-                HStack {
-                    Button(action: { self.takeSurveyTapped() }, label: {
-                        Text("Take questionaire").bold().padding(15)
-                    }).buttonStyle(CustomButtonStyle(bgColor: Color.black))
-                        .padding(5)
-                    
-                }.padding()
+                Text("Please answer the following questionnaire regarding your asthma health conditions.")
+                    .font(.title2)
+                    .padding()
+                    .multilineTextAlignment(.center)
+                Button(action: takeSurveyTapped) {
+                    Text("Take questionnaire").bold().padding(15)
+                }
+                .buttonStyle(CustomButtonStyle(bgColor: Color.black))
+                .padding()
             }
-        }
-        else if surveyState == .complete {
-            
+        } else if surveyState == .complete {
             VStack {
-                
-                
-                
-                Text("The data has been added to our expert system and will allow us to predict your asthma attacks.").font(.body).padding(30).multilineTextAlignment(.center)
-                
+                Text("The data has been added to our expert system and will allow us to predict your asthma attacks.")
+                    .font(.body)
+                    .padding()
+                    .multilineTextAlignment(.center)
                 ProgressView()
-                    .opacity( processing ? 1.0 : 0.0 )
-                
-                Button(action: { submitSurveyTapped() }, label: {
-                    Text("Submit questionaire").bold()
-                }).buttonStyle(CustomButtonStyle(bgColor: Color.black)).padding()
-                
-                Button(action: { self.restartSurveyTapped() }, label: {
-                    Text("Retake questionaire")
-                }).padding().buttonStyle(CustomButtonStyle(bgColor: Color.black)).padding()
+                    .opacity(processing ? 1.0 : 0.0)
+                Button(action: submitSurveyTapped) {
+                    Text("Submit questionnaire").bold()
+                }
+                .buttonStyle(CustomButtonStyle(bgColor: Color.black))
+                .padding()
+                Button(action: restartSurveyTapped) {
+                    Text("Retake questionnaire")
+                }
+                .buttonStyle(CustomButtonStyle(bgColor: Color.black))
+                .padding()
             }
-            
         } else {
-            
-            VStack(spacing:10) {
-                
+            VStack(spacing: 10) {
                 ScrollViewReader { proxy in
                     ScrollView {
                         if let question = survey.questions[currentQuestion] as? InlineMultipleChoiceQuestionGroup {
@@ -655,115 +636,74 @@ struct SurveyView: View {
                     .background(Color.white)
                     .overlay(Rectangle().frame(width: nil, height: 1, alignment: .top).foregroundColor(Color(.systemGray4)), alignment: .top)
                 }
-                
-                
-                HStack() {
-                    Button(action: { previousTapped() }, label: {
+                HStack {
+                    Button(action: previousTapped) {
                         Text("Previous").foregroundColor(Color(.secondaryLabel)).bold()
-                    }).buttonStyle(CustomButtonStyle(bgColor: Color(.systemGray5)))
-                    
+                    }
+                    .buttonStyle(CustomButtonStyle(bgColor: Color(.systemGray5)))
                     Spacer()
-                    Button(action: { nextTapped() }, label: {
+                    Button(action: nextTapped) {
                         Text("Next").bold()
-                    }).buttonStyle(CustomButtonStyle(bgColor: Color.black))
-                    
-                }.padding(EdgeInsets(top: 12, leading: 22, bottom: 18, trailing: 22))
-                
-                    .background(Color(.systemGray6))
-                    .edgesIgnoringSafeArea( [.leading, .trailing] )
-            }.padding(.all, 10)
-                .background(Color.white)
-            
-                .edgesIgnoringSafeArea( .bottom )
-            
+                    }
+                    .buttonStyle(CustomButtonStyle(bgColor: Color.black))
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .edgesIgnoringSafeArea([.leading, .trailing])
+            }
+            .padding()
+            .background(Color.white)
+            .edgesIgnoringSafeArea(.bottom)
         }
-        
     }
-    
-    private func closeKeyboard() {
-        UIApplication.shared.endEditing()
+
+    private func takeSurveyTapped() {
+        surveyState = .taking
     }
-    
-    
-    func previousTapped() {
-        var i = self.currentQuestion
-        
+
+    private func previousTapped() {
+        var i = currentQuestion
         while i > 0 {
-            i = i - 1
-            
-            let question = survey.questions[i]
-            if question.isVisible(for: survey) {
-                self.currentQuestion = i
+            i -= 1
+            if survey.questions[i].isVisible(for: survey) {
+                currentQuestion = i
                 break
             }
         }
-        
     }
-    
-    func nextTapped() {
-        
-        if self.currentQuestion == survey.questions.count-1 {
-            // Survey done
-            self.setSurveyComplete()
+
+    private func nextTapped() {
+        if currentQuestion == survey.questions.count - 1 {
+            setSurveyComplete()
         } else {
-            //self.currentQuestion += 1
-            for i in (self.currentQuestion+1)..<self.survey.questions.count {
-                let question = survey.questions[i]
-                if question.isVisible(for: survey) {
-                    self.currentQuestion = i
+            for i in (currentQuestion + 1)..<survey.questions.count {
+                if survey.questions[i].isVisible(for: survey) {
+                    currentQuestion = i
                     break
                 }
-                
-                if i == self.survey.questions.count-1 {
-                    self.setSurveyComplete()
+                if i == survey.questions.count - 1 {
+                    setSurveyComplete()
                 }
             }
         }
     }
-    
-    func submitSurveyTapped() {
-        
-        self.processing = true
-        
-        var meta : [String : String] = [:]
-        
-#if DEBUG
-        meta["debug"] = "true"
-#endif
-        
-        meta["app_version"] = Bundle.main.releaseVersionNumber
-        meta["build"] = Bundle.main.buildVersionNumber
-        
-        survey.metadata = meta
-        
-        
-        self.delegate?.surveyCompleted(with: self.survey)
-        
-        
-        
-        self.processing = false
-        
-    }
-    
-    func takeSurveyTapped() {
-        self.surveyState = .taking
+
+    private func submitSurveyTapped() {
+        processing = true
+        survey.metadata = ["app_version": Bundle.main.releaseVersionNumber, "build": Bundle.main.buildVersionNumber]
+        processing = false
+        onComplete?()
     }
 
-    func restartSurveyTapped() {
-        
-        self.currentQuestion = 0
-        self.surveyState = .taking
-        
+    private func restartSurveyTapped() {
+        currentQuestion = 0
+        surveyState = .taking
     }
-    
-    func setSurveyComplete() {
-        
-        self.surveyState = .complete
-        
+
+    private func setSurveyComplete() {
+        surveyState = .complete
     }
-    
 }
-
 struct SurveyView_Previews: PreviewProvider {
     
     static var previews: some View {

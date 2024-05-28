@@ -13,14 +13,11 @@ struct CompanionLoginScreen: View {
     @ObservedObject var loginViewModel: CompanionLoginViewModel = CompanionLoginViewModel()
     
     var body: some View {
- 
-            if loginViewModel.shouldNavigateToCompanionDashboard{
-                CompanionDashboardView()
-            }
-       
-        
-        
-        else{
+        if loginViewModel.shouldNavigateToCompanionDashboard {
+            CompanionDashboardView()
+        } else if loginViewModel.shouldNavigateToRegister {
+            CompanionRegisterScreen()
+        } else {
             VStack {
                 Spacer()
                 Text("Asthma")
@@ -34,14 +31,12 @@ struct CompanionLoginScreen: View {
                     .font(Font.custom("Poppins-Regular", size: 16))
                     .foregroundColor(Color(red: 0.48, green: 0.44, blue: 0.45))
                     .multilineTextAlignment(.center)
-               
-
+                
                 VStack(spacing: 16) {
                     CustomTextField(systemName: "person", placeholder: "Companion Referral Code", text: $loginViewModel.companionReferral)
                         .keyboardType(.emailAddress)
                     
-                    
-                    Button(action: {loginViewModel.login()}) {
+                    Button(action: { loginViewModel.login() }) {
                         Text("Login as companion")
                             .font(Font.custom("Poppins-Regular", size: 14).weight(.bold))
                             .foregroundColor(.white)
@@ -54,7 +49,7 @@ struct CompanionLoginScreen: View {
                             .shadow(color: Color(red: 0.58, green: 0.68, blue: 1, opacity: 0.30), radius: 22, y: 10)
                     }
                     
-                    Button(action: {loginViewModel.login()}) {
+                    Button(action: { loginViewModel.login() }) {
                         Text("Patient Portal")
                             .font(Font.custom("Poppins-Regular", size: 14).weight(.bold))
                             .foregroundColor(.white)
@@ -67,19 +62,17 @@ struct CompanionLoginScreen: View {
                             .shadow(color: Color(red: 0.58, green: 0.68, blue: 1, opacity: 0.30), radius: 22, y: 10)
                     }
                     
-                    HStack(spacing: 3){
+                    HStack(spacing: 3) {
                         Text("Do not have an account?")
                             .font(Font.custom("Poppins", size: 14))
                             .lineSpacing(21)
                             .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
-                        Button(action:{loginViewModel.register()}){
+                        Button(action: { loginViewModel.register() }) {
                             Text("Get Started!")
                                 .font(Font.custom("Poppins", size: 14))
                                 .foregroundColor(Color(red: 0.57, green: 0.64, blue: 0.99))
                         }
                     }
-                    
-                    
                 }
                 .padding(.horizontal, 32)
                 .padding(.top, 50)
@@ -89,7 +82,6 @@ struct CompanionLoginScreen: View {
             .background(Color.white)
         }
     }
-    
 }
 
 struct CompanionLoginScreen_Previews: PreviewProvider {

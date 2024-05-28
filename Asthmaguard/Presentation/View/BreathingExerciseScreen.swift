@@ -49,7 +49,7 @@ struct BreathingExerciseScreen: View {
                                 }
                                 Divider()
                                 HStack {
-                                    BreathingExerciseCard(exercise: BreathingExercise(title: "Breathe", duration: "5 minutes", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "breathin", gifName: "breathin"), selectedExercise: $selectedExercise)
+                                    BreathingExerciseCard(exercise: BreathingExercise(title: "Breathe", duration: "5 minutes", color: Color(red: 0.57, green: 0.64, blue: 0.99), imageName: "breathin", gifName: "nasal"), selectedExercise: $selectedExercise)
                                     Text("Breathe in and out from your nasal.")
                                         .font(Font.custom("Poppins-Regular", size: 12))
                                         .multilineTextAlignment(.leading)
@@ -156,14 +156,14 @@ struct BreathingExerciseView: View {
 
             }
             Divider()
-            
+            Spacer()
                 WebImage(url: Bundle.main.url(forResource: exercise.gifName, withExtension: "gif"))
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 350, height: 175)
+                    .frame(width: 250, height: 100)
                     .padding(.all, 10)
 
-            
+            Spacer()
             Divider()
             Button(action: {
                 timer?.invalidate()
