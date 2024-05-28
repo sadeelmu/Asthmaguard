@@ -14,19 +14,27 @@ class RegisterViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var isRegistered: Bool = false
 
-    
     func register() {
-        DatabaseManager.shared.addUser(username: firstName+lastName, password: password, email: email, token: 123)
-        isRegistered = true
+         let username = firstName + lastName
+         let token = generateToken()
+         if DatabaseManager.shared.addUser(username: username, password: password, email: email, token: token) {
+             SessionManager.shared.login(token: token)
+             isRegistered = true
+         } else {
+             print("Failed to register user")
+         }
+     }
 
-    }
-    
     func registerWithApple() {
         print("Register with Apple")
     }
-    
-    func login(){
+
+    func login() {
+        // Navigation logic to login screen
+    }
+
+    private func generateToken() -> Int {
+        return Int.random(in: 100000...999999)
     }
 }
-
 

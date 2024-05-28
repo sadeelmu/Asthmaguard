@@ -7,27 +7,36 @@
 
 import Foundation
 
-class LoginViewModel:ObservableObject{
-    @Published var email:String = ""
-    @Published var password:String = ""
+class LoginViewModel: ObservableObject {
+    @Published var email: String = ""
+    @Published var password: String = ""
     @Published var isLogin: Bool = false
     @Published var shouldNavigateToCompanionDashboard: Bool = false
 
-    
-    func login(){
-        DatabaseManager.shared.fetchUsers()
-        isLogin = true
+    func login() {
+        if let user = DatabaseManager.shared.validateUser(email: email, password: password) {
+            SessionManager.shared.login(token: user.token)
+            isLogin = true
+        } else {
+            print("Invalid email or password")
+        }
     }
-    
-    func loginWithApple(){
-        print("Login with apple")
+
+    func loginWithApple() {
+        print("Login with Apple")
     }
-    
-    func companion(){
+
+    func companion() {
         isLogin = true
         shouldNavigateToCompanionDashboard = true
     }
-    func register(){
+
+    func register() {
+        // Navigation logic to register screen
     }
 }
+
+
+
+
 

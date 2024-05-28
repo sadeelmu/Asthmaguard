@@ -46,6 +46,9 @@
 		12E0B0922BF60F89003E18D6 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E0B0912BF60F89003E18D6 /* AnalyticsView.swift */; };
 		12EAA2DE2BE8C50400C0A1DB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EAA2DD2BE8C50400C0A1DB /* LocationManager.swift */; };
 		12EEFB042BB05FF3003053AB /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EEFB032BB05FF2003053AB /* SettingsScreen.swift */; };
+		12FC1DF42C03ABA70002F50D /* AsthmaTriggerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FC1DF32C03ABA70002F50D /* AsthmaTriggerModel.swift */; };
+		12FC1DFC2C044CA30002F50D /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FC1DFB2C044CA30002F50D /* SessionManager.swift */; };
+		12FC1DFE2C0450BE0002F50D /* AsthmaThreatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FC1DFD2C0450BE0002F50D /* AsthmaThreatModel.swift */; };
 		36495D3769F738E52AE09E55 /* Pods_AsthmaguardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A473D07D19F4891C0EC3EA46 /* Pods_AsthmaguardTests.framework */; };
 		3FF0674C489C293D17AD478C /* Pods_Asthmaguard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D86664A7B056AD9D5A4532B /* Pods_Asthmaguard.framework */; };
 /* End PBXBuildFile section */
@@ -104,6 +107,9 @@
 		12E0B0912BF60F89003E18D6 /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		12EAA2DD2BE8C50400C0A1DB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		12EEFB032BB05FF2003053AB /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		12FC1DF32C03ABA70002F50D /* AsthmaTriggerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaTriggerModel.swift; sourceTree = "<group>"; };
+		12FC1DFB2C044CA30002F50D /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		12FC1DFD2C0450BE0002F50D /* AsthmaThreatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsthmaThreatModel.swift; sourceTree = "<group>"; };
 		47517DB559739E3571B31F22 /* Pods-AsthmaguardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaguardTests.debug.xcconfig"; path = "Target Support Files/Pods-AsthmaguardTests/Pods-AsthmaguardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5810EE9B8C5719A14118CF19 /* Pods-AsthmaguardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaguardTests.release.xcconfig"; path = "Target Support Files/Pods-AsthmaguardTests/Pods-AsthmaguardTests.release.xcconfig"; sourceTree = "<group>"; };
 		711CB4D76AD25FABB75C23A2 /* Pods-Asthmaguard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Asthmaguard.debug.xcconfig"; path = "Target Support Files/Pods-Asthmaguard/Pods-Asthmaguard.debug.xcconfig"; sourceTree = "<group>"; };
@@ -218,9 +224,7 @@
 		1276E3702B7ACD8F002CBACB /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				12E1EDEE2B95A9870016EDDE /* Responses */,
 				12E1EDEB2B95A9270016EDDE /* Models */,
-				12E1EDE92B95A8FF0016EDDE /* Repos */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -228,6 +232,7 @@
 		1276E3722B7ACD99002CBACB /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				12FC1DFB2C044CA30002F50D /* SessionManager.swift */,
 				12EAA2DD2BE8C50400C0A1DB /* LocationManager.swift */,
 				12E1EDE82B95A73B0016EDDE /* Usecases */,
 			);
@@ -302,16 +307,11 @@
 			path = Usecases;
 			sourceTree = "<group>";
 		};
-		12E1EDE92B95A8FF0016EDDE /* Repos */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repos;
-			sourceTree = "<group>";
-		};
 		12E1EDEB2B95A9270016EDDE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				12FC1DF32C03ABA70002F50D /* AsthmaTriggerModel.swift */,
+				12FC1DFD2C0450BE0002F50D /* AsthmaThreatModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -330,13 +330,6 @@
 				123602592BD70CCF00A2C657 /* APIManager.swift */,
 			);
 			path = DataNetwork;
-			sourceTree = "<group>";
-		};
-		12E1EDEE2B95A9870016EDDE /* Responses */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Responses;
 			sourceTree = "<group>";
 		};
 		12E1EDEF2B95A9BD0016EDDE /* Endpoints */ = {
@@ -545,7 +538,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12FC1DF42C03ABA70002F50D /* AsthmaTriggerModel.swift in Sources */,
 				12C3F7D22BB576C6008B43ED /* CustomBioData.swift in Sources */,
+				12FC1DFC2C044CA30002F50D /* SessionManager.swift in Sources */,
 				12EEFB042BB05FF3003053AB /* SettingsScreen.swift in Sources */,
 				121A50D72BBA364500198997 /* BreathingExerciseScreen.swift in Sources */,
 				1236025C2BD8E1A700A2C657 /* DatabaseSetUp.swift in Sources */,
@@ -567,6 +562,7 @@
 				12E0B0922BF60F89003E18D6 /* AnalyticsView.swift in Sources */,
 				126FC27C2BA30B1B00BE1FDD /* DashboardView.swift in Sources */,
 				12E0B0902BF60EBE003E18D6 /* CompanionSettingScreen.swift in Sources */,
+				12FC1DFE2C0450BE0002F50D /* AsthmaThreatModel.swift in Sources */,
 				12BAFE2A2BA0428E003E7980 /* SurveyHelper.swift in Sources */,
 				121A50D92BBA401600198997 /* CustomTabView.swift in Sources */,
 				12E0B08E2BF60E5E003E18D6 /* CompanionDashboardView.swift in Sources */,

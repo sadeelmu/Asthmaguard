@@ -16,8 +16,7 @@ struct RegisterScreen: View {
     var body: some View {
         if registerViewModel.isRegistered {
             LoginScreen()
-        }
-        else{
+        } else {
             Spacer()
             VStack(spacing: 20) {
                 Text("Asthma")
@@ -27,7 +26,7 @@ struct RegisterScreen: View {
                     .font(Font.custom("Poppins-Regular", size: 32).weight(.bold))
                     .foregroundColor(Color(red: 0.57, green: 0.64, blue: 0.99))
                 Spacer()
-                VStack(spacing:5){
+                VStack(spacing: 5) {
                     Text("Hey there,")
                         .font(Font.custom("Poppins-Regular", size: 16))
                         .lineSpacing(24)
@@ -41,7 +40,7 @@ struct RegisterScreen: View {
                 
                 Spacer()
                 
-                VStack(spacing:2){
+                VStack(spacing: 2) {
                     CustomTextField(systemName: "person", placeholder: "First Name", text: $registerViewModel.firstName).padding(10)
                     
                     CustomTextField(systemName: "person", placeholder: "Last Name", text: $registerViewModel.lastName).padding(10)
@@ -64,7 +63,7 @@ struct RegisterScreen: View {
                 }
                 
                 
-                VStack(spacing:10) {
+                VStack(spacing: 10) {
                     Button(action: registerViewModel.register) {
                         Text("Register")
                             .font(Font.custom("Poppins-Regular", size: 14).weight(.bold))
@@ -84,15 +83,15 @@ struct RegisterScreen: View {
                     
                 }
                 
-                HStack(spacing: 3){
+                HStack(spacing: 3) {
                     Text("Already have an account?")
                         .font(Font.custom("Poppins", size: 14))
                         .lineSpacing(21)
                         .foregroundColor(Color(red: 0.12, green: 0.09, blue: 0.09))
-                    Button(action:{registerViewModel.login()}){
+                    Button(action: { registerViewModel.login() }) {
                         Text("Login!")
-                        .font(Font.custom("Poppins", size: 14))
-                        .foregroundColor(Color(red: 0.57, green: 0.64, blue: 0.99))
+                            .font(Font.custom("Poppins", size: 14))
+                            .foregroundColor(Color(red: 0.57, green: 0.64, blue: 0.99))
                     }
                 }
             }
@@ -102,8 +101,6 @@ struct RegisterScreen: View {
             Spacer()
         }
     }
-    
-    
 }
 
 @available(iOS 17.0, *)

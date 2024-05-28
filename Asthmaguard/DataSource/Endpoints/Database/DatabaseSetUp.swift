@@ -68,14 +68,21 @@ class DatabaseManager {
     static let shared = DatabaseManager()
     var database: SQLiteDatabase
     
+
     init() {
         let dbPath = try! FileManager.default
             .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-            .appendingPathComponent("YourDatabaseName.sqlite").path
+            .appendingPathComponent("AsthmaGuardDatabase.sqlite").path
         
+        // Delete the existing database file
+        if FileManager.default.fileExists(atPath: dbPath) {
+            try? FileManager.default.removeItem(atPath: dbPath)
+        }
+
         database = try! SQLiteDatabase.open(path: dbPath)
         try! createTables()
     }
+
     
     //MARK: CREATE TABLES
     
@@ -184,56 +191,79 @@ class DatabaseManager {
     }
     
     //MARK: User Add and Update
-    func addUser(username: String, password: String, email: String, token: Int?) -> Int? {
+    func addUser(username: String, password: String, email: String, token: Int) -> Bool {
         let currentDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let creationDate = dateFormatter.string(from: currentDate)
         
-        let tokenValue = token != nil ? "\(token!)" : "NULL"
         let userSQL = """
         INSERT INTO Users (Username, Password, Email, CreationDate, Token)
-        VALUES ('\(username)', '\(password)', '\(email)', '\(creationDate)', \(tokenValue));
+        VALUES ('\(username)', '\(password)', '\(email)', '\(creationDate)', \(token));
         """
         do {
-            let userID = try database.executeInsert(sql: userSQL)
-            print("User added successfully with UserID = \(userID).")
-            return userID
+            let _ = try database.executeInsert(sql: userSQL)
+            print("User added successfully with Token = \(token).")
+            return true
         } catch {
             print("Error adding user: \(error)")
-            return nil
+            return false
         }
     }
     
+    func validateUser(email: String, password: String) -> (username: String, token: Int)? {
+         let querySQL = "SELECT Username, Token FROM Users WHERE Email = ? AND Password = ?;"
+         var queryStatement: OpaquePointer? = nil
+         var user: (username: String, token: Int)? = nil
+
+         if sqlite3_prepare_v2(database.dbPointer, querySQL, -1, &queryStatement, nil) == SQLITE_OK {
+             sqlite3_bind_text(queryStatement, 1, (email as NSString).utf8String, -1, nil)
+             sqlite3_bind_text(queryStatement, 2, (password as NSString).utf8String, -1, nil)
+
+             if sqlite3_step(queryStatement) == SQLITE_ROW {
+                 let username = String(cString: sqlite3_column_text(queryStatement, 0))
+                 let token = Int(sqlite3_column_int(queryStatement, 1))
+                 user = (username, token)
+             }
+
+             sqlite3_finalize(queryStatement)
+         } else {
+             let errmsg = String(cString: sqlite3_errmsg(database.dbPointer))
+             print("Error preparing select statement: \(errmsg)")
+         }
+
+         return user
+     }
+    
     func updateUser(userID: Int, newUsername: String, newPassword: String, newEmail: String, newToken: Int?) {
-        let updateSQL = "UPDATE Users SET Username = ?, Password = ?, Email = ?, Token = ? WHERE UserID = ?;"
-        
-        var updateStatement: OpaquePointer? = nil
-        if sqlite3_prepare_v2(database.dbPointer, updateSQL, -1, &updateStatement, nil) == SQLITE_OK {
-            sqlite3_bind_text(updateStatement, 1, (newUsername as NSString).utf8String, -1, nil)
-            sqlite3_bind_text(updateStatement, 2, (newPassword as NSString).utf8String, -1, nil)
-            sqlite3_bind_text(updateStatement, 3, (newEmail as NSString).utf8String, -1, nil)
-            if let token = newToken {
-                sqlite3_bind_int(updateStatement, 4, Int32(token))
-            } else {
-                sqlite3_bind_null(updateStatement, 4)
-            }
-            sqlite3_bind_int(updateStatement, 5, Int32(userID))
-            
-            if sqlite3_step(updateStatement) == SQLITE_DONE {
-                print("Successfully updated user.")
-            } else {
-                let errmsg = String(cString: sqlite3_errmsg(database.dbPointer))
-                print("Failed to update user: \(errmsg)")
-            }
-            
-            // Finalize the statement to release resources
-            sqlite3_finalize(updateStatement)
-        } else {
-            let errmsg = String(cString: sqlite3_errmsg(database.dbPointer))
-            print("Error preparing update statement for Users: \(errmsg)")
-        }
-    }
+         let updateSQL = "UPDATE Users SET Username = ?, Password = ?, Email = ?, Token = ? WHERE UserID = ?;"
+         
+         var updateStatement: OpaquePointer? = nil
+         if sqlite3_prepare_v2(database.dbPointer, updateSQL, -1, &updateStatement, nil) == SQLITE_OK {
+             sqlite3_bind_text(updateStatement, 1, (newUsername as NSString).utf8String, -1, nil)
+             sqlite3_bind_text(updateStatement, 2, (newPassword as NSString).utf8String, -1, nil)
+             sqlite3_bind_text(updateStatement, 3, (newEmail as NSString).utf8String, -1, nil)
+             if let token = newToken {
+                 sqlite3_bind_int(updateStatement, 4, Int32(token))
+             } else {
+                 sqlite3_bind_null(updateStatement, 4)
+             }
+             sqlite3_bind_int(updateStatement, 5, Int32(userID))
+             
+             if sqlite3_step(updateStatement) == SQLITE_DONE {
+                 print("Successfully updated user.")
+             } else {
+                 let errmsg = String(cString: sqlite3_errmsg(database.dbPointer))
+                 print("Failed to update user: \(errmsg)")
+             }
+             
+             // Finalize the statement to release resources
+             sqlite3_finalize(updateStatement)
+         } else {
+             let errmsg = String(cString: sqlite3_errmsg(database.dbPointer))
+             print("Error preparing update statement for Users: \(errmsg)")
+         }
+     }
 
     //MARK: Patient Add and Update
 
@@ -323,12 +353,14 @@ extension DatabaseManager {
     
     func insertInitialTriggers(db: OpaquePointer?) {
         let triggers = [
+            (0, "heart rate"),
             (1, "repository rate"),
             (2, "blood oxygen"),
-            (3, "heart rate"),
-            (4, "fine particals"),
-            (5, "pollen"),
-            (6, "pollution")
+            (3, "air quality"),
+            (4, "pollen"),
+            (5, "humidity"),
+            (6, "cloudover"),
+            (7,"temperature")
         ]
         let insertStatementString = "INSERT INTO Triggers (TriggerID, TriggerName) VALUES (?, ?);"
         var insertStatement: OpaquePointer?
@@ -541,26 +573,49 @@ extension DatabaseManager {
     // MARK: - Fetch Users
     
     func fetchUsers() {
-        let querySQL = "SELECT UserID, Username, Password, Email, CreationDate, Token FROM Users;"
-        executeFetch(querySQL: querySQL, handleRow: { (statement) in
-            let userID = sqlite3_column_int(statement, 0)
-            guard let usernameCString = sqlite3_column_text(statement, 1),
-                  let passwordCString = sqlite3_column_text(statement, 2),
-                  let emailCString = sqlite3_column_text(statement, 3),
-                  let creationDateCString = sqlite3_column_text(statement, 4) else {
-                return
-            }
-            let token = sqlite3_column_int(statement, 5)
-            
-            let username = String(cString: usernameCString)
-            let password = String(cString: passwordCString)
-            let email = String(cString: emailCString)
-            let creationDate = String(cString: creationDateCString)
-            
-            print("User ID: \(userID), Username: \(username), Password: \(password), Email: \(email), Creation Date: \(creationDate), Token: \(token)")
-        })
-    }
+         let querySQL = "SELECT UserID, Username, Password, Email, CreationDate, Token FROM Users;"
+         executeFetch(querySQL: querySQL, handleRow: { (statement) in
+             let userID = sqlite3_column_int(statement, 0)
+             guard let usernameCString = sqlite3_column_text(statement, 1),
+                   let passwordCString = sqlite3_column_text(statement, 2),
+                   let emailCString = sqlite3_column_text(statement, 3),
+                   let creationDateCString = sqlite3_column_text(statement, 4) else {
+                 return
+             }
+             let token = sqlite3_column_int(statement, 5)
+             
+             let username = String(cString: usernameCString)
+             let password = String(cString: passwordCString)
+             let email = String(cString: emailCString)
+             let creationDate = String(cString: creationDateCString)
+             
+             print("User ID: \(userID), Username: \(username), Password: \(password), Email: \(email), Creation Date: \(creationDate), Token: \(token)")
+         })
+     }
 
+        // MARK: - Fetch User ID by Username
+
+    func fetchUserID(byToken token: Int, completion: @escaping (Int?) -> Void) {
+           let querySQL = "SELECT UserID FROM Users WHERE Token = ?;"
+           var queryStatement: OpaquePointer? = nil
+           var userID: Int?
+           
+           if sqlite3_prepare_v2(database.dbPointer, querySQL, -1, &queryStatement, nil) == SQLITE_OK {
+               sqlite3_bind_int(queryStatement, 1, Int32(token))
+               
+               if sqlite3_step(queryStatement) == SQLITE_ROW {
+                   userID = Int(sqlite3_column_int(queryStatement, 0))
+               }
+               
+               sqlite3_finalize(queryStatement)
+           } else {
+               let errmsg = String(cString: sqlite3_errmsg(database.dbPointer))
+               print("Error preparing select statement: \(errmsg)")
+           }
+           
+           completion(userID)
+       }
+    
     // MARK: - Fetch Patients
     
     func fetchPatient(userID: Int) {
