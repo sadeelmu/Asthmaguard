@@ -24,9 +24,9 @@ struct AsthmaThreatChart: View {
     func updateAsthmaThreat() {
         asthmaThreatCalculatorUseCase.fetchDataAndCalculateAsthmaSeverity()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-            self.biosignalRisk = 0.2
-            self.environmentalRisk = 0.25
-            self.totalWeightedSeverity = 0.45
+            self.biosignalRisk = asthmaThreatCalculatorUseCase.weightedBioSignalRisk
+            self.biosignalRisk = asthmaThreatCalculatorUseCase.weightedBioSignalRisk
+            self.totalWeightedSeverity = asthmaThreatCalculatorUseCase.totalWeightedSeverity
 
             if totalWeightedSeverity > 0.75 {
                 showVeryHighThreatActionSheet = true
