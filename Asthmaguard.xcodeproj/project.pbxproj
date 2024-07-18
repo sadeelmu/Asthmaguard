@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		120E859C2C48FF8900D113AF /* nasal.gif in Resources */ = {isa = PBXBuildFile; fileRef = 120E859B2C48FF8900D113AF /* nasal.gif */; };
-		120E859E2C48FF9A00D113AF /* meditation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 120E859D2C48FF9A00D113AF /* meditation.gif */; };
 		121A50D72BBA364500198997 /* BreathingExerciseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */; };
 		121A50D92BBA401600198997 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A50D82BBA401600198997 /* CustomTabView.swift */; };
 		121BAD272BDF97E5009E83A9 /* BioSignalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121BAD262BDF97E5009E83A9 /* BioSignalData.swift */; };
@@ -69,8 +67,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		120E859B2C48FF8900D113AF /* nasal.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = nasal.gif; path = ../../../nasal.gif; sourceTree = "<group>"; };
-		120E859D2C48FF9A00D113AF /* meditation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = meditation.gif; path = ../../../meditation.gif; sourceTree = "<group>"; };
 		120E859F2C48FFA100D113AF /* meditation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = meditation.gif; sourceTree = "<group>"; };
 		120E85A02C48FFA100D113AF /* nasal.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = nasal.gif; sourceTree = "<group>"; };
 		121A50D62BBA364500198997 /* BreathingExerciseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingExerciseScreen.swift; sourceTree = "<group>"; };
@@ -200,8 +196,6 @@
 		1276E3602B7ACD74002CBACB /* Asthmaguard */ = {
 			isa = PBXGroup;
 			children = (
-				120E859D2C48FF9A00D113AF /* meditation.gif */,
-				120E859B2C48FF8900D113AF /* nasal.gif */,
 				1276E3612B7ACD74002CBACB /* AsthmaguardApp.swift */,
 				1276E3632B7ACD74002CBACB /* ContentView.swift */,
 				1276E36F2B7ACD87002CBACB /* Presentation */,
@@ -471,13 +465,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				120E859C2C48FF8900D113AF /* nasal.gif in Resources */,
 				123912F02B95B0E3009BD42C /* Poppins-Regular.ttf in Resources */,
 				1276E3692B7ACD76002CBACB /* Preview Assets.xcassets in Resources */,
 				1276E3662B7ACD76002CBACB /* Assets.xcassets in Resources */,
 				12BD11E52C02563E0096C47D /* howtouseinhaler.gif in Resources */,
 				123912F22B95B0F9009BD42C /* Poppins-Bold.ttf in Resources */,
-				120E859E2C48FF9A00D113AF /* meditation.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
