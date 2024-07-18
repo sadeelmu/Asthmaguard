@@ -50,7 +50,18 @@ struct CompanionAsthmaThreatChart: View {
                     let chartColors: [Color] = [
                         .pink.opacity(0.5), .pink, .blue
                     ]
-
+                    HStack {
+                        Image("sadeel")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 40, height: 40)
+                            .clipShape(Circle())
+                            .padding(.leading, 1)
+                        VStack(alignment: .leading) {
+                            Text("Sadeel Muwahed")
+                                .font(.title3)
+                        }
+                    }.padding(.all,3)
                     Text("Asthma Threat: \(totalWeightedSeverity * 100, specifier: "%.1f")%")
                         .font(Font.custom("Poppins-Bold", size: 26))
 
