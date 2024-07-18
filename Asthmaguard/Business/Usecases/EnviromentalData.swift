@@ -34,7 +34,9 @@ class EnviromentalData{
         let category: String
         let displayName: String
     }
-
+    
+    // MARK: - fetchAirQuality
+    ///Function will call the API to get air quality data response
     func fetchAirQuality(latitude: Double, longitude: Double, completion: @escaping (AirQualityData?) -> Void) {
         let requestBody = AirQualityRequest(location: AirQualityRequest.Location(latitude: latitude, longitude: longitude))
 
@@ -44,7 +46,7 @@ class EnviromentalData{
             return
         }
 
-        let urlString = "https://airquality.googleapis.com/v1/currentConditions:lookup?key=AIzaSyBsEgk_PWNwRVmGAA_ihIF1JmBtJskuur8"
+        let urlString = "https://airquality.googleapis.com/v1/currentConditions:lookup?key=key"
         guard let url = URL(string: urlString) else {
             print("Invalid URL")
             completion(nil)
@@ -98,7 +100,9 @@ class EnviromentalData{
 
         task.resume()
     }
-
+    
+    // MARK: - parseAirQualityResponse
+    ///Function will parse the air quality data retrieved
     private func parseAirQualityResponse(_ data: Data) throws -> AirQualityData? {
         let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
         guard let dateTime = json?["dateTime"] as? String,
@@ -114,9 +118,10 @@ class EnviromentalData{
         return AirQualityData(dateTime: dateTime, regionCode: regionCode, universalAQI: universalAQI)
     }
 
-
+    // MARK: - fetchPollenForecast
+    ///Function will call the API to get pollen forecast data response
     func fetchPollenForecast(latitude: Double, longitude: Double, completion: @escaping (PollenForecastData?) -> Void){
-        let urlString = "https://pollen.googleapis.com/v1/forecast:lookup?key=AIzaSyBsEgk_PWNwRVmGAA_ihIF1JmBtJskuur8&location.longitude=\(longitude)&location.latitude=\(latitude)&days=1&languageCode=en&plantsDescription=0"
+        let urlString = "https://pollen.googleapis.com/v1/forecast:lookup?key=key&location.longitude=\(longitude)&location.latitude=\(latitude)&days=1&languageCode=en&plantsDescription=0"
         guard let url = URL(string: urlString) else {
             completion(nil)
             return
@@ -139,7 +144,8 @@ class EnviromentalData{
 
         task.resume()
     }
-
+    // MARK: - parsePollenForecastResponse
+    ///Function will parse the pollen forecast data retrieved
     func parsePollenForecastResponse(_ data: Data) -> PollenForecastData? {
         do {
             guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
@@ -190,6 +196,8 @@ class EnviromentalData{
         }
     }
 
+    // MARK: - parseIndexInfo
+    //Private function used in the parsing of pollen data
     private func parseIndexInfo(_ indexInfoDict: [String: Any]) -> IndexInfo? {
         guard
             let category = indexInfoDict["category"] as? String,

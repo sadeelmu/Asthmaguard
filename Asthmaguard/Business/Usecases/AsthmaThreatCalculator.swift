@@ -41,7 +41,7 @@ public class AsthmaThreatCalculatorUseCase {
     }
     
     
-    // MARK: - Fetch Asthma and Calculate
+    // MARK: - Fetch Asthma Data and Calculate Severity of Threat
     
     func fetchDataAndCalculateAsthmaSeverity() {
          guard let patientToken = getPatientToken() else {
@@ -79,6 +79,7 @@ public class AsthmaThreatCalculatorUseCase {
              }
          }
      }
+    
     func fetchData() {
         guard let patientToken = getPatientToken() else {
             print("Current username not available.")
@@ -140,8 +141,9 @@ public class AsthmaThreatCalculatorUseCase {
         }
     }
 
-    // MARK: - Weather Data
     
+    
+    // MARK: - Weather Data
     private func fetchWeatherData(completion: @escaping (WeatherKitData.WeatherData?) -> Void) {
         guard let userLocation = LocationManager.shared.getCurrentLocation() else {
             print("User location not available")
@@ -215,6 +217,7 @@ public class AsthmaThreatCalculatorUseCase {
         }
     }
     
+    //MARK: - Calculations for AQI and Pollen Severity based on Weather Data
     func calculateAQISeverity(aqiLevel: Int?) -> Double {
         guard let aqiLevel = aqiLevel else {
             return 0.0

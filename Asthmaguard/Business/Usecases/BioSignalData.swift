@@ -5,36 +5,39 @@
 //  Created by Sadeel Muwahed on 29/04/2024.
 //
 
-import Foundation
 import HealthKit
 
 class BioSignalData {
     
     static let healthStore: HKHealthStore = HKHealthStore()
     
+    //MARK: - requestHealthDataAccessIfNeeded
+    ///Function will request access to the Health app from the user
     class func requestHealthDataAccessIfNeeded(completion: @escaping (_ success: Bool) -> Void) {
         guard HKHealthStore.isHealthDataAvailable() else {
             completion(false)
             return
         }
-
+        
         let readDataTypes: Set<HKObjectType> = [
             HKObjectType.quantityType(forIdentifier: .heartRate)!,
             HKObjectType.quantityType(forIdentifier: .respiratoryRate)!,
             HKObjectType.quantityType(forIdentifier: .oxygenSaturation)!
         ]
-
+        
         healthStore.requestAuthorization(toShare: nil, read: readDataTypes) { success, error in
             if let error = error {
                 print("HealthKit authorization error:", error.localizedDescription)
                 completion(false)
                 return
             }
-
+            
             completion(success)
         }
     }
     
+    //MARK: - fetchAllSamples
+    ///Function will use async calls based on queue data structure to retrive the samples of health data
     class func fetchAllSamples(completion: @escaping ([HKQuantitySample]?, Error?) -> Void) {
         let dispatchGroup = DispatchGroup()
         
@@ -75,6 +78,8 @@ class BioSignalData {
         }
     }
     
+    // MARK: - fetchHeartRateSamples
+    ///Function will use async calls based on queue data structure to retrieve the samples of health data
     class func fetchHeartRateSamples(completion: @escaping ([HKQuantitySample]?, Error?) -> Void) {
         let heartRateType = HKObjectType.quantityType(forIdentifier: .heartRate)!
         let predicate = HKQuery.predicateForSamples(withStart: Date.distantPast, end: Date(), options: .strictEndDate)
@@ -87,6 +92,8 @@ class BioSignalData {
         healthStore.execute(query)
     }
     
+    // MARK: - fetchRespiratoryRateSamples
+    ///Function will retrieve respiratory rate health data
     class func fetchRespiratoryRateSamples(completion: @escaping ([HKQuantitySample]?, Error?) -> Void) {
         let respiratoryRateType = HKObjectType.quantityType(forIdentifier: .respiratoryRate)!
         let predicate = HKQuery.predicateForSamples(withStart: Date.distantPast, end: Date(), options: .strictEndDate)
@@ -99,6 +106,8 @@ class BioSignalData {
         healthStore.execute(query)
     }
     
+    // MARK: - fetchOxygenSaturationSamples
+    ///Function will retrieve oxygen saturations health data
     class func fetchOxygenSaturationSamples(completion: @escaping ([HKQuantitySample]?, Error?) -> Void) {
         let oxygenSaturationType = HKObjectType.quantityType(forIdentifier: .oxygenSaturation)!
         let predicate = HKQuery.predicateForSamples(withStart: Date.distantPast, end: Date(), options: .strictEndDate)

@@ -10,6 +10,7 @@ import HealthKit
 
 class HealthDataAnalyzer {
     
+    // MARK: - calculateHeartRateSeverity
     static func calculateHeartRateSeverity(samples: [HKQuantitySample]) -> Double {
         let normalHeartRateRange = 60.0...100.0
         var severity = 0.0
@@ -21,7 +22,8 @@ class HealthDataAnalyzer {
         }
         return severity
     }
-
+    
+    // MARK: - calculateRespiratoryRateSeverity
     static func calculateRespiratoryRateSeverity(samples: [HKQuantitySample]) -> Double {
         let normalRespiratoryRateRange = 12.0...20.0
         var severity = 0.0
@@ -34,6 +36,7 @@ class HealthDataAnalyzer {
         return severity
     }
     
+    // MARK: - calculateOxygenSaturationSeverity
     static func calculateOxygenSaturationSeverity(samples: [HKQuantitySample]) -> Double {
         let normalOxygenSaturationRange = 95.0...100.0
         var severity = 0.0
@@ -49,6 +52,7 @@ class HealthDataAnalyzer {
         return severity
     }
     
+    // MARK: - calculateOverallSeverity
     static func calculateOverallSeverity(heartRateSamples: [HKQuantitySample], respiratoryRateSamples: [HKQuantitySample], oxygenSaturationSamples: [HKQuantitySample]) -> Double {
         let heartRateSeverity = calculateHeartRateSeverity(samples: heartRateSamples)
         let respiratoryRateSeverity = calculateRespiratoryRateSeverity(samples: respiratoryRateSamples)

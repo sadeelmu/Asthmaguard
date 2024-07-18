@@ -5,7 +5,6 @@
 //  Created by Sadeel Muwahed on 16/05/2024.
 //
 
-import Foundation
 import WeatherKit
 import CoreLocation
 
@@ -17,7 +16,8 @@ class WeatherKitData {
         let temperature: Double
     }
     
-    // Method to fetch weather data based on latitude and longitude
+    // MARK: - fetchWeatherData
+    /// Function to fetch weather data based on latitude and longitude
     func fetchWeatherData(latitude: Double, longitude: Double, completion: @escaping (WeatherData?) -> Void) {
         let location = CLLocation(latitude: latitude, longitude: longitude)
         
@@ -44,7 +44,8 @@ class WeatherKitData {
         }
     }
     
-    // Method to calculate severity based on humidity
+    // MARK: - calculateHumiditySeverity
+    /// Function to calculate severity based on humidity
     func calculateHumiditySeverity(humidity: Double) -> Double {
         if humidity >= 80 {
             return 1.0
@@ -59,12 +60,14 @@ class WeatherKitData {
         }
     }
     
-    // Method to calculate severity based on cloud cover
+    // MARK: - calculateCloudCoverSeverity
+    /// Function to calculate severity based on cloud cover
     func calculateCloudCoverSeverity(cloudCover: Double) -> Double {
         return cloudCover >= 0.8 ? 1.0 : 0.0
     }
     
-    // Method to calculate severity based on temperature
+    // MARK: - calculateTemperatureSeverity
+    /// Function to calculate severity based on temperature
     func calculateTemperatureSeverity(temperature: Double) -> Double {
         if temperature <= -12 {
             return 1.0
@@ -79,7 +82,8 @@ class WeatherKitData {
         }
     }
     
-    // Method to calculate overall weather severity based on multiple factors
+    // MARK: - calculateOverallWeatherSeverity
+    /// Function to calculate overall weather severity based on multiple factors
     func calculateOverallWeatherSeverity(weatherData: WeatherData) -> Double {
         let humiditySeverity = calculateHumiditySeverity(humidity: weatherData.humidity)
         let cloudCoverSeverity = calculateCloudCoverSeverity(cloudCover: weatherData.cloudCover)
