@@ -4,10 +4,11 @@
 
 ### Features
 
-- **Asthma Prediction**: Algorithm analyzing environmental and biosignal data.
-- **Real-Time Monitoring**: Integrates with smartwatches to collect data like heart rate and respiratory rate.
-- **Personalized Alerts**: Notifies users about potential asthma risks based on changes in data.
+- **Asthma Prediction**: Algorithm analyzing environmental and biosignal data to predict asthma threat.
+- **Real-Time Monitoring**: Integrates with the Apple Watch and HealthKit to collect data such as heart rate and blood oxygen precentage.
+- **Personalized Alerts**: Notifies users about potential asthma risks based on changes in data, allows them to contact their companion and access breathing excerises.
 - **Breathing Exercises**: Includes guided breathing exercises for asthma relief.
+- **Companion Application**: Companion application for the asthma patient's doctor or trusted adult to montior their asthma threat.
 
 ### Technologies
 
