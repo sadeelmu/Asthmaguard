@@ -16,6 +16,7 @@
 - **Database**: SQLite
 - **APIs**: Apple HealthKit, WatchKit, WeatherKit
 
+
 ### Screenshots
 
 <table>
@@ -47,6 +48,26 @@
     <td style="text-align: center;">
       <img src="Pics/Breathing%20exercises.png" alt="Breathing Exercises" width="300">
       <p>Breathing Exercises</p>
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      <img src="Pics/Companion%20dashboard.png" alt="Companion Dashboard" width="300">
+      <p>Companion Dashboard</p>
+    </td>
+    <td style="text-align: center;">
+      <img src="Pics/Login%20companion.png" alt="Login Companion" width="300">
+      <p>Login Companion</p>
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      <img src="Pics/Login%20patient.png" alt="Login Patient" width="300">
+      <p>Login Patient</p>
+    </td>
+    <td style="text-align: center;">
+      <img src="Pics/Register%20Patient.png" alt="Register Patient" width="300">
+      <p>Register Patient</p>
     </td>
   </tr>
 </table>
