@@ -66,7 +66,7 @@
       <p>Login Patient</p>
     </td>
     <td style="text-align: center;">
-      <img src="Pics/Register%20Patient.png" alt="Register Patient" width="300">
+      <img src="Pics/Register%20patient.png" alt="Register Patient" width="300">
       <p>Register Patient</p>
     </td>
   </tr>
