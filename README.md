@@ -12,23 +12,19 @@ Personalized Alerts: Notifies users about potential asthma risks based on change
 
 Breathing Exercises: Includes guided breathing exercises for asthma relief.
 
-### Technologies
 
-iOS Development: Swift and SwiftUI
-
-Database: SQLite
-
-APIs: Apple HealthKit, WatchKit, WeatherKit
 
 ### Screenshots
 <div>
 
+ <div>
   <img src="Pics/Asthma%20threat%20dashboard.png" alt="Asthma Threat Dashboard" width="300">
   <p>Asthma Threat Dashboard</p>
 
   <img src="Pics/High%20asthma%20threat.png" alt="High Asthma Threat" width="300">
   <p>High Asthma Threat Alert</p>
 
+ </div>
   <img src="Pics/Survey.png" alt="User Survey for Environmental Monitoring" width="300">
   <p>User Survey for Environmental Monitoring</p>
   
@@ -43,3 +39,11 @@ APIs: Apple HealthKit, WatchKit, WeatherKit
   <p>Breathing Exercises</p>
   
 </div>
+
+### Technologies
+
+iOS Development: Swift and SwiftUI
+
+Database: SQLite
+
+APIs: Apple HealthKit, WatchKit, WeatherKit
