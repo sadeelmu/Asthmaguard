@@ -1,4 +1,4 @@
-## AsthmaGuard: Asthma Prediction and Management System
+## AsthmaGuard: Asthma Prediction and Management Mobile App (mHealth)
 
 ##### AsthmaGuard is an asthma detection and management mobile application that predicts asthma attacks using algorithms based on environmental data and biosignals and vital signs data extracted and processed from the Apple Watch to provide personalized asthma risk assessments and alerts.
 
