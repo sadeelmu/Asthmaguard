@@ -15,30 +15,40 @@ Breathing Exercises: Includes guided breathing exercises for asthma relief.
 
 
 ### Screenshots
-<div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px;">
 
- <div>
-  <img src="Pics/Asthma%20threat%20dashboard.png" alt="Asthma Threat Dashboard" width="300">
-  <p>Asthma Threat Dashboard</p>
+  <div style="flex: 1;">
+    <img src="Pics/Asthma%20threat%20dashboard.png" alt="Asthma Threat Dashboard" width="300">
+    <p>Asthma Threat Dashboard</p>
+  </div>
 
-  <img src="Pics/High%20asthma%20threat.png" alt="High Asthma Threat" width="300">
-  <p>High Asthma Threat Alert</p>
+  <div style="flex: 1;">
+    <img src="Pics/High%20asthma%20threat.png" alt="High Asthma Threat" width="300">
+    <p>High Asthma Threat Alert</p>
+  </div>
 
- </div>
-  <img src="Pics/Survey.png" alt="User Survey for Environmental Monitoring" width="300">
-  <p>User Survey for Environmental Monitoring</p>
+  <div style="flex: 1;">
+    <img src="Pics/Survey.png" alt="User Survey for Environmental Monitoring" width="300">
+    <p>User Survey for Environmental Monitoring</p>
+  </div>
   
-  <img src="Pics/Asthma%20threat%20breakdown.png" alt="Asthma Threat Breakdown" width="300">
-  <p>Asthma Threat Breakdown</p>
+  <div style="flex: 1;">
+    <img src="Pics/Asthma%20threat%20breakdown.png" alt="Asthma Threat Breakdown" width="300">
+    <p>Asthma Threat Breakdown</p>
+  </div>
 
-  <img src="Pics/Historical%20data.png" alt="Historical Data Overview" width="300">
-  <p>Historical Data Overview</p>
+  <div style="flex: 1;">
+    <img src="Pics/Historical%20data.png" alt="Historical Data Overview" width="300">
+    <p>Historical Data Overview</p>
+  </div>
   
-  
-  <img src="Pics/Breathing%20exercises.png" alt="Breathing Exercises" width="300">
-  <p>Breathing Exercises</p>
+  <div style="flex: 1;">
+    <img src="Pics/Breathing%20exercises.png" alt="Breathing Exercises" width="300">
+    <p>Breathing Exercises</p>
+  </div>
   
 </div>
+
 
 ### Technologies
 
